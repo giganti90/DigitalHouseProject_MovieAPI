@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">PopFilm</string>
+    <string name="login_Google">Log in with Google</string>
+    <string name="content_google_icon">Google icon</string>
+    <string name="login_Facebook">Login with Facebook</string>
+    <string name="login_Email">Log in with Email</string>
+    <string name="login_signup">Sign me up!</string>
+    <string name="login_ignore">Log in later</string>
 </resources>

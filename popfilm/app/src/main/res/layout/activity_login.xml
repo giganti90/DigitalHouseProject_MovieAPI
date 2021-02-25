@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.Login">
+    <android.support.constraint.Guideline
+        android:id="@+id/login_logo_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="100dp"/>
+    <android.support.constraint.Guideline
+        android:id="@+id/login_buttons_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="300dp"/>
+    <TextView
+        android:id="@+id/login_google_btn"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btn_height"
+        android:drawableStart="@drawable/ic_google"
+        android:gravity="center"
+        android:text="@string/login_Google"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/login_facebook_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_buttons_guideline" />
+    <TextView
+        android:id="@+id/login_facebook_btn"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btn_height"
+        android:background="@color/blue_facebook"
+        android:drawableStart="@drawable/ic_facebook"
+        android:gravity="center"
+        android:text="@string/login_Facebook"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/login_email_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_google_btn" />
+    <TextView
+        android:id="@+id/login_email_btn"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btn_height"
+        android:background="@color/green_popfilm"
+        android:gravity="center"
+        android:text="@string/login_Email"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/login_signup_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_facebook_btn" />
+    <TextView
+        android:id="@+id/login_signup_btn"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btn_height"
+        android:background="@null"
+        android:gravity="center"
+        android:text="@string/login_signup"
+        app:layout_constraintBottom_toBottomOf="@id/login_ignore_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_email_btn" />
+    <TextView
+        android:id="@+id/login_ignore_btn"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btn_height"
+        android:background="@null"
+        android:gravity="center"
+        android:text="@string/login_ignore"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_signup_btn" />
+
+        
+        
+        
+
+</android.support.constraint.ConstraintLayout>

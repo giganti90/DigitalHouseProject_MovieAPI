@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="green_google">#34A853</color>
+    <color name="yellow_google">#FBBC05</color>
+    <color name="red_google">#EA4335</color>
+    <color name="blue_google">#4285F4</color>
+    <color name="blue_facebook">#475a96</color>
+    <color name="green_popfilm">#008C00</color>
 </resources>
