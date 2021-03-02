@@ -7,4 +7,9 @@
     <string name="login_signup">Sign me up!</string>
     <string name="login_ignore">Log in later</string>
     <string name="logo_description">App logo</string>
+    <string name="hint_email">Type your e-mail</string>
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
+    <string name="hint_password">Type your password</string>
+    <string name="reset_password">Reset password</string>
 </resources>
