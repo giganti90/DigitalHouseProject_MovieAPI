@@ -1,6 +1,6 @@
 package com.dhgrupo5.popfilm.activity
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.dhgrupo5.popfilm.R
 
