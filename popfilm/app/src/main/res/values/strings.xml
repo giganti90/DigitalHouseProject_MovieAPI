@@ -15,4 +15,11 @@
     <string name="field_required">field required</string>
     <string name="under_construction">Under construction</string>
     <string name="login_success">Login successful</string>
+    <string name="signup">Sign Up</string>
+    <string name="closing_overlay_button">Closing overlay button</string>
+    <string name="label_name">Name</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_phone">Phone number</string>
+    <string name="form_acceptance">I accept the use terms and conditions</string>
+    <string name="login_signup_form">Sign up</string>
 </resources>

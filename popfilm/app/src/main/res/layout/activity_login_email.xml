@@ -27,7 +27,6 @@
     <ImageView
         android:layout_width="@dimen/logo_width"
         android:layout_height="@dimen/logo_height"
-        android:background="@null"
         android:src="@drawable/logo"
         app:layout_constraintTop_toTopOf="@id/login_logo_guideline"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +37,6 @@
         android:id="@+id/login_email_email_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         app:errorEnabled="true"
         android:hint="@string/label_email"
         app:layout_constraintTop_toTopOf="@id/login_email_buttons_guideline_start"
@@ -49,7 +47,6 @@
             android:id="@+id/login_email_email_et"
             android:layout_width="@dimen/btn_width"
             android:layout_height="@dimen/btn_height"
-            android:layout_gravity="center"
             android:background="@color/white"
             android:autofillHints="emailAddress"
             android:inputType="textEmailAddress"/>
@@ -58,7 +55,6 @@
         android:id="@+id/login_email_pass_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         app:errorEnabled="true"
         app:passwordToggleEnabled="true"
         android:hint="@string/label_password"
@@ -70,7 +66,6 @@
             android:id="@+id/login_email_password_et"
             android:layout_width="@dimen/btn_width"
             android:layout_height="@dimen/btn_height"
-            android:layout_gravity="center"
             android:background="@color/white"
             android:autofillHints="emailAddress"
             android:inputType="textPassword"/>
@@ -78,7 +73,7 @@
     <Button
         android:id="@+id/login_email_submit_btn"
         android:layout_width="@dimen/btn_width"
-        android:layout_height="@dimen/btn_height"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/login_Email"
         android:textAllCaps="false"
@@ -91,7 +86,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        style="@style/Widget.AppCompat.ButtonBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
