@@ -39,6 +39,8 @@
         android:layout_height="wrap_content"
         app:errorEnabled="true"
         android:hint="@string/label_email"
+        app:endIconMode="clear_text"
+        android:imeOptions="actionNext"
         app:layout_constraintTop_toTopOf="@id/login_email_buttons_guideline_start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/login_email_pass_layout"
@@ -46,8 +48,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/login_email_email_et"
             android:layout_width="@dimen/btn_width"
-            android:layout_height="@dimen/btn_height"
-            android:background="@color/white"
+            android:layout_height="wrap_content"
             android:autofillHints="emailAddress"
             android:inputType="textEmailAddress"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -57,6 +58,7 @@
         android:layout_height="wrap_content"
         app:errorEnabled="true"
         app:passwordToggleEnabled="true"
+        android:imeOptions="actionDone"
         android:hint="@string/label_password"
         app:layout_constraintTop_toBottomOf="@id/login_email_email_layout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +67,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/login_email_password_et"
             android:layout_width="@dimen/btn_width"
-            android:layout_height="@dimen/btn_height"
+            android:layout_height="wrap_content"
             android:background="@color/white"
             android:autofillHints="emailAddress"
             android:inputType="textPassword"/>

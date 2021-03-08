@@ -1,7 +1,10 @@
 package com.dhgrupo5.popfilm.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Button
 import android.widget.Toast
 import com.dhgrupo5.popfilm.R
@@ -29,8 +32,30 @@ class LoginEmailActivity : AppCompatActivity() {
             todoToast.show()
         }
         signupButton.setOnClickListener() {
-            todoToast.show()
+            val intent = Intent(this, LoginSignupActivity::class.java)
+            startActivity(intent)
         }
+        emailTextLayout.editText?.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                emailTextLayout.error = null
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
+        emailTextLayout.editText?.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                emailTextLayout.error = null
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
+        passwordTextLayout.editText?.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                passwordTextLayout.error = null
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
     }
 
     fun invalidEmail() = emailEditText.text?.isEmpty() ?: true
