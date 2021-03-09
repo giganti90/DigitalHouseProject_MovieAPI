@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PopFilm">
-        <activity android:name=".activity.LoginForgottenPasswordActivity"></activity>
+        <activity android:name=".activity.LoginLostPasswordActivity"></activity>
         <activity android:name=".activity.LoginSignupActivity" />
         <activity android:name=".activity.LoginEmailActivity" />
         <activity android:name=".activity.LoginSocialActivity">

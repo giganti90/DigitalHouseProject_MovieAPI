@@ -32,28 +32,28 @@ class LoginSignupActivity : AppCompatActivity() {
         closeButton.setOnClickListener() {
             finish()
         }
-        nameTextLayout.editText?.addTextChangedListener(object: TextWatcher {
+        nameEditText.addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 nameTextLayout.error = null
             }
             override fun afterTextChanged(s: Editable?) {}
         })
-        phoneTextLayout.editText?.addTextChangedListener(object: TextWatcher {
+        phoneEditText.addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 phoneTextLayout.error = null
             }
             override fun afterTextChanged(s: Editable?) {}
         })
-        emailTextLayout.editText?.addTextChangedListener(object: TextWatcher {
+        emailEditText.addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 emailTextLayout.error = null
             }
             override fun afterTextChanged(s: Editable?) {}
         })
-        passwordTextLayout.editText?.addTextChangedListener(object: TextWatcher {
+        passwordEditText.addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 passwordTextLayout.error = null
@@ -61,7 +61,7 @@ class LoginSignupActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {}
         })
         submitButton.setOnClickListener() {
-            signup()
+            submit()
         }
     }
 
@@ -71,17 +71,18 @@ class LoginSignupActivity : AppCompatActivity() {
     fun invalidPassword() = passwordEditText.text?.isEmpty() ?: true
     fun tosNotAccepted() = !tosCheckbox.isChecked
 
-    fun signup() {
+    fun submit() {
         if (!invalidName() && !invalidPhone() &&!invalidEmail() && !invalidPassword() && !tosNotAccepted()) {
-            Toast.makeText(this,getString(R.string.signup_success), Toast.LENGTH_SHORT)
-            .show()
+            Toast.makeText(this,getString(R.string.signup_success), Toast.LENGTH_LONG)
+                    .show()
+            finish()
             return
         }
         if (invalidName()) {
-            nameEditText.error = getString(R.string.field_required)
+            nameTextLayout.error = getString(R.string.field_required)
         }
         if (invalidPhone()) {
-            phoneEditText.error = getString(R.string.field_required)
+            phoneTextLayout.error = getString(R.string.field_required)
         }
         if (invalidEmail()) {
             emailTextLayout.error = getString(R.string.field_required)
@@ -90,9 +91,8 @@ class LoginSignupActivity : AppCompatActivity() {
             passwordTextLayout.error = getString(R.string.field_required)
         }
         if (tosNotAccepted()) {
-            Toast.makeText(this,getString(R.string.tos_not_accepted), Toast.LENGTH_SHORT)
+            Toast.makeText(this,getString(R.string.tos_not_accepted), Toast.LENGTH_LONG)
                 .show()
         }
-
     }
 }

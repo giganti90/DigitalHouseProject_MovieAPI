@@ -49,6 +49,7 @@
             android:id="@+id/login_email_email_et"
             android:layout_width="@dimen/btn_width"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
             android:autofillHints="emailAddress"
             android:inputType="textEmailAddress"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -68,7 +69,7 @@
             android:id="@+id/login_email_password_et"
             android:layout_width="@dimen/btn_width"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:backgroundTint="@color/white"
             android:autofillHints="emailAddress"
             android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -77,7 +78,7 @@
         android:layout_width="@dimen/btn_width"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/login_Email"
+        android:text="@string/login"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/login_email_pass_layout"

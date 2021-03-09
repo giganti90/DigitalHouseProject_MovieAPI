@@ -22,14 +22,15 @@ class LoginEmailActivity : AppCompatActivity() {
     val signupButton by lazy { findViewById<Button>(R.id.login_email_signup_btn) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val todoToast = Toast.makeText(this,getString(R.string.under_construction), Toast.LENGTH_SHORT)
+//        val todoToast = Toast.makeText(this,getString(R.string.under_construction), Toast.LENGTH_SHORT)
         setContentView(R.layout.activity_login_email)
 
         submitButton.setOnClickListener() {
             login()
         }
         resetPasswordButton.setOnClickListener() {
-            todoToast.show()
+            val intent = Intent(this, LoginLostPasswordActivity::class.java)
+            startActivity(intent)
         }
         signupButton.setOnClickListener() {
             val intent = Intent(this, LoginSignupActivity::class.java)

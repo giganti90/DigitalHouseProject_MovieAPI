@@ -4,7 +4,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/green_google</item>
         <item name="colorPrimaryDark">@color/green_popfilm</item>
-        <item name="colorAccent">@color/teal_200</item>
+        <item name="colorAccent">@color/black</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>

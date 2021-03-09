@@ -50,13 +50,13 @@
                 app:startIconDrawable="@drawable/ic_action_person"
                 app:endIconMode="clear_text"
                 android:imeOptions="actionNext"
-                android:hint="@string/hint_name">
+                android:hint="@string/label_name">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/login_signup_name_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:autofillHints="@string/hint_name"
+                    android:autofillHints="Name"
                     android:inputType="textPersonName"/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
@@ -67,13 +67,13 @@
                 app:startIconDrawable="@drawable/ic_action_local_phone"
                 app:endIconMode="clear_text"
                 android:imeOptions="actionNext"
-                android:hint="@string/hint_phone">
+                android:hint="@string/label_phone">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/login_signup_phone_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:autofillHints="@string/hint_phone"
+                    android:autofillHints="Phone number"
                     android:inputType="phone"/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
@@ -84,13 +84,13 @@
                 app:startIconDrawable="@drawable/ic_action_email"
                 app:endIconMode="clear_text"
                 android:imeOptions="actionNext"
-                android:hint="@string/hint_email">
+                android:hint="@string/label_email">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/login_signup_email_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:autofillHints="@string/hint_email"
+                    android:autofillHints="emailAddress"
                     android:inputType="textEmailAddress"/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
@@ -106,7 +106,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:autofillHints="@string/label_password"
+                    android:autofillHints="Password"
                     android:inputType="textPassword"/>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -126,8 +126,5 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:text="@string/login_signup_form"/>
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
