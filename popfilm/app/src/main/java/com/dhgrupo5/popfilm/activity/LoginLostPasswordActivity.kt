@@ -18,7 +18,7 @@ class LoginLostPasswordActivity : AppCompatActivity() {
     val submitButton by lazy { findViewById<Button>(R.id.login_lost_password_submit_button) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login_forgotten_password)
+        setContentView(R.layout.activity_login_lost_password)
         closeButton.setOnClickListener() {
             finish()
         }
