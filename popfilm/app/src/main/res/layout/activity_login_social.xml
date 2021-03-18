@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_login_cropped"
     tools:context=".activity.LoginSocialActivity">
-    <android.support.constraint.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/login_social_logo_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="100dp"/>
-    <android.support.constraint.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/login_social_buttons_guideline_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="300dp"/>
-    <android.support.constraint.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/login_social_buttons_guideline_end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,13 +37,17 @@
     <Button
         android:id="@+id/login_social_google_btn"
         android:layout_width="@dimen/btn_width"
-        android:layout_height="@dimen/btn_height"
-        android:background="@drawable/rounded_corners"
-        android:backgroundTint="@color/white"
-        android:drawableStart="@drawable/ic_google"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/white"
+        app:rippleColor="@color/black"
+        app:icon="@drawable/ic_google"
+        app:iconTint="@null"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
         android:gravity="center"
         android:text="@string/login_Google"
+        android:textColor="@color/black"
         android:textAllCaps="false"
+        android:padding="0dp"
         app:layout_constraintBottom_toTopOf="@id/login_social_facebook_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,10 +55,12 @@
     <Button
         android:id="@+id/login_social_facebook_btn"
         android:layout_width="@dimen/btn_width"
-        android:layout_height="@dimen/btn_height"
-        android:background="@drawable/rounded_corners"
-        android:backgroundTint="@color/blue_facebook"
-        android:drawableStart="@drawable/ic_facebook"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/blue_facebook"
+        app:icon="@drawable/ic_facebook"
+        app:iconTint="@null"
+        android:padding="0dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
         android:gravity="center"
         android:text="@string/login_Facebook"
         android:textAllCaps="false"
@@ -66,8 +72,7 @@
     <Button
         android:id="@+id/login_social_email_btn"
         android:layout_width="@dimen/btn_width"
-        android:layout_height="@dimen/btn_height"
-        android:background="@drawable/rounded_corners"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/green_popfilm"
         android:gravity="center"
         android:text="@string/login_Email"
@@ -102,4 +107,4 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
