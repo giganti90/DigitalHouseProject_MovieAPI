@@ -13,4 +13,49 @@
     <color name="blue_google">#4285F4</color>
     <color name="blue_facebook">#475a96</color>
     <color name="green_popfilm">#008C00</color>
+
+    <!-- Top -->
+    <color name="colorStatusBar">#000000</color>
+    <color name="colorTopIcon">#FFFFFF</color>
+    <color name="colorTopWave">#555555</color>
+    <color name="colorTopText">#FFFFFF</color>
+
+
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#595959</color>
+
+
+    <!-- Content -->
+    <color name="colorScreenBackground">#FFFFFF</color>
+    <color name="colorContentTitle">#FFFFFF</color>
+    <color name="colorContentText">#FFFFFF</color>
+
+    <!-- Video player -->
+    <color name="colorVideoPlayerBackground">#000000</color>
+    <color name="colorVideoPlayerForeground">#BB000000</color>
+    <color name="colorVideoPlayerIcon">#FFFFFF</color>
+
+    <!-- YouTube block -->
+    <color name="colorVideoPlayerYBBackground">#DDDDDD</color>
+    <color name="colorVideoPlayerYBText">#666666</color>
+
+    <!-- Comment block -->
+    <color name="colorVideoPlayerCBBackground">#B7E1C2</color>
+    <color name="colorVideoPlayerCBText">#666666</color>
+
+    <!-- List item -->
+    <color name="colorListItemBackground_RippleStart">#F6F6F6</color>
+    <color name="colorListItemBackground_RippleEnd">#DDDDDD</color>
+    <color name="colorListItemStroke">#EEEEEE</color>
+    <color name="colorListItemText">#444444</color>
+    <color name="colorListItemNoDataIcon">#BBBBBB</color>
+
+
+    <!-- Bottom Menu -->
+    <color name="colorMenuSeparatorLine">@color/green_popfilm</color>
+    <color name="colorMenuBackground">@android:color/transparent</color>
+    <color name="colorMenuItemBackground">@android:color/transparent</color>
+    <color name="colorMenuItemSelected">#FF0000</color>
+    <color name="colorMenuItemNotSelected">#000000</color>
 </resources>
