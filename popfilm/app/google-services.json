@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "227108299132",
+    "firebase_url": "https://popfilm-a92c1-default-rtdb.firebaseio.com",
+    "project_id": "popfilm-a92c1",
+    "storage_bucket": "popfilm-a92c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227108299132:android:9e762ba58e2cd58d3344f9",
+        "android_client_info": {
+          "package_name": "com.dhgrupo5.popfilm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "227108299132-6gn0kb5vjuc72jvp3np10kmgd2ajrgtf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dhgrupo5.popfilm",
+            "certificate_hash": "50230336e66bcfe58dc3d14d876407fd9e90d615"
+          }
+        },
+        {
+          "client_id": "227108299132-jjhokndqj5j8l2l7dp45i7j1r3e9qtte.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBotEtkm7IQoWjHfVc2jMQvQGUxhU5Pbyo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "227108299132-jjhokndqj5j8l2l7dp45i7j1r3e9qtte.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

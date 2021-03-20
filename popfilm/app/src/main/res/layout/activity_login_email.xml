@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_login_cropped"
-    tools:context=".activity.LoginEmailActivity">
+    tools:context=".pack.activity.LoginEmailActivity">
+
     <androidx.constraintlayout.widget.Guideline
-    android:id="@+id/login_logo_guideline"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    app:layout_constraintGuide_begin="100dp"/>
+        android:id="@+id/login_logo_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="45dp" />
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/login_email_buttons_guideline_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="300dp"/>
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/login_email_buttons_guideline_end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="500dp"/>
+        app:layout_constraintGuide_begin="623dp" />
     <ImageView
         android:layout_width="@dimen/logo_width"
         android:layout_height="@dimen/logo_height"
-        android:src="@drawable/logo"
+        android:src="@drawable/logo_popfilm"
         app:layout_constraintTop_toTopOf="@id/login_logo_guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/login_email_buttons_guideline_start"
@@ -84,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@id/login_email_pass_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/login_email_buttons_guideline_end"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
