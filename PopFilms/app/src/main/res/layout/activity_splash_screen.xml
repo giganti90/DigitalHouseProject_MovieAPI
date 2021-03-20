@@ -5,17 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
-    tools:context="SplashScreen">
+    android:background="@color/black"
+    tools:context=".SplashScreen">
 
     <!--THIS IS IMAGEVIEW FOR OUR IMAGE IN SPLASH SCREEN-->
     <!--YOU CAN ADD YOUR IMAGE TO DRAWABLES.
         HERE geeksforgeeks IS THE NAME OF IMAGE-->
     <ImageView
         android:id="@+id/SplashScreenImage"
+        android:backgroundTint="@color/black"
         android:layout_width="300dp"
         android:layout_height="200dp"
-        app:srcCompat="@android:drawable/sym_def_app_icon"
+        android:src="@drawable/popfilms_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

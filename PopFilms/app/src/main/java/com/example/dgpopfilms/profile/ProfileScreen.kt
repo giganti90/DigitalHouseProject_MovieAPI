@@ -1,4 +1,4 @@
-package com.example.dgpopfilms
+package com.example.dgpopfilms.profile
 
 import android.Manifest
 import android.app.Activity
@@ -16,6 +16,7 @@ import android.widget.*
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.dgpopfilms.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 

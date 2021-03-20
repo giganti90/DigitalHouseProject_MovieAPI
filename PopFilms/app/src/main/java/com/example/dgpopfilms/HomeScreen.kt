@@ -3,13 +3,9 @@ package com.example.dgpopfilms
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class MainActivity : AppCompatActivity() {
-
-
+class HomeScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_rating_screen)
+        setContentView(R.layout.activity_home_screen)
     }
-
-
 }
