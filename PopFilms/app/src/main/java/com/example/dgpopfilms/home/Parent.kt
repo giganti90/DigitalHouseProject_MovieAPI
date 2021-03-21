@@ -5,7 +5,8 @@ import java.util.*
 object Parent {
         private val random = Random()
 
-        private val titles =  arrayListOf( "Now Playing", "Classic", "Comedy", "Thriller", "Action", "Horror", "TV Series")
+        private val titles =  arrayListOf( "Destaques              >", "Ação              >", "Comédia              >",
+            "Suspense              >", "Terror              >", "Documentários              >", "Aventura              >")
 
         private fun randomTitle() : String{
             val index = random.nextInt(titles.size)

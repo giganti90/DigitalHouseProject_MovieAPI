@@ -15,40 +15,41 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="#999"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/popfilms_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingBottom="12dp"/>
 
-    <TextView
-        android:id="@+id/titleName"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:text="Gabriel Giganti"
-        android:textColor="#999"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profilePhoto" />
+<!--    <TextView-->
+<!--        android:id="@+id/titleName"-->
+<!--        android:layout_width="400dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Gabriel Giganti"-->
+<!--        android:textColor="#999"-->
+<!--        android:textSize="32sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/profilePhoto" />-->
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/titleName" />
+        app:layout_constraintTop_toBottomOf="@id/profilePhoto" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/botao_foto"
-        android:layout_marginRight="18dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/grey"
-        android:src="@drawable/ic_action_camera"
-        app:layout_constraintBottom_toBottomOf="@+id/email_input"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/botao_foto"-->
+<!--        android:layout_marginRight="18dp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:backgroundTint="@color/grey"-->
+<!--        android:src="@drawable/ic_action_camera"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/email_input"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutOne"
@@ -71,15 +72,16 @@
         android:inputType="text"
         android:textColorHint="#369fbb"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@id/titleName"
-        app:layout_constraintStart_toStartOf="@id/titleName"
-        app:layout_constraintTop_toBottomOf="@id/titleName" />
+        app:layout_constraintEnd_toEndOf="@id/profilePhoto"
+        app:layout_constraintStart_toStartOf="@id/profilePhoto"
+        app:layout_constraintTop_toBottomOf="@id/profilePhoto" />
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/LayoutTwo"
         android:layout_width="340dp"
         android:layout_height="66dp"
+        android:layout_marginTop="6dp"
         app:endIconDrawable="@drawable/ic_action_close"
         app:endIconMode="custom"
         app:errorEnabled="true"
@@ -92,7 +94,7 @@
         android:id="@+id/email_input"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="18dp"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:textColorHint="#369fbb"
@@ -105,21 +107,20 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutThree"
         android:layout_width="340dp"
-        android:layout_height="66dp"
-        android:layout_margin="24dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
         app:endIconDrawable="@drawable/ic_action_close"
         app:endIconMode="custom"
         app:errorEnabled="true"
-        app:layout_constraintBottom_toBottomOf="@+id/telefone_input"
-        app:layout_constraintEnd_toEndOf="@+id/telefone_input"
-        app:layout_constraintStart_toStartOf="@+id/telefone_input"
-        app:layout_constraintTop_toTopOf="@+id/telefone_input" />
+        app:layout_constraintEnd_toEndOf="@id/email_input"
+        app:layout_constraintStart_toStartOf="@id/email_input"
+        app:layout_constraintTop_toBottomOf="@id/email_input" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/telefone_input"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="18dp"
         android:hint="Telefone"
         android:inputType="phone"
         android:textColorHint="#369fbb"
@@ -128,31 +129,31 @@
         app:layout_constraintStart_toStartOf="@id/email_input"
         app:layout_constraintTop_toBottomOf="@id/email_input" />
 
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/LayoutFour"
         android:layout_width="340dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
         app:passwordToggleEnabled="true"
         app:endIconMode="password_toggle"
+        app:passwordToggleTint="@color/grey"
         app:endIconTint="@color/grey"
-        app:layout_constraintEnd_toEndOf="@id/telefone_input"
-        app:layout_constraintStart_toStartOf="@id/telefone_input"
+        android:textColorHint="#369fbb"
+        app:layout_constraintEnd_toEndOf="@id/nomeSobrenome_input"
+        app:layout_constraintStart_toStartOf="@id/nomeSobrenome_input"
         app:layout_constraintTop_toBottomOf="@id/telefone_input">
-
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/password_input"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
             android:hint="Nova Senha"
             android:inputType="textPassword"
-            android:textColorHint="#369fbb"
             android:textSize="14sp"
             android:ems="15"
-            app:layout_constraintEnd_toEndOf="@id/nomeSobrenome_input"
-            app:layout_constraintStart_toStartOf="@id/nomeSobrenome_input"
+            app:layout_constraintEnd_toEndOf="@id/telefone_input"
+            app:layout_constraintStart_toStartOf="@id/telefone_input"
             app:layout_constraintTop_toBottomOf="@id/telefone_input" />
 
     </com.google.android.material.textfield.TextInputLayout>

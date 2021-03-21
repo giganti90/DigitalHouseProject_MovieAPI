@@ -18,6 +18,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.dgpopfilms.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_INDEFINITE
 import com.google.android.material.snackbar.Snackbar
 
 class ProfileScreen : AppCompatActivity() {
@@ -39,13 +40,13 @@ class ProfileScreen : AppCompatActivity() {
         val button = findViewById<Button>(R.id.update_button)
 
         button.setOnClickListener {
-
-                Snackbar.make(button, "obrigado", Snackbar.LENGTH_INDEFINITE)
-                    .setAction("fechar")
-                    {
-                        Toast.makeText(this, "tudo certo!", Toast.LENGTH_LONG).show()
-                    }
-                    .show()
+            Snackbar.make(button, "Perfil Atualizado!", Snackbar.LENGTH_LONG).show()
+//                Snackbar.make(button, "obrigado", Snackbar.LENGTH_INDEFINITE)
+//                    .setAction("Action")
+//                    {
+//                        Toast.makeText(this, "", Toast.LENGTH_LONG).show()
+//                    }
+//                    .show()
             }
 
 //        var titleName = findViewById<TextView>(R.id.titleName)
@@ -69,66 +70,66 @@ class ProfileScreen : AppCompatActivity() {
 
     private fun perdirPermissaoAoUsuario(): Boolean = sharedPreferencesHelper.pegarAlertaAoIniciar()
 
-    private fun botaoClicado() {
-        val botaoFoto = findViewById<FloatingActionButton>(R.id.botao_foto)
-
-        botaoFoto.setOnClickListener {
-            val permissao = Manifest.permission.CAMERA
-            requerimentoDeCamera(permissao)
-            abrirGaleria()
-        }
-
-    }
-
-    private fun abrirGaleria(){
-        val listaIntents = mutableListOf<Intent>()
-        val tirarFotoDaIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-
-        val escolhaIntent = Intent()
-        escolhaIntent.type = "image/*"
-        escolhaIntent.action = Intent.ACTION_GET_CONTENT
-
-        listaIntents.add(escolhaIntent)
-        listaIntents.add(tirarFotoDaIntent)
-
-        val galeriaIntent = Intent.createChooser(listaIntents[0], "Escolha como tirar a foto: ")
-        galeriaIntent.putExtra(
-            Intent.EXTRA_INITIAL_INTENTS,
-            listaIntents.toTypedArray()
-        )
-        startActivityForResult(galeriaIntent, 200)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == 200 && resultCode == Activity.RESULT_OK && intent?.data !=null){
-            val foto = intent.data as Uri
-            imagem.setImageURI(foto)
-        } else if(intent?.extras != null) {
-            val foto = intent.extras?.get("data") as Bitmap
-            imagem.setImageBitmap(foto)
-        }
-    }
-
-    private fun requerimentoDeCamera(permissao: String){
-        permissaoParaAcesso.requerimentoDeCamera(permissao)
-    }
-
-    private fun requerimentoDeGaleria(){
-        val permissoes =listOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
-        permissaoParaAcesso.requerimentoDeGaleria(permissoes)
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        permissaoParaAcesso.resultadoPedidoDePermissao(
-            requestCode,
-            permissions,
-            grantResults
-        )
-    }
+//    private fun botaoClicado() {
+//        val botaoFoto = findViewById<FloatingActionButton>(R.id.botao_foto)
+//
+//        botaoFoto.setOnClickListener {
+//            val permissao = Manifest.permission.CAMERA
+//            requerimentoDeCamera(permissao)
+//            abrirGaleria()
+//        }
+//
+//    }
+//
+//    private fun abrirGaleria(){
+//        val listaIntents = mutableListOf<Intent>()
+//        val tirarFotoDaIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+//
+//        val escolhaIntent = Intent()
+//        escolhaIntent.type = "image/*"
+//        escolhaIntent.action = Intent.ACTION_GET_CONTENT
+//
+//        listaIntents.add(escolhaIntent)
+//        listaIntents.add(tirarFotoDaIntent)
+//
+//        val galeriaIntent = Intent.createChooser(listaIntents[0], "Escolha como tirar a foto: ")
+//        galeriaIntent.putExtra(
+//            Intent.EXTRA_INITIAL_INTENTS,
+//            listaIntents.toTypedArray()
+//        )
+//        startActivityForResult(galeriaIntent, 200)
+//    }
+//
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if(requestCode == 200 && resultCode == Activity.RESULT_OK && intent?.data !=null){
+//            val foto = intent.data as Uri
+//            imagem.setImageURI(foto)
+//        } else if(intent?.extras != null) {
+//            val foto = intent.extras?.get("data") as Bitmap
+//            imagem.setImageBitmap(foto)
+//        }
+//    }
+//
+//    private fun requerimentoDeCamera(permissao: String){
+//        permissaoParaAcesso.requerimentoDeCamera(permissao)
+//    }
+//
+//    private fun requerimentoDeGaleria(){
+//        val permissoes =listOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
+//        permissaoParaAcesso.requerimentoDeGaleria(permissoes)
+//    }
+//
+//    override fun onRequestPermissionsResult(
+//        requestCode: Int,
+//        permissions: Array<out String>,
+//        grantResults: IntArray) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+//        permissaoParaAcesso.resultadoPedidoDePermissao(
+//            requestCode,
+//            permissions,
+//            grantResults
+//        )
+//    }
 
 }

@@ -33,7 +33,6 @@ class RatingScreen : AppCompatActivity() {
         // Create RatingBar
         val rBar = findViewById<RatingBar>(R.id.ratingBar)
 
-
         updatebutton?.setOnClickListener {
             val msg = rBar.rating.toString()
             Toast.makeText(

@@ -18,18 +18,16 @@ class MovieDetailsScreen : AppCompatActivity() {
             startActivity(intent)
         }
 
-//        val trailerButton = findViewById<ImageButton>(R.id.play_trailer)
-//        trailerButton.setOnClickListener {
-//            val intent = Intent(this, RatingScreen::class.java)
-//            startActivity(intent)
-//        }
-//
-//        val whereButton = findViewById<ImageButton>(R.id.where_to_watch)
-//        whereButton.setOnClickListener {
-//            val intent = Intent(this, RatingScreen::class.java)
-//            startActivity(intent)
-//        }
+        val whereButton = findViewById<ImageButton>(R.id.rate)
+        ratingButton.setOnClickListener {
+            val intent = Intent(this, RatingScreen::class.java)
+            startActivity(intent)
+        }
 
-
+        val trailerButton = findViewById<ImageButton>(R.id.rate)
+        ratingButton.setOnClickListener {
+            val intent = Intent(this, RatingScreen::class.java)
+            startActivity(intent)
+        }
     }
 }

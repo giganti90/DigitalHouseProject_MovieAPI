@@ -7,7 +7,7 @@ object Child {
 
     private val random = Random()
 
-    private val titles =  arrayListOf( "Aviator", "Now you can See me", "God Father", "Mission Impossible", "3 idiots")
+    private val titles =  arrayListOf( "Titanic", "GoldenEye", "Macbeth", "Skyfall")
 
     private fun randomTitle() : String{
         val index = random.nextInt(titles.size)
@@ -15,7 +15,7 @@ object Child {
     }
 
     private fun randomImage() : Int{
-        return R.drawable.popfilms_logo
+        return R.drawable.bpposter
     }
 
     fun getChildren(count : Int) : List<ChildModel>{

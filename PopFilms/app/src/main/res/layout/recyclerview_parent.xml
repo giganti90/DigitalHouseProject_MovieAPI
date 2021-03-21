@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="210dp"
     android:layout_gravity="center"
     android:layout_margin="2dp"
-    card_view:cardBackgroundColor="#fff"
     card_view:cardCornerRadius="5dp"
+    android:backgroundTint="#fff"
 
     card_view:cardElevation="4dp"
     card_view:cardUseCompatPadding="true">
@@ -25,10 +25,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/child_recycler"
-            android:padding="20dp"
+            android:padding="12dp"
             android:text="Hello World"
-            android:textColor="@color/colorAccent"
-            android:textStyle="bold" />
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/child_recycler"
@@ -36,8 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:padding="20dp"
-            android:layout_marginTop="30dp"
+            android:padding="10dp"
+            android:layout_marginTop="40dp"
             android:orientation="horizontal"
             tools:layout_editor_absoluteX="74dp" />
 
