@@ -3,56 +3,43 @@ package com.example.dgpopfilms
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.RatingBar
-import android.widget.Toast
+import android.widget.*
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.dgpopfilms.R.id.ratingBar
+import com.google.android.material.snackbar.Snackbar
 
 class RatingScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rating_screen)
 
+        initViews()
+    }
 
-                // Create RatingBar
-                val rBar = RatingBar(this)
-                val layoutParams = LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT)
-                rBar.layoutParams = layoutParams
-                rBar.stepSize = 1.0.toFloat()
-                rBar.numStars = 5
+    private fun initViews() {
+        val updatebutton = findViewById<Button>(R.id.button)
 
-                //create button
-                val button = Button(this)
-                val layoutParams1 = LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT)
-                button.text="Submit Rating"
+        updatebutton.setOnClickListener {
 
-
-                val linearLayout = findViewById<LinearLayout>(R.id.container)
-                // Add RatingBar and button to LinearLayout
-                linearLayout?.addView(rBar)
-                linearLayout?.addView(button)
-
-                button?.setOnClickListener {
-                    val msg = rBar.rating.toString()
-                    Toast.makeText(this, "Avalido em "+msg,
-                        Toast.LENGTH_SHORT).show()
+            Snackbar.make(updatebutton, "obrigado", Snackbar.LENGTH_INDEFINITE)
+                .setAction("fechar")
+                {
+                    Toast.makeText(this, "tudo certo!", Toast.LENGTH_LONG).show()
                 }
-            }
+                .show()
         }
 
-//        val rating = findViewById<RatingBar>(ratingBar)
-//        if (rating != null) {
-//            val button = findViewById<Button>(R.id.button)
-//            button?.setOnClickListener {
-//                val msg = rating.rating.toString()
-//                Toast.makeText(
-//                    this,
-//                    "Rating is: " + msg, Toast.LENGTH_SHORT
-//                ).show()
-//            }
-//        }
+
+        // Create RatingBar
+        val rBar = findViewById<RatingBar>(R.id.ratingBar)
+
+
+        updatebutton?.setOnClickListener {
+            val msg = rBar.rating.toString()
+            Toast.makeText(
+                this, "Avaliado em " + rBar,
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+}

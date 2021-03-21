@@ -36,7 +36,7 @@ class ProfileScreen : AppCompatActivity() {
     }
 
     private fun initViews() {
-        val button = findViewById<Button>(R.id.button)
+        val button = findViewById<Button>(R.id.update_button)
 
         button.setOnClickListener {
 
@@ -48,24 +48,24 @@ class ProfileScreen : AppCompatActivity() {
                     .show()
             }
 
-        var titleName = findViewById<TextView>(R.id.titleName)
-        var nomeSobrenome = findViewById<TextView>(R.id.nomeSobrenome_input)
-
-        titleName = nomeSobrenome
+//        var titleName = findViewById<TextView>(R.id.titleName)
+//        var nomeSobrenome = findViewById<TextView>(R.id.nomeSobrenome_input)
+//
+//        titleName = nomeSobrenome
 
 
         }
 
-    override fun onStart() {
-        super.onStart()
-
-        if(perdirPermissaoAoUsuario()) {
-            androidx.appcompat.app.AlertDialog.Builder(this)
-                .setTitle("Alerta de utilização do sistema")
-                .setMessage("Vá até as suas configurações para dar as permissões")
-                .setPositiveButton("Obrigado!"){dialog, _ -> dialog.dismiss() }.show()
-        }
-    }
+//    override fun onStart() {
+//        super.onStart()
+//
+//        if(perdirPermissaoAoUsuario()) {
+//            androidx.appcompat.app.AlertDialog.Builder(this)
+//                .setTitle("Alerta de utilização do sistema")
+//                .setMessage("Vá até as suas configurações para dar as permissões")
+//                .setPositiveButton("Obrigado!"){dialog, _ -> dialog.dismiss() }.show()
+//        }
+//    }
 
     private fun perdirPermissaoAoUsuario(): Boolean = sharedPreferencesHelper.pegarAlertaAoIniciar()
 
