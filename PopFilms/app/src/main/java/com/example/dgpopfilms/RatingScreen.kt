@@ -39,7 +39,7 @@ class RatingScreen : AppCompatActivity() {
 
                 button?.setOnClickListener {
                     val msg = rBar.rating.toString()
-                    Toast.makeText(this, "Given Rating: "+msg,
+                    Toast.makeText(this, "Avalido em "+msg,
                         Toast.LENGTH_SHORT).show()
                 }
             }

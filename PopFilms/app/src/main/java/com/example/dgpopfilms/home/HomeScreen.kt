@@ -16,7 +16,7 @@ class HomeScreen : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.rvhome_mainrv)
 
         initRecycler()
     }
