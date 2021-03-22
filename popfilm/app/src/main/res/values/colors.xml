@@ -58,4 +58,9 @@
     <color name="colorMenuItemBackground">@android:color/transparent</color>
     <color name="colorMenuItemSelected">#FF0000</color>
     <color name="colorMenuItemNotSelected">#000000</color>
+    <color name="colorMenu">#aaaaaa</color>
+
+    <!-- toolbar -->
+    <color name="toolbar_textcolor">@android:color/white</color>
+
 </resources>

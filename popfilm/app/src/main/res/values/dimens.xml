@@ -9,4 +9,5 @@
     <dimen name="button_corner_radius">4dp</dimen>
     <dimen name="form_field_height">40dp</dimen>
     <dimen name="standard_screen_side_margin">25dp</dimen>
+    <dimen name="elevation_padrao">4dp</dimen>
 </resources>
