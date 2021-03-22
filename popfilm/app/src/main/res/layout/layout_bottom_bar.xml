@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_gravity="bottom"
+    android:background="@color/white"
+    android:elevation="@dimen/elevation_padrao"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    >
+
+
+    <!-- home -->
+    <LinearLayout style="@style/box_menu_bottom_bar" >
+        <ImageView android:id="@+id/layout_bottom_bar_ivHome" style="@style/image_view_menu_bottom_bar.home" app:tint="@android:color/black" />
+        <TextView android:id="@+id/layout_bottom_bar_tvHome" style="@style/text_view_menu_bottom_bar" android:text="@string/menu_home"/>
+    </LinearLayout>
+
+    <!-- perfil -->
+    <LinearLayout style="@style/box_menu_bottom_bar">
+        <ImageView android:id="@+id/layout_bottom_bar_ivPerfil" style="@style/image_view_menu_bottom_bar.perfil" app:tint="@color/colorMenu" />
+        <TextView android:id="@+id/layout_bottom_bar_tvPerfil" style="@style/text_view_menu_bottom_bar" android:text="@string/menu_perfil"/>
+    </LinearLayout>
+
+    <!-- filmes -->
+    <LinearLayout style="@style/box_menu_bottom_bar">
+        <ImageView android:id="@+id/layout_bottom_bar_ivFilmes" style="@style/image_view_menu_bottom_bar.films" app:tint="@color/colorMenu" />
+        <TextView android:id="@+id/layout_bottom_bar_tvFilmes" style="@style/text_view_menu_bottom_bar" android:text="@string/menu_filmes"/>
+    </LinearLayout>
+
+    <!-- avaliações -->
+    <LinearLayout style="@style/box_menu_bottom_bar">
+        <ImageView android:id="@+id/layout_bottom_bar_ivAvaliacoes" style="@style/image_view_menu_bottom_bar.avaliations" app:tint="@color/colorMenu" />
+        <TextView android:id="@+id/layout_bottom_bar_tvAvaliacoes" style="@style/text_view_menu_bottom_bar" android:text="@string/menu_avaliacoes"/>
+    </LinearLayout>
+
+    <!-- chat -->
+    <LinearLayout style="@style/box_menu_bottom_bar">
+        <ImageView android:id="@+id/layout_bottom_bar_ivChat" style="@style/image_view_menu_bottom_bar.chat" app:tint="@color/colorMenu" />
+        <TextView android:id="@+id/layout_bottom_bar_tvChat" style="@style/text_view_menu_bottom_bar" android:text="@string/menu_chat"/>
+    </LinearLayout>
+
+
+</LinearLayout>

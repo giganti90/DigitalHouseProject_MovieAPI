@@ -107,7 +107,6 @@
     </string>
 
 
-
     <!-- SocialNetworksFragment -->
     <string name="social_networks_content_title">
         Todas as redes do canal com conteúdos exclusivos
@@ -227,4 +226,24 @@
         Android que são liberados no canal YouTube
         Vinícius Thiengo.
     </string>
+
+    <!-- menu bottom bar -->
+    <string name="menu_about">Sobre</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_perfil">Perfil</string>
+    <string name="menu_filmes">Filmes</string>
+    <string name="menu_avaliacoes">Avaliações</string>
+    <string name="menu_chat">Chat</string>
+    <string name="menu_login">Login</string>
+    <string name="menu_logoff">Logoff</string>
+
+    <!-- buttons -->
+    <string name="btn_close">Fechar</string>
+    <string name="btn_exit">Sair</string>
+
+    <!-- dialogs -->
+    <string name="exit_title">Deseja realmente sair?</string>
+    <string name="exit_text">Clique em SAIR, para encerrar a sessão atual, ou em CANCELAR para fechar este diálogo.</string>
+    <string name="exit_confirmed">Logoff realizado com sucesso!</string>
+
 </resources>

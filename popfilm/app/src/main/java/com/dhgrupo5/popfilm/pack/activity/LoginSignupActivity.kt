@@ -1,5 +1,6 @@
 package com.dhgrupo5.popfilm.pack.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -71,10 +72,25 @@ class LoginSignupActivity : AppCompatActivity() {
     fun invalidPassword() = passwordEditText.text?.isEmpty() ?: true
     fun tosNotAccepted() = !tosCheckbox.isChecked
 
+
+    //open
+    fun openHome() {
+        startActivity(
+            Intent(this, HomeActivity::class.java)
+        )
+    }
+
+
+    //validate
     fun submit() {
+        openHome();
+        finish()
+        return
+
         if (!invalidName() && !invalidPhone() &&!invalidEmail() && !invalidPassword() && !tosNotAccepted()) {
             Toast.makeText(this,getString(R.string.signup_success), Toast.LENGTH_LONG)
                     .show()
+            openHome();
             finish()
             return
         }

@@ -119,4 +119,67 @@
         <item name="android:ellipsize">end</item>
         <item name="android:maxLines">2</item>
     </style>
+
+    <style name="box_menu_bottom_bar">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="image_view_menu_bottom_bar">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+    </style>
+
+    <style name="image_view_menu_bottom_bar.home">
+        <item name="android:src">@drawable/ic_bottom_bar_home</item>
+    </style>
+    <style name="image_view_menu_bottom_bar.perfil">
+        <item name="android:src">@drawable/ic_bottom_bar_perfil</item>
+    </style>
+    <style name="image_view_menu_bottom_bar.films">
+        <item name="android:src">@drawable/ic_bottom_bar_filmes</item>
+    </style>
+    <style name="image_view_menu_bottom_bar.avaliations">
+        <item name="android:src">@drawable/ic_bottom_bar_avaliacoes</item>
+    </style>
+    <style name="image_view_menu_bottom_bar.chat">
+        <item name="android:src">@drawable/ic_bottom_bar_chat</item>
+    </style>
+
+    <style name="text_view_menu_bottom_bar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/colorMenu</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="appbarlayout_padrao">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:theme">@style/AppTheme.AppBarOverlay</item>
+    </style>
+    <!-- toolbar -->
+    <style name="ToolbarColoredBackArrow" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/toolbar_textcolor</item>
+        <item name="colorControlNormal">@color/toolbar_textcolor</item>
+    </style>
+    <style name="toolbar_padrao">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:theme">@style/ToolbarColoredBackArrow</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+
+
 </resources>

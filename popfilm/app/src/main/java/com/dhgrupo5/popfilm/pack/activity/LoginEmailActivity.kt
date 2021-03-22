@@ -20,6 +20,8 @@ class LoginEmailActivity : AppCompatActivity() {
     val submitButton by lazy { findViewById<Button>(R.id.login_email_submit_btn) }
     val resetPasswordButton by lazy { findViewById<Button>(R.id.login_email_resetPass_btn) }
     val signupButton by lazy { findViewById<Button>(R.id.login_email_signup_btn) }
+    
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        val todoToast = Toast.makeText(this,getString(R.string.under_construction), Toast.LENGTH_SHORT)
@@ -60,17 +62,29 @@ class LoginEmailActivity : AppCompatActivity() {
         })
     }
 
+    
+    //open
+    fun openToast(message:String){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+    fun openHome() {
+        startActivity(
+            Intent(this, HomeActivity::class.java)
+        )
+    }
+
+
+    //validate
     fun invalidEmail() = emailEditText.text?.isEmpty() ?: true
     fun invalidPassword() = passwordEditText.text?.isEmpty() ?: true
-
     fun login() {
         if (!invalidEmail() && !invalidPassword()) {
-            val loginToast = Toast.makeText(this,getString(R.string.login_success), Toast.LENGTH_LONG)
-            loginToast.show()
+            //intent = Intent(this, YoutubeActivity::class.java)
+            //startActivity(intent)
 
-            intent = Intent(this, YoutubeActivity::class.java)
-            startActivity(intent)
-            return
+            openToast(getString(R.string.login_success))
+            openHome()
+            finish()
         }
         if (invalidEmail()) {
             emailTextLayout.error = getString(R.string.field_required)
