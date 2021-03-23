@@ -2,20 +2,38 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dhgrupo5.popfilm">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PopFilm">
-        <activity android:name=".activity.MainActivity">
+        android:theme="@style/Theme.Design.NoActionBar">
+        <activity android:name=".pack.activity.CategoriaDetalheActivity"></activity>
+        <activity android:name=".pack.activity.CategoriaActivity" />
+        <activity android:name=".pack.activity.HomeActivity" />
+        <activity android:name=".pack.activity.YoutubeActivity" />
+        <activity android:name=".pack.activity.LoginLostPasswordActivity" />
+        <activity android:name=".pack.activity.LoginSignupActivity" />
+        <activity android:name=".pack.activity.LoginEmailActivity" />
+        <activity android:name=".pack.activity.LoginSocialActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".notification.CustomNotificationExtenderService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE">
+            <intent-filter>
+                <action android:name="com.onesignal.NotificationExtender" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
