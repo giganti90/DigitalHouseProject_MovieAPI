@@ -7,6 +7,8 @@ import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.dgpopfilms.MainActivity
+import com.example.dgpopfilms.R
 
 @Suppress("DEPRECATION")
 class SplashScreen : AppCompatActivity() {
