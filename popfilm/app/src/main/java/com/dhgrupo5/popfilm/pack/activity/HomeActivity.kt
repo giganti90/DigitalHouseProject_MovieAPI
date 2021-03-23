@@ -59,6 +59,11 @@ class HomeActivity : AppCompatActivity() {
             }
             .show()
     }
+    fun openYoutube(){
+        startActivity(
+            Intent(this, YoutubeActivity::class.java)
+        )
+    }
 
 
     //settings
@@ -77,19 +82,23 @@ class HomeActivity : AppCompatActivity() {
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        if(item.itemId == R.id.menu_hom_mAbout){
-            openAbout()
-        }
-        else if(item.itemId == R.id.menu_hom_mLogin){
-            openLogin()
-        }
-        else if(item.itemId == R.id.menu_hom_mLogoff){
-            openLogoff()
+        when (item.itemId) {
+            R.id.menu_hom_mAbout -> {
+                openAbout()
+            }
+            R.id.menu_hom_mLogin -> {
+                openLogin()
+            }
+            R.id.menu_hom_mLogoff -> {
+                openLogoff()
+            }
+            R.id.menu_hom_mYoutube -> {
+                openYoutube()
+            }
         }
 
         return super.onOptionsItemSelected(item)
     }
-
 
 
 }

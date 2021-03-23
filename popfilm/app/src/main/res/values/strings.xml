@@ -229,13 +229,14 @@
 
     <!-- menu bottom bar -->
     <string name="menu_about">Sobre</string>
-    <string name="menu_home">Home</string>
-    <string name="menu_perfil">Perfil</string>
-    <string name="menu_filmes">Filmes</string>
     <string name="menu_avaliacoes">Avaliações</string>
     <string name="menu_chat">Chat</string>
+    <string name="menu_filmes">Filmes</string>
+    <string name="menu_home">Home</string>
     <string name="menu_login">Login</string>
     <string name="menu_logoff">Logoff</string>
+    <string name="menu_perfil">Perfil</string>
+    <string name="menu_youtube">YouTube</string>
 
     <!-- buttons -->
     <string name="btn_close">Fechar</string>

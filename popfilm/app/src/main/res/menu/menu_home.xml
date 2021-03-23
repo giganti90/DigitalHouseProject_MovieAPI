@@ -7,4 +7,10 @@
         android:tooltipText="@string/menu_about"
         android:title="@string/menu_about"
         />
+    <item
+        android:id="@+id/menu_hom_mYoutube"
+        app:showAsAction="never"
+        android:tooltipText="@string/menu_youtube"
+        android:title="@string/menu_youtube"
+        />
 </menu>
