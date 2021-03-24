@@ -11,18 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
-        <activity android:name=".pack.activity.CategoryDetailActivity"/>
-        <activity android:name=".pack.activity.CategoryActivity" />
-        <activity android:name=".pack.activity.HomeActivity" />
-        <activity android:name=".pack.activity.YoutubeActivity" />
-        <activity android:name=".pack.activity.LoginLostPasswordActivity" />
-        <activity android:name=".pack.activity.LoginSignupActivity" />
-        <activity android:name=".pack.activity.LoginEmailActivity" />
-        <activity android:name=".pack.activity.LoginSocialActivity"/>
-        <activity android:name=".pack.activity.MovieDetailsActivity"/>
-        <activity android:name=".pack.activity.ProfileActivity"/>
-        <activity android:name=".pack.RatingActivity"/>
-
+        <activity android:name=".pack.activity.ChatHomeActivity"></activity>
         <activity android:name=".pack.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,6 +28,25 @@
                 <action android:name="com.onesignal.NotificationExtender" />
             </intent-filter>
         </service>
+        <service android:name=".pack.firebase.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".pack.activity.RoomActivity" />
+        <activity android:name=".pack.activity.CategoryDetailActivity" />
+        <activity android:name=".pack.activity.CategoryActivity" />
+        <activity android:name=".pack.activity.HomeActivity" />
+        <activity android:name=".pack.activity.YoutubeActivity" />
+        <activity android:name=".pack.activity.LoginLostPasswordActivity" />
+        <activity android:name=".pack.activity.LoginSignupActivity" />
+        <activity android:name=".pack.activity.LoginEmailActivity" />
+        <activity android:name=".pack.activity.LoginSocialActivity" />
+        <activity android:name=".pack.activity.MovieDetailsActivity" />
+        <activity android:name=".pack.activity.ProfileActivity" />
+        <activity android:name=".pack.RatingActivity" />
+        <activity android:name=".pack.activity.ChatActivity"/>
     </application>
 
 </manifest>
