@@ -5,23 +5,51 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.BuildConfig
 import com.dhgrupo5.popfilm.R
+import com.dhgrupo5.popfilm.pack.RatingActivity
+import com.example.dgpopfilms.home.Parent
+import com.example.dgpopfilms.home.ParentAdapter
 
 class HomeActivity : AppCompatActivity() {
 
     val toolbar by lazy { findViewById<Toolbar>(R.id.hom_tToolbar) }
+    val menuBottomYoutube by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxFilms) }
+    val menuBottomProfile by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxPerfil) }
+    val menuBottomMovies by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxFilms) }
+    val menuBottomAvaliations by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxAvaliation) }
+    val menuBottomChat by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxChat) }
+
+    lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.rvhome_mainrv)
 
         settingToolbar();
+        initRecycler()
+        settingClicks();
+
+    }
+
+    private fun initRecycler(){
+        recyclerView = findViewById<RecyclerView>(R.id.rv_parent)
+
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(this@HomeActivity,
+                LinearLayoutManager.VERTICAL, false)
+            adapter = ParentAdapter(
+                Parent
+                    .getParents(40))
+        }
 
     }
 
@@ -64,13 +92,51 @@ class HomeActivity : AppCompatActivity() {
             Intent(this, YoutubeActivity::class.java)
         )
     }
+    fun openProfile(){
+        startActivity(
+            Intent(this, ProfileActivity::class.java)
+        )
+    }
+    fun openMovies(){
+        startActivity(
+            Intent(this, YoutubeActivity::class.java)
+        )
+    }
+    fun openAvaliations(){
+        startActivity(
+            Intent(this, RatingActivity::class.java)
+        )
+    }
+    fun openChat(){
+        /*startActivity(
+            Intent(this, ChatActivity::class.java)
+        )*/
+        Toast.makeText(this, "Em manutenção!", Toast.LENGTH_SHORT).show()
+    }
 
 
     //settings
     fun settingToolbar(){
-        toolbar.setTitle(R.string.menu_home)
+        toolbar.setTitle("")
         toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.toolbar_textcolor));
         setSupportActionBar(toolbar);
+    }
+    fun settingClicks(){
+        menuBottomYoutube.setOnClickListener {
+            openYoutube()
+        }
+        menuBottomProfile.setOnClickListener {
+            openProfile()
+        }
+        menuBottomMovies.setOnClickListener {
+            openMovies()
+        }
+        menuBottomAvaliations.setOnClickListener {
+            openAvaliations()
+        }
+        menuBottomChat.setOnClickListener {
+            openChat()
+        }
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
@@ -92,13 +158,9 @@ class HomeActivity : AppCompatActivity() {
             R.id.menu_hom_mLogoff -> {
                 openLogoff()
             }
-            R.id.menu_hom_mYoutube -> {
-                openYoutube()
-            }
         }
 
         return super.onOptionsItemSelected(item)
     }
-
 
 }
