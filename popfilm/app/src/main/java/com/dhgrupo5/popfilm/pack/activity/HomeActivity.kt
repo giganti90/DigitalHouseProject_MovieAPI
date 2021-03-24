@@ -32,7 +32,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.rvhome_mainrv)
+        setContentView(R.layout.activity_home)
 
         settingToolbar();
         initRecycler()
