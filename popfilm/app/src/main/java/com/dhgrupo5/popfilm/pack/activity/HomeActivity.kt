@@ -10,18 +10,38 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.BuildConfig
 import com.dhgrupo5.popfilm.R
+import com.example.dgpopfilms.home.Parent
+import com.example.dgpopfilms.home.ParentAdapter
 
 class HomeActivity : AppCompatActivity() {
 
     val toolbar by lazy { findViewById<Toolbar>(R.id.hom_tToolbar) }
 
+    lateinit var recyclerView: RecyclerView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.rvhome_mainrv)
 
         settingToolbar();
+        initRecycler()
+
+    }
+
+    private fun initRecycler(){
+        recyclerView = findViewById<RecyclerView>(R.id.rv_parent)
+
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(this@HomeActivity,
+                LinearLayoutManager.VERTICAL, false)
+            adapter = ParentAdapter(
+                Parent
+                    .getParents(40))
+        }
 
     }
 
@@ -99,6 +119,5 @@ class HomeActivity : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
     }
-
 
 }

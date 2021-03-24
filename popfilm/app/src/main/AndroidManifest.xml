@@ -18,7 +18,12 @@
         <activity android:name=".pack.activity.LoginLostPasswordActivity" />
         <activity android:name=".pack.activity.LoginSignupActivity" />
         <activity android:name=".pack.activity.LoginEmailActivity" />
-        <activity android:name=".pack.activity.LoginSocialActivity">
+        <activity android:name=".pack.activity.LoginSocialActivity"/>
+        <activity android:name=".pack.activity.MovieDetailsActivity"/>
+        <activity android:name=".pack.activity.ProfileActivity"/>
+        <activity android:name=".pack.RatingActivity"/>
+
+        <activity android:name=".pack.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

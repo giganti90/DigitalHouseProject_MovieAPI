@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/home_rv"
+    tools:context=".pack.activity.HomeActivity">
+
+    <com.google.android.material.appbar.AppBarLayout style="@style/appbarlayout_padrao">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/hom_tToolbar"
+            style="@style/toolbar_padrao"
+            android:elevation="@dimen/elevation_padrao"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/content_home" />
+
+    <include layout="@layout/layout_bottom_bar" />
+
+    <ImageView
+        android:id="@+id/home_photo"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:paddingBottom="24dp"
+        android:src="@drawable/os_vingadores_foto__marvel___reproducao_1_widelg"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="@id/home_rv"
+        app:layout_constraintStart_toStartOf="@id/home_rv"
+        app:layout_constraintTop_toTopOf="@id/home_rv" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/LayoutTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/home_photo"
+        app:layout_constraintEnd_toEndOf="@+id/home_photo"
+        app:layout_constraintStart_toStartOf="@+id/home_photo"
+        app:layout_constraintTop_toTopOf="@+id/home_photo">
+
+        <TextView
+            android:id="@+id/movie_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="12dp"
+            android:text="Bem-vindo!"
+            android:textAlignment="viewStart"
+            android:textColor="#ffff"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="@id/home_rv"
+            app:layout_constraintStart_toStartOf="@id/home_rv"
+            app:layout_constraintTop_toBottomOf="@id/home_photo" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="@id/home_rv"
+        app:layout_constraintStart_toStartOf="@id/home_rv"
+        app:layout_constraintTop_toBottomOf="@+id/LayoutTwo"
+        android:background="#f5f5f5"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/home_photo" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
