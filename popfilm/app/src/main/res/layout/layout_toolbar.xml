@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.AppBarLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/appbarlayout_padrao">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/layout_too_tPadrao"
+        style="@style/toolbar_padrao"
+        android:elevation="@dimen/elevation_padrao"
+        android:layout_height="wrap_content"
+        />
+
+</com.google.android.material.appbar.AppBarLayout>
