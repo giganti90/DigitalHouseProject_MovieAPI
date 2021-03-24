@@ -11,8 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
-        <activity android:name=".pack.activity.CategoriaDetalheActivity"></activity>
-        <activity android:name=".pack.activity.CategoriaActivity" />
+        <activity android:name=".pack.activity.CategoryDetailActivity"/>
+        <activity android:name=".pack.activity.CategoryActivity" />
         <activity android:name=".pack.activity.HomeActivity" />
         <activity android:name=".pack.activity.YoutubeActivity" />
         <activity android:name=".pack.activity.LoginLostPasswordActivity" />

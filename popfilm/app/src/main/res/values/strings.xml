@@ -247,4 +247,9 @@
     <string name="exit_text">Clique em SAIR, para encerrar a sessão atual, ou em CANCELAR para fechar este diálogo.</string>
     <string name="exit_confirmed">Logoff realizado com sucesso!</string>
 
+    <!-- titles activity -->
+    <string name="title_activity_categoria">Categorias</string>
+    <string name="title_activity_categoria_detalhe">Detalhes Categoria</string>
+    <string name="btn_categoria">Categoria</string>
+
 </resources>

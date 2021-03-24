@@ -1,12 +1,16 @@
 package com.example.dgpopfilms.home
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.R
+import com.dhgrupo5.popfilm.pack.activity.CategoryActivity
+import com.dhgrupo5.popfilm.pack.activity.CategoryDetailActivity
 
 
 class ChildAdapter (private val children : List<ChildModel>)
@@ -26,6 +30,12 @@ class ChildAdapter (private val children : List<ChildModel>)
             val child = children[position]
             holder.imageView.setImageResource(child.image)
             holder.textView.text = child.title
+
+            holder.itemView.setOnClickListener {
+                holder.itemView.context.startActivity(
+                    Intent(holder.itemView.context, CategoryActivity::class.java)
+                )
+            }
         }
 
 
