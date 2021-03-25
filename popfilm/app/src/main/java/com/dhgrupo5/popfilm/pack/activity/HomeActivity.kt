@@ -108,10 +108,10 @@ class HomeActivity : AppCompatActivity() {
         )
     }
     fun openChat(){
-        /*startActivity(
-            Intent(this, ChatActivity::class.java)
-        )*/
-        Toast.makeText(this, "Em manutenção!", Toast.LENGTH_SHORT).show()
+       startActivity(
+            Intent(this, ChatHomeActivity::class.java)
+        )
+      //  Toast.makeText(this, "Em manutenção!", Toast.LENGTH_SHORT).show()
     }
 
 
