@@ -59,7 +59,7 @@ class HomeActivity : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
     fun openAbout(){
-        var description :String = "Versão atual deste aplicativo: " + BuildConfig.VERSION_NAME;
+        val description :String = "Versão atual deste aplicativo: " + BuildConfig.VERSION_NAME;
 
         AlertDialog
             .Builder(this)
