@@ -251,5 +251,6 @@
     <string name="title_activity_categoria">Categorias</string>
     <string name="title_activity_categoria_detalhe">Detalhes Categoria</string>
     <string name="btn_categoria">Categoria</string>
+    <string name="api_request_failed">Failure on fetching value from API</string>
 
 </resources>
