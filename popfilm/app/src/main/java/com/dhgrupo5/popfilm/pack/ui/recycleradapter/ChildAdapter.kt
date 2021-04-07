@@ -1,4 +1,4 @@
-package com.example.dgpopfilms.home
+package com.dhgrupo5.popfilm.pack.ui.recycleradapter
 
 import android.content.Intent
 import android.view.LayoutInflater

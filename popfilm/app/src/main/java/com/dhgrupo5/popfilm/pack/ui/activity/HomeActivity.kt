@@ -18,19 +18,19 @@ import com.dhgrupo5.popfilm.pack.ui.activity.movies.ProfileActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.RatingActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatHomeActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity
-import com.example.dgpopfilms.home.Parent
-import com.example.dgpopfilms.home.ParentAdapter
+import com.dhgrupo5.popfilm.pack.ui.recycleradapter.Parent
+import com.dhgrupo5.popfilm.pack.ui.recycleradapter.ParentAdapter
 
 class HomeActivity : AppCompatActivity() {
 
-    val toolbar by lazy { findViewById<Toolbar>(R.id.hom_tToolbar) }
-    val menuBottomYoutube by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxFilms) }
-    val menuBottomProfile by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxPerfil) }
-    val menuBottomMovies by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxFilms) }
-    val menuBottomAvaliations by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxAvaliation) }
-    val menuBottomChat by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxChat) }
+    private val toolbar by lazy { findViewById<Toolbar>(R.id.hom_tToolbar) }
+    private val menuBottomYoutube by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxFilms) }
+    private val menuBottomProfile by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxPerfil) }
+    private val menuBottomMovies by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxFilms) }
+    private val menuBottomRatings by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxAvaliation) }
+    private val menuBottomChat by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxChat) }
 
-    lateinit var recyclerView: RecyclerView
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -133,7 +133,7 @@ class HomeActivity : AppCompatActivity() {
         menuBottomMovies.setOnClickListener {
             openMovies()
         }
-        menuBottomAvaliations.setOnClickListener {
+        menuBottomRatings.setOnClickListener {
             openAvaliations()
         }
         menuBottomChat.setOnClickListener {
