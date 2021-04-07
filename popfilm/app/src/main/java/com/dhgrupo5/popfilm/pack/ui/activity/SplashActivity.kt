@@ -8,7 +8,7 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.dhgrupo5.popfilm.R
-import com.dhgrupo5.popfilm.pack.activity.LoginSocialActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginEmailActivity
 
 
 class SplashActivity : AppCompatActivity() {

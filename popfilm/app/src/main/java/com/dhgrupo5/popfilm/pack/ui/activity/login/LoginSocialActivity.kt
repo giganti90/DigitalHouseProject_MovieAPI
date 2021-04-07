@@ -1,4 +1,4 @@
-package com.dhgrupo5.popfilm.pack.activity
+package com.dhgrupo5.popfilm.pack.ui.activity.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -26,7 +26,7 @@ class LoginSocialActivity : AppCompatActivity() {
         val guestSession = viewModel.getGuestSession()
 
         setContentView(R.layout.activity_login_social)
-        val todoToast = Toast.makeText(this,"Under construction",Toast.LENGTH_SHORT)
+        val todoToast = Toast.makeText(this, "Under construction", Toast.LENGTH_SHORT)
         googleButton.setOnClickListener() {
             todoToast.show()
         }

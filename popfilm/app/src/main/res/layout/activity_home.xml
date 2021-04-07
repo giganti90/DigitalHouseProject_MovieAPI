@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/home_rv"
-    tools:context=".pack.activity.HomeActivity">
+    tools:context=".pack.ui.activity.HomeActivity">
 
     <com.google.android.material.appbar.AppBarLayout style="@style/appbarlayout_padrao">
 

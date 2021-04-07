@@ -6,11 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.R
-import com.dhgrupo5.popfilm.pack.activity.CategoryActivity
-import com.dhgrupo5.popfilm.pack.activity.CategoryDetailActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryActivity
 
 
 class ChildAdapter (private val children : List<ChildModel>)

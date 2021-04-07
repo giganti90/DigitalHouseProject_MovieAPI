@@ -1,4 +1,4 @@
-package com.dhgrupo5.popfilm.pack.activity
+package com.dhgrupo5.popfilm.pack.ui.activity.chat
 
 import android.os.Bundle
 import android.view.View
@@ -11,7 +11,7 @@ import com.dhgrupo5.popfilm.R
 import com.google.firebase.database.*
 
 
-class RoomActivity : AppCompatActivity() {
+class ChatRoomActivity : AppCompatActivity() {
     private var btn_send_msg: Button? = null
     private var input_msg: EditText? = null
     private var chat_conversation: TextView? = null
