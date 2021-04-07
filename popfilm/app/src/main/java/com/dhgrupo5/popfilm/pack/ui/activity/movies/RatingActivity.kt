@@ -1,4 +1,4 @@
-package com.dhgrupo5.popfilm.pack
+package com.dhgrupo5.popfilm.pack.ui.activity.movies
 
 import android.os.Bundle
 import android.widget.Button
@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dhgrupo5.popfilm.R
 import com.google.android.material.snackbar.Snackbar
-
 
 class RatingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,8 +36,8 @@ class RatingActivity : AppCompatActivity() {
         updatebutton?.setOnClickListener {
             val msg = rBar.rating.toString()
             Toast.makeText(
-                this, "Avaliado em " + rBar,
-                Toast.LENGTH_SHORT
+                    this, "Avaliado em " + rBar,
+                    Toast.LENGTH_SHORT
             ).show()
         }
     }

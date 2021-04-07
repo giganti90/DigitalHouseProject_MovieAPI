@@ -13,7 +13,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.model.LastVideo
-import com.dhgrupo5.popfilm.pack.activity.YoutubeActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.YoutubeActivity
 import com.dhgrupo5.popfilm.ui.YoutubeActivityForegroundStatus
 import com.squareup.picasso.Picasso
 

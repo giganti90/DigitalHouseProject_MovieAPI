@@ -1,10 +1,10 @@
-package com.dhgrupo5.popfilm.pack.activity
+package com.dhgrupo5.popfilm.pack.ui.activity.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.dhgrupo5.popfilm.R
 
 class LoginSocialActivity : AppCompatActivity() {
@@ -17,7 +17,7 @@ class LoginSocialActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_social)
-        val todoToast = Toast.makeText(this,"Under construction",Toast.LENGTH_SHORT)
+        val todoToast = Toast.makeText(this, "Under construction", Toast.LENGTH_SHORT)
         googleButton.setOnClickListener() {
             todoToast.show()
         }
