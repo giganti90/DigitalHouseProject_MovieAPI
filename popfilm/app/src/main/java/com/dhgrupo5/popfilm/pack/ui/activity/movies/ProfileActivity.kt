@@ -1,4 +1,4 @@
-package com.dhgrupo5.popfilm.pack.activity
+package com.dhgrupo5.popfilm.pack.ui.activity.movies
 
 import android.os.Bundle
 import android.widget.Button
@@ -6,7 +6,6 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.dhgrupo5.popfilm.R
 import com.google.android.material.snackbar.Snackbar
-
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -32,4 +31,3 @@ class ProfileActivity : AppCompatActivity() {
     }
 
 }
-

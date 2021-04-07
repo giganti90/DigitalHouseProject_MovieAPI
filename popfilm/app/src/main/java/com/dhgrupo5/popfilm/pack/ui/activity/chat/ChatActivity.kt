@@ -1,4 +1,4 @@
-package com.dhgrupo5.popfilm.pack.activity
+package com.dhgrupo5.popfilm.pack.ui.activity.chat
 
 import android.content.Intent
 import android.os.Bundle
@@ -45,7 +45,7 @@ class ChatActivity : AppCompatActivity() {
         })
         listView!!.onItemClickListener =
                 AdapterView.OnItemClickListener { adapterView, view, i, l ->
-                    val intent = Intent(applicationContext, RoomActivity::class.java)
+                    val intent = Intent(applicationContext, ChatRoomActivity::class.java)
                     intent.putExtra("room_name", (view as TextView).text.toString())
                     intent.putExtra("user_name", name)
                     startActivity(intent)

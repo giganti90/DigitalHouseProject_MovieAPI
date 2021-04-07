@@ -9,7 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.R
-import com.dhgrupo5.popfilm.pack.activity.CategoryDetailActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryDetailActivity
 import com.dhgrupo5.popfilm.pack.model.Category
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.CropCircleTransformation

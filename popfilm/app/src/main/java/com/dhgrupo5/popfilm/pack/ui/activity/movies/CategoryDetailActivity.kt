@@ -1,11 +1,11 @@
-package com.dhgrupo5.popfilm.pack.activity
+package com.dhgrupo5.popfilm.pack.ui.activity.movies
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
@@ -70,9 +70,9 @@ class CategoryDetailActivity : AppCompatActivity() {
         }
 
         Toast.makeText(
-            this,
-            "Não foi possível obter a lista com os filmes! Dados não encontrados.",
-            Toast.LENGTH_SHORT
+                this,
+                "Não foi possível obter a lista com os filmes! Dados não encontrados.",
+                Toast.LENGTH_SHORT
         ).show()
 
         return null;

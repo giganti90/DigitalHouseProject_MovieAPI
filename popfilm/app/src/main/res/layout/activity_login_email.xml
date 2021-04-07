@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_login_cropped"
-    tools:context=".pack.activity.LoginEmailActivity">
+    tools:context=".pack.ui.activity.login.LoginEmailActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/login_logo_guideline"
