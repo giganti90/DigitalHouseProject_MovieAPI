@@ -12,7 +12,7 @@
     <!--YOU CAN ADD YOUR IMAGE TO DRAWABLES.
         HERE geeksforgeeks IS THE NAME OF IMAGE-->
     <ImageView
-        android:id="@+id/SplashScreenImage"
+        android:id="@+id/image_splash_screen"
         android:backgroundTint="@color/black"
         android:layout_width="300dp"
         android:layout_height="200dp"
