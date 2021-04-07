@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
-        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatHomeActivity"></activity>
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatHomeActivity" />
         <activity android:name=".pack.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

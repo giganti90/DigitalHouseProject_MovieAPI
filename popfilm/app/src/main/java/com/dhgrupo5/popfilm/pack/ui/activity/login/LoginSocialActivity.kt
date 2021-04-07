@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.dhgrupo5.popfilm.R
+import com.dhgrupo5.popfilm.pack.model.tmdb.auth.GuestSession
 import com.dhgrupo5.popfilm.pack.ui.viewmodel.LoginSocialViewModel
 
 class LoginSocialActivity : AppCompatActivity() {
@@ -17,13 +20,15 @@ class LoginSocialActivity : AppCompatActivity() {
     private val ignoreButton by lazy { findViewById<Button>(R.id.login_social_ignore_btn) }
 
     private lateinit var viewModel: LoginSocialViewModel
-
+    private var guestSession = GuestSession()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this).get(LoginSocialViewModel::class.java)
+        viewModel.getGuestSession()
+        viewModel.guestSession.observe(this, Observer { _guestSession ->
+            guestSession = _guestSession
+        })
 
-//        val requestToken = viewModel.getRequestToken()
-        val guestSession = viewModel.getGuestSession()
 
         setContentView(R.layout.activity_login_social)
         val todoToast = Toast.makeText(this, "Under construction", Toast.LENGTH_SHORT)

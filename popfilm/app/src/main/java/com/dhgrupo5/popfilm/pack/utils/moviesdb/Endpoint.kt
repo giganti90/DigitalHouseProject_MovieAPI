@@ -7,10 +7,10 @@ import retrofit2.http.GET
 
 interface Endpoint {
 
-    @GET("authentication/token/new?api_key={api_key}")
-    fun getRequestToken(): Call<RequestToken>
+    @GET("authentication/token/new?api_key=${NetworkUtils.API_KEY}")
+    suspend fun getRequestToken(): RequestToken
 
-    @GET("authentication/guest_session/new?api_key=")
-    fun getGuestSession() : Call<GuestSession>
+    @GET("authentication/guest_session/new?api_key=${NetworkUtils.API_KEY}")
+    suspend fun getGuestSession() : GuestSession
 
 }
