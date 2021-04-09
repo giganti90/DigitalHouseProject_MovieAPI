@@ -43,7 +43,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun initRecycler(){
-        recyclerView = findViewById<RecyclerView>(R.id.rv_parent)
+        recyclerView = findViewById(R.id.rv_parent)
 
         recyclerView.apply {
             layoutManager = LinearLayoutManager(this@HomeActivity,
@@ -104,7 +104,7 @@ class HomeActivity : AppCompatActivity() {
             Intent(this, YoutubeActivity::class.java)
         )
     }
-    fun openAvaliations(){
+    fun openRatings(){
         startActivity(
             Intent(this, RatingActivity::class.java)
         )
@@ -134,7 +134,7 @@ class HomeActivity : AppCompatActivity() {
             openMovies()
         }
         menuBottomRatings.setOnClickListener {
-            openAvaliations()
+            openRatings()
         }
         menuBottomChat.setOnClickListener {
             openChat()
