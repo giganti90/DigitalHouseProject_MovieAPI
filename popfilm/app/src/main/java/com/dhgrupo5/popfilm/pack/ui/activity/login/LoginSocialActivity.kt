@@ -25,7 +25,7 @@ class LoginSocialActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this).get(LoginSocialViewModel::class.java)
         viewModel.getGuestSession()
-        viewModel.guestSession.observe(this, Observer { _guestSession ->
+        viewModel.guestSession.observe(this, { _guestSession ->
             guestSession = _guestSession
         })
 

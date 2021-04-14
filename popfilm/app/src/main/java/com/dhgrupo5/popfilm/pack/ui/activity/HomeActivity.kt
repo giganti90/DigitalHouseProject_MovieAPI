@@ -6,20 +6,25 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.BuildConfig
 import com.dhgrupo5.popfilm.R
+import com.dhgrupo5.popfilm.pack.model.tmdb.movies.Genre
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.ProfileActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.RatingActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatHomeActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity
 import com.dhgrupo5.popfilm.pack.ui.recycleradapter.Parent
 import com.dhgrupo5.popfilm.pack.ui.recycleradapter.ParentAdapter
+import com.dhgrupo5.popfilm.pack.ui.viewmodel.HomeViewModel
+import android.util.Log
 
 class HomeActivity : AppCompatActivity() {
 
@@ -31,10 +36,20 @@ class HomeActivity : AppCompatActivity() {
     private val menuBottomChat by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxChat) }
 
     private lateinit var recyclerView: RecyclerView
+    private val viewmodel: HomeViewModel by viewModels()
+    private var genres = MutableLiveData<List<Genre>>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        viewmodel.getGenres("pt-BR")
+        Log.d("genres",viewmodel.genres.value.toString())
+        viewmodel.genres.observe(this) { _genres ->
+            genres.postValue(_genres)
+        }
+        val list = viewmodel.genres.value
+
+
 
         settingToolbar();
         initRecycler()
