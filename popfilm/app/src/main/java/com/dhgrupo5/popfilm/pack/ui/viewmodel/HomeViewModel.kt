@@ -23,9 +23,16 @@ class HomeViewModel : ViewModel() {
     // MoviesAPIRepository
     private val moviesAPIRepository = MoviesAPIRepository()
     fun getGenres(language: String) = CoroutineScope(Dispatchers.IO).launch {
-        moviesAPIRepository.getGenres(language).let { response ->
-            Log.d("response",response.genres.toString())
-            _genres.postValue(response.genres)
+        moviesAPIRepository.getGenres(language).let {
+            var list = mutableListOf<Genre>()
+            it.forEach { genre ->
+                list.add(genre)
+            }
+            Log.d("list-API",list.toString())
+            _genres.value = list
+            Log.d("response-API",it.toString())
+            Log.d("LiveData-API",genres.value.toString())
+            Log.d("MutableLiveData-API",_genres.value.toString())
         }
     }
 }

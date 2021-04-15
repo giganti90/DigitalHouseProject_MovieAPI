@@ -37,17 +37,18 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private val viewmodel: HomeViewModel by viewModels()
-    private var genres = MutableLiveData<List<Genre>>()
+    private var genres = listOf<Genre>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         viewmodel.getGenres("pt-BR")
+        genres = viewmodel.genres.value ?: listOf()
         Log.d("genres",viewmodel.genres.value.toString())
-        viewmodel.genres.observe(this) { _genres ->
-            genres.postValue(_genres)
+        viewmodel.genres.observe(this) { genresList ->
+            Log.d("VM-LD-from-API",genresList.toString())
+            genres = genresList
         }
-        val list = viewmodel.genres.value
 
 
 
