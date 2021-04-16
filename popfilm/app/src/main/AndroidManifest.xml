@@ -47,6 +47,8 @@
         <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.ProfileActivity" />
         <activity android:name=".pack.ui.activity.movies.RatingActivity" />
         <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatActivity"/>
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.DummyCategoryDetail"/>
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.DummyCategoryActivity"/>
     </application>
 
 </manifest>
