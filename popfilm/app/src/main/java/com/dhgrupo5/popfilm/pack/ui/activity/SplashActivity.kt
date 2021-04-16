@@ -1,4 +1,4 @@
-package com.dhgrupo5.popfilm.pack.ui.activity
+package com.dhgrupo5.popfilm.pack
 
 import android.content.Intent
 import android.os.Bundle

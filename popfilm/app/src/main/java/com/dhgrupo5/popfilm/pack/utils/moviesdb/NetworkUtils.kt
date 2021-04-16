@@ -8,6 +8,7 @@ class NetworkUtils {
         /* Returns a Retrofit client instance
          * @param path API main path
          */
+        const val POSTER_BASE_URL = "http://image.tmdb.org/t/p/w185/"
         const val API_KEY = "5166609185fe629466c2a9bd05c3b814"
         fun getRetrofitInstance(path: String) : Retrofit {
             return Retrofit.Builder()
