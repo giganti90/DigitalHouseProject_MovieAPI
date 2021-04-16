@@ -20,7 +20,11 @@ class MoviesAPIRepository {
     suspend fun getMovieID() : MovieResponse =
         endpoint.getMovieID()
 
-
     suspend fun getMovieMedia() : ImageResponse =
         endpoint.getImages() //que porra de path é esse aqui?
+
+    suspend fun getMoviesByGenre(genres: String) =
+            endpoint.discoverMovies(
+                    genresInclude = genres
+            )
 }
