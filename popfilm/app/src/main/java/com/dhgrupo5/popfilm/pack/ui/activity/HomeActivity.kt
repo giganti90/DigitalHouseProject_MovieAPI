@@ -11,7 +11,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.BuildConfig
@@ -21,10 +20,12 @@ import com.dhgrupo5.popfilm.pack.ui.activity.movies.ProfileActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.RatingActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatHomeActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity
-import com.dhgrupo5.popfilm.pack.ui.recycleradapter.Parent
 import com.dhgrupo5.popfilm.pack.ui.recycleradapter.ParentAdapter
 import com.dhgrupo5.popfilm.pack.ui.viewmodel.HomeViewModel
 import android.util.Log
+import com.dhgrupo5.popfilm.pack.ui.recycleradapter.Parent
+import com.dhgrupo5.popfilm.pack.ui.recycleradapter.ParentModel
+import com.dhgrupo5.popfilm.pack.utils.moviesdb.GenresList
 
 class HomeActivity : AppCompatActivity() {
 
@@ -35,48 +36,52 @@ class HomeActivity : AppCompatActivity() {
     private val menuBottomRatings by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxAvaliation) }
     private val menuBottomChat by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxChat) }
 
-    private lateinit var recyclerView: RecyclerView
+    private val recyclerView by lazy { findViewById<RecyclerView>(R.id.rv_parent) }
     private val viewmodel: HomeViewModel by viewModels()
-    private var genres = listOf<Genre>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        viewmodel.getGenres("pt-BR")
-        genres = viewmodel.genres.value ?: listOf()
-        Log.d("genres",viewmodel.genres.value.toString())
-        viewmodel.genres.observe(this) { genresList ->
-            Log.d("VM-LD-from-API",genresList.toString())
-            genres = genresList
-        }
 
-
-
-        settingToolbar();
+        startAPIService()
+        settingToolbar()
         initRecycler()
-        settingClicks();
+        settingClicks()
 
     }
 
-    private fun initRecycler(){
-        recyclerView = findViewById(R.id.rv_parent)
+    private fun startAPIService() {
+        viewmodel.genresLiveData.observe(this) { genresList ->
+            GenresList.genres = genresList
+            recyclerView.adapter?.notifyDataSetChanged()
+        }
+        viewmodel.getGenres("pt-BR")
+    }
 
+    private fun initRecycler(){
         recyclerView.apply {
             layoutManager = LinearLayoutManager(this@HomeActivity,
                 LinearLayoutManager.VERTICAL, false)
-            adapter = ParentAdapter(
-                Parent
-                    .getParents(40))
+            adapter = getAdapterFromList(GenresList.genres)
+//            adapter = ParentAdapter(
+//                Parent
+//                    .getParents(40))
         }
 
+    }
+
+    private fun getAdapterFromList(genres: List<Genre>): ParentAdapter {
+        val parents = mutableListOf<ParentModel>()
+        genres.forEach { genre -> parents.add(ParentModel(genre.name, listOf())) }
+        return ParentAdapter(parents)
     }
 
 
     //open
-    fun openToast(message:String){
+    private fun openToast(message:String){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
-    fun openAbout(){
+    private fun openAbout(){
         val description :String = "Versão atual deste aplicativo: " + BuildConfig.VERSION_NAME;
 
         AlertDialog
@@ -87,12 +92,12 @@ class HomeActivity : AppCompatActivity() {
                 dialog.dismiss()
             }.show()
     }
-    fun openLogin(){
+    private fun openLogin(){
         startActivity(
             Intent(this, LoginSocialActivity::class.java)
         )
     }
-    fun openLogoff(){
+    private fun openLogoff(){
         AlertDialog
             .Builder(this)
             .setTitle(R.string.exit_title)
@@ -105,27 +110,27 @@ class HomeActivity : AppCompatActivity() {
             }
             .show()
     }
-    fun openYoutube(){
+    private fun openYoutube(){
         startActivity(
             Intent(this, YoutubeActivity::class.java)
         )
     }
-    fun openProfile(){
+    private fun openProfile(){
         startActivity(
             Intent(this, ProfileActivity::class.java)
         )
     }
-    fun openMovies(){
+    private fun openMovies(){
         startActivity(
             Intent(this, YoutubeActivity::class.java)
         )
     }
-    fun openRatings(){
+    private fun openRatings(){
         startActivity(
             Intent(this, RatingActivity::class.java)
         )
     }
-    fun openChat(){
+    private fun openChat(){
        startActivity(
             Intent(this, ChatHomeActivity::class.java)
         )
@@ -134,12 +139,12 @@ class HomeActivity : AppCompatActivity() {
 
 
     //settings
-    fun settingToolbar(){
+    private fun settingToolbar(){
         toolbar.setTitle("")
         toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.toolbar_textcolor));
         setSupportActionBar(toolbar);
     }
-    fun settingClicks(){
+    private fun settingClicks(){
         menuBottomYoutube.setOnClickListener {
             openYoutube()
         }
