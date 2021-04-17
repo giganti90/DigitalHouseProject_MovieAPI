@@ -1,6 +1,5 @@
 package com.dhgrupo5.popfilm.pack.ui.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -34,8 +33,8 @@ class HomeViewModel : ViewModel() {
     }
     // Movies
     fun getMoviesByGenre(genre: String) = CoroutineScope(Dispatchers.IO).launch {
-        val list = listOf<Movie>()
+        val moviesList = listOf<Movie>()
         moviesAPIRepository.getMoviesByGenre(genre).movies
-        _moviesLiveData.postValue(list)
+        _moviesLiveData.postValue(moviesList)
     }
 }

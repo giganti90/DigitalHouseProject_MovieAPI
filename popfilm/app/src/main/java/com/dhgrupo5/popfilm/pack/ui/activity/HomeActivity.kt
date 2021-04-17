@@ -23,6 +23,7 @@ import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity
 import com.dhgrupo5.popfilm.pack.ui.recycleradapter.ParentAdapter
 import com.dhgrupo5.popfilm.pack.ui.viewmodel.HomeViewModel
 import android.util.Log
+import com.dhgrupo5.popfilm.pack.ui.recycleradapter.ChildModel
 import com.dhgrupo5.popfilm.pack.ui.recycleradapter.Parent
 import com.dhgrupo5.popfilm.pack.ui.recycleradapter.ParentModel
 import com.dhgrupo5.popfilm.pack.utils.moviesdb.GenresList
@@ -56,6 +57,16 @@ class HomeActivity : AppCompatActivity() {
             recyclerView.adapter?.notifyDataSetChanged()
         }
         viewmodel.getGenres("pt-BR")
+        viewmodel.genresLiveData.value?.forEach { genre ->
+            viewmodel.getMoviesByGenre(genre.id.toString())
+            genre.movies = viewmodel.moviesLiveData.value ?: listOf()
+        }
+        viewmodel.moviesLiveData.observe(this) { moviesList ->
+            moviesList.forEach { movie ->
+                GenresList.genres[moviesList.indexOf(movie)].movies = moviesList
+                recyclerView.adapter?.notifyDataSetChanged()
+            }
+        }
     }
 
     private fun initRecycler(){
@@ -72,7 +83,12 @@ class HomeActivity : AppCompatActivity() {
 
     private fun getAdapterFromList(genres: List<Genre>): ParentAdapter {
         val parents = mutableListOf<ParentModel>()
-        genres.forEach { genre -> parents.add(ParentModel(genre.name, listOf())) }
+        genres.forEach { genre ->
+            val children = mutableListOf<ChildModel>()
+            genre.movies.forEach { movie ->
+                children.add(ChildModel(title = movie.title))
+            }
+            parents.add(ParentModel(genre.name, children)) }
         return ParentAdapter(parents)
     }
 
