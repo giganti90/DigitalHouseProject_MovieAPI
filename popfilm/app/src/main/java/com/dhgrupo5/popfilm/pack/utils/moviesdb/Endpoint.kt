@@ -4,6 +4,7 @@ import com.dhgrupo5.popfilm.pack.model.*
 import com.dhgrupo5.popfilm.pack.model.tmdb.auth.GuestSession
 import com.dhgrupo5.popfilm.pack.model.tmdb.auth.v3.RequestToken
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface Endpoint {
@@ -23,8 +24,26 @@ interface Endpoint {
 //    @GET("movie/{id}/images?api_key=${NetworkUtils.API_KEY}")
 //    suspend fun getMovieMedia(@Path("id") movieId: ImageResponse)
 
-    @GET("movie/{movie_id}/images?api_key=${NetworkUtils.API_KEY}")
-    suspend fun getImages(): ImageResponse
+    @GET("configuration")
+    suspend fun getMoviesConfiguration() : MovieDetail
+
+    @GET("genre/movie/list")
+    suspend fun getGenre(
+        @Query("language") language: String?
+    ): GenresResponse
+
+
+    @GET("discover/movie")
+    suspend fun getMoviesByGenre(
+        @Query("language") language: String?,
+        @Query("with_genres") genre:String?
+    ):DiscoverResponse
+
+    @GET("movie/{movie_id}")
+    suspend fun getMovieDetail(
+        @Path("movie_id") movieId: String,
+        @Query("language") language: String?
+    ):Movie
 
 
     @GET("discover/movie?api_key=${NetworkUtils.API_KEY}")
