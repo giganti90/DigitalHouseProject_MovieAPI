@@ -10,5 +10,8 @@ data class Image(
     @SerializedName("aspect_ratio")
     val aspectRatio: Double,
     val height: Int,
-    val width: Int
+    val width: Int,
+    val file_path: String?,
+    val backdrops: List<Backdrop>?,
+    val posters: List<Poster>?
 )

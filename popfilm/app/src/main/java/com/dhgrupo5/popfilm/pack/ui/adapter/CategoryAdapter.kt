@@ -12,10 +12,11 @@ import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryDetailActivity
 import com.dhgrupo5.popfilm.pack.model.Category
 import com.dhgrupo5.popfilm.pack.model.Genre
+import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
 
-class CategoryAdapter(private val list:MutableList<Genre>) : RecyclerView.Adapter<CategoryViewHolder>() {
+class CategoryAdapter(private val list :MutableList<Genre>) : RecyclerView.Adapter<CategoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_list_categories, parent, false);
@@ -48,7 +49,7 @@ class CategoryAdapter(private val list:MutableList<Genre>) : RecyclerView.Adapte
                 Intent(holder.itemView.context, CategoryDetailActivity::class.java)
                     .putExtra("id", list[position].id)
                     .putExtra("title", list[position].name)
-                //.putExtra("listMovie", Gson().toJson(list[position].movies))
+//                        .putExtra("listMovie", Gson().toJson(list[position].movies))
             )
         }
 
