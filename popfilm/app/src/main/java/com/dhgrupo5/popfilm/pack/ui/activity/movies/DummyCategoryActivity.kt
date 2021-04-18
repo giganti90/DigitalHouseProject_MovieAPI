@@ -27,29 +27,20 @@ class DummyCategoryActivity : AppCompatActivity() {
     val progress by lazy { findViewById<ProgressBar>(R.id.cat_pbCategorias) }
     val repository by lazy { MoviesAPIRepository() }
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)
 
         //settings
         settingToolbar();
-
-        //recycler.layoutManager = LinearLayoutManager(this)
         recycler.layoutManager = GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false)
 
-//        var adapter = CategoryAdapter(listCategories)
-
-//        recycler.adapter = adapter;
 
         getCategories()
 
 
-//        val button = findViewById<ImageView>(R.id.cat_rvCategoriasDetalhes)
-//        button.setOnClickListener {
-//            val intent = Intent(this, DummyCategoryDetail::class.java)
-//            startActivity(intent)
-//
-//        }
 
     }
 
@@ -81,7 +72,7 @@ class DummyCategoryActivity : AppCompatActivity() {
             CoroutineScope(Dispatchers.Main).launch {
                 val genres = repository.getMovieGenre()
 
-                populateAdapter(genres.genres.toMutableList())
+                populateAdapter(genres.genres!!.toMutableList())
             }
         }
 

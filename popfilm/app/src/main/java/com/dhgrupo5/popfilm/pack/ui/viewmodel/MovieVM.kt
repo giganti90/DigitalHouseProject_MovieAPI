@@ -1,45 +1,67 @@
 package com.dhgrupo5.popfilm.pack.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.dhgrupo5.popfilm.pack.model.Genre
 import com.dhgrupo5.popfilm.pack.model.Movie
+import com.dhgrupo5.popfilm.pack.model.MovieConfig
 import com.dhgrupo5.popfilm.pack.model.MovieResponse
 import com.dhgrupo5.popfilm.pack.repository.MoviesAPIRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.HttpException
-import java.net.UnknownHostException
 
 
 class MovieVM : ViewModel() {
 
-    val listMutableMovie = MutableLiveData<List<Movie>>()
-    val loading = MutableLiveData<Boolean>()
-    val errorMessage = MutableLiveData<String>()
     private val repository = MoviesAPIRepository()
+    val _listGenre = MutableLiveData<List<Genre>>()
+    val listGenre: MutableLiveData<List<Genre>> = MutableLiveData()
+    val movieList = MutableLiveData<List<Movie>>()
+    var genreApi = mutableListOf<Genre>()
 
-    init {
-        getAllMovies()
-    }
+//    fun getMovieDetail(movieId: String) = CoroutineScope(Dispatchers.IO).launch {
+//        try {
+//            repository.getMovieDetails(movieId).let {
+//                movieDetail.postValue(it)
+//            }
+//
+//        } catch (error: Throwable){
+//            Log.e("Error", "Problema de Conexão $error")
+//        }
+//    }
+//
+//    fun getBackdropPath(): String{
+//        imageUrl = "${configuration?.images?.base_url}${configuration?.images?.backdrop_sizes?.last()}${movieDetail.value?.backdropPath}"
+//        return imageUrl
+//    }
 
-    fun getAllMovies() = CoroutineScope(Dispatchers.IO).launch {
-        loading.postValue(true)
+    fun getMovieGenre() = CoroutineScope(Dispatchers.IO).launch {
         try {
-            repository.getMovieService().let { movieResponse ->
-                listMutableMovie.postValue(movieResponse.moviesList)
-                loading.postValue(false)
+            repository.getConfiguration().let { configuration ->
+                MovieConfig.setConfiguration(configuration)
+                getGenre()
             }
-        }catch (error: Throwable){
-            loading.postValue(false)
-            handleError(error)
+        } catch (error: Throwable) {
+            Log.e("Error", "Problema de Configuration $error")
         }
     }
 
-    private fun handleError(error: Throwable) {
-        when(error){
-            is HttpException -> errorMessage.postValue("Erro de conexão código: ${error.code()}")
-            is UnknownHostException -> errorMessage.postValue("Verifique sua conexão")
+    fun getGenre() = CoroutineScope(Dispatchers.IO).launch {
+        try {
+            repository.getGenre().let {
+                _listGenre.postValue(it.genres!!)
+                genreApi = it.genres as MutableList<Genre>
+                genreApi.forEach { genreApi ->
+                    repository.getMoviesByGenre(genreApi.id.toString()).let { movie ->
+                        genreApi.movies = movie.movies as MutableList<MovieResponse>?
+                    }
+                }
+            }
+            listGenre.postValue(genreApi)
+        } catch (error: Throwable) {
+            Log.e("Error", "Problema de Genre $error")
         }
     }
 }
