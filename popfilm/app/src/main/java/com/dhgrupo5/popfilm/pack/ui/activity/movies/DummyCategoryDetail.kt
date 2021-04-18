@@ -8,12 +8,11 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.R
+import com.dhgrupo5.popfilm.pack.model.Genre
 import com.dhgrupo5.popfilm.pack.model.Movie
-import com.dhgrupo5.popfilm.pack.model.MovieResponse
 import com.dhgrupo5.popfilm.pack.repository.MoviesAPIRepository
-import com.dhgrupo5.popfilm.pack.ui.adapter.CategoryDetailAdapter
-import com.dhgrupo5.popfilm.pack.utils.moviesdb.NetworkUtils.Companion.POSTER_BASE_URL
-import kotlinx.android.synthetic.main.layout_list_category_detail.*
+import com.dhgrupo5.popfilm.pack.ui.adapter.CategoryAdapter
+import com.dhgrupo5.popfilm.pack.ui.adapter.MovieAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
@@ -50,10 +49,10 @@ class DummyCategoryDetail : AppCompatActivity() {
 
     }
 
-    fun populateAdapter(listMovies: MutableList<Movie>) {
+    fun populateAdapter(listMoviesByCategory: MutableList<Movie>){
 
         MainScope().launch {
-            var adapter = CategoryDetailAdapter(listMovies)
+            var adapter = MovieAdapter(listMoviesByCategory)
             recyclerView.adapter = adapter
 
         }
@@ -74,9 +73,9 @@ class DummyCategoryDetail : AppCompatActivity() {
 
         MainScope().launch {
             CoroutineScope(Dispatchers.Main).launch {
-                val movies = repository.getMovieID()
+                val moviesByGenre = repository.getMovieService()
 
-                populateAdapter(movies.movieList.toMutableList())
+                populateAdapter(moviesByGenre.moviesList.toMutableList())
             }
 
         }
