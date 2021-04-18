@@ -3,18 +3,18 @@ package com.dhgrupo5.popfilm.pack.ui.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.dhgrupo5.popfilm.pack.model.Movie
+import com.dhgrupo5.popfilm.pack.model.MovieResponse
 import com.dhgrupo5.popfilm.pack.repository.MoviesAPIRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.net.UnknownHostException
-import com.dhgrupo5.popfilm.pack.model.Result
 
 
 class MovieVM : ViewModel() {
 
-    val listMutableMovie = MutableLiveData<List<Result>>()
+    val listMutableMovie = MutableLiveData<List<Movie>>()
     val loading = MutableLiveData<Boolean>()
     val errorMessage = MutableLiveData<String>()
     private val repository = MoviesAPIRepository()

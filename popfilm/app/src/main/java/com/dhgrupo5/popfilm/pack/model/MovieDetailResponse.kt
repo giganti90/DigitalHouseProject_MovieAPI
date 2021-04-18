@@ -21,4 +21,3 @@ import com.google.gson.annotations.SerializedName
 //        return "http://image.tmdb.org/t/p/w342$posterPath"
 //    }
 //}
-// preciso desta função?
