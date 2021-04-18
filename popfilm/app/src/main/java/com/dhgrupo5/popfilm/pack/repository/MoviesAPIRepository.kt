@@ -5,8 +5,6 @@ import com.dhgrupo5.popfilm.pack.model.GenreList.genres
 import com.dhgrupo5.popfilm.pack.model.tmdb.auth.GuestSession
 import com.dhgrupo5.popfilm.pack.utils.moviesdb.Endpoint
 import com.dhgrupo5.popfilm.pack.utils.moviesdb.NetworkUtils
-import com.dhgrupo5.popfilm.pack.utils.moviesdb.NetworkUtils.Companion.API_KEY
-import retrofit2.create
 
 class MoviesAPIRepository {
 
@@ -30,10 +28,10 @@ class MoviesAPIRepository {
 //    suspend fun getMovieMedia() : ImageResponse =
 //        endpoint.getImages() //que porra de path é esse aqui?
 
-    suspend fun getMovieService(): DiscoverResponse = endpoint.discoverMovies()
+//    suspend fun getMovieService() = endpoint.discoverMovies(genresInclude = "Action")
 
-//    suspend fun getMoviesByGenre() =
-//            endpoint.discoverMovies(
-//                    genresInclude = genres
-//            )
+    suspend fun getMovieService() =
+            endpoint.discoverMovies(
+                    genresInclude = genres
+            )
 }

@@ -1,5 +1,6 @@
 package com.dhgrupo5.popfilm.pack.ui.activity.movies
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.model.Genre
 import com.dhgrupo5.popfilm.pack.model.Movie
+import com.dhgrupo5.popfilm.pack.model.MovieResponse
 import com.dhgrupo5.popfilm.pack.repository.MoviesAPIRepository
 import com.dhgrupo5.popfilm.pack.ui.adapter.CategoryAdapter
 import com.dhgrupo5.popfilm.pack.ui.adapter.MovieAdapter
@@ -35,8 +37,8 @@ class DummyCategoryDetail : AppCompatActivity() {
         settingToolbar()
         var listMovies = getListMovies()
 
-            recyclerView.layoutManager =
-                GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)
+        recyclerView.layoutManager =
+            GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)
 
 //            var adapter = CategoryDetailAdapter(listMovies)
 
@@ -49,7 +51,7 @@ class DummyCategoryDetail : AppCompatActivity() {
 
     }
 
-    fun populateAdapter(listMoviesByCategory: MutableList<Movie>){
+    fun populateAdapter(listMoviesByCategory: MutableList<Movie>) {
 
         MainScope().launch {
             var adapter = MovieAdapter(listMoviesByCategory)
@@ -80,6 +82,7 @@ class DummyCategoryDetail : AppCompatActivity() {
 
         }
     }
+}
 
 //    fun findImage() : MovieResponse {
 //        val moviePosterURL = movieID(POSTER_BASE_URL)
@@ -87,7 +90,7 @@ class DummyCategoryDetail : AppCompatActivity() {
 //            .load(moviePosterURL)
 //            .into(layout_list_cat_det_ivImage)
 //    }
-}
+
 
 //    fun getListMovies():MutableList<Movie>?{
 //

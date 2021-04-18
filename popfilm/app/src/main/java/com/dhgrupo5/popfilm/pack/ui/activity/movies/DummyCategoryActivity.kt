@@ -1,8 +1,11 @@
 package com.dhgrupo5.popfilm.pack.ui.activity.movies
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -12,7 +15,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.model.Category
 import com.dhgrupo5.popfilm.pack.model.Genre
-import com.dhgrupo5.popfilm.pack.model.Movie
+import com.dhgrupo5.popfilm.pack.model.Image
+import com.dhgrupo5.popfilm.pack.model.MovieResponse
 import com.dhgrupo5.popfilm.pack.repository.MoviesAPIRepository
 import com.dhgrupo5.popfilm.pack.ui.adapter.CategoryAdapter
 import kotlinx.coroutines.*
@@ -38,6 +42,14 @@ class DummyCategoryActivity : AppCompatActivity() {
 //        recycler.adapter = adapter;
 
         getCategories()
+
+
+//        val button = findViewById<ImageView>(R.id.cat_rvCategoriasDetalhes)
+//        button.setOnClickListener {
+//            val intent = Intent(this, DummyCategoryDetail::class.java)
+//            startActivity(intent)
+//
+//        }
 
     }
 
@@ -72,6 +84,7 @@ class DummyCategoryActivity : AppCompatActivity() {
                 populateAdapter(genres.genres.toMutableList())
             }
         }
+
 
 //        override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 //            return super.onCreateOptionsMenu(menu)

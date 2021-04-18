@@ -24,7 +24,7 @@ class CategoryDetailAdapter(var list:MutableList<Movie>): RecyclerView.Adapter<C
 
         Picasso
             .get()
-            .load(list[position].posterPath)
+            .load(list[position].poster_path)
             //.placeholder(ContextCompat.getDrawable(, R.drawable.ic_loader))
             .into(holder.image);
 
