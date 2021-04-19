@@ -18,6 +18,7 @@ import com.dhgrupo5.popfilm.pack.ui.activity.movies.ProfileActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.RatingActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatHomeActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieActivity
 import com.example.dgpopfilms.home.Parent
 import com.example.dgpopfilms.home.ParentAdapter
 
@@ -101,7 +102,7 @@ class HomeActivity : AppCompatActivity() {
     }
     fun openMovies(){
         startActivity(
-            Intent(this, YoutubeActivity::class.java)
+            Intent(this, MovieActivity::class.java)
         )
     }
     fun openAvaliations(){
@@ -110,10 +111,10 @@ class HomeActivity : AppCompatActivity() {
         )
     }
     fun openChat(){
-       startActivity(
+        startActivity(
             Intent(this, ChatHomeActivity::class.java)
         )
-      //  Toast.makeText(this, "Em manutenção!", Toast.LENGTH_SHORT).show()
+        //  Toast.makeText(this, "Em manutenção!", Toast.LENGTH_SHORT).show()
     }
 
 
