@@ -10,8 +10,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Design.NoActionBar">
-        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatHomeActivity" />
+        android:theme="@style/Theme.Design.NoActionBar"
+        android:usesCleartextTraffic="true"
+        >
+        <activity android:name=".pack.activity.MoviePlayActivity"></activity>
+        <activity android:name=".pack.activity.MovieActivity" />
+        <activity android:name=".pack.activity.ChatHomeActivity" />
         <activity android:name=".pack.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
