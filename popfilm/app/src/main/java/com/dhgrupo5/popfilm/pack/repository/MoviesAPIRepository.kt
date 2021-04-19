@@ -22,13 +22,13 @@ class MoviesAPIRepository {
     suspend fun getGenres(language: String) =
             endpoint.getGenres(language)
 
-    suspend fun getMoviesByGenre(genres: String) =
+    suspend fun getMoviesByGenreT(genres: String) =
             endpoint.discoverMovies(
                     genresInclude = genres
             )
 
     suspend fun getMovieGenre() : GenresResponse =
-        endpoint.getGenre()
+        endpoint.getGenresT()
 
 
 

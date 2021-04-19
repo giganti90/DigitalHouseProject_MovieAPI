@@ -53,7 +53,7 @@ class MovieActivity : AppCompatActivity() {
         var list = mutableListOf<Movie>()
 
         for (i in 1 .. 20 ){
-            list.add(Movie(i, "Filme ${i}", "Filme para a Categoria Popular", "https://picsum.photos/800/${i*100+200}?random=${i}"))
+            list.add(Movie())
         }
 
         return list

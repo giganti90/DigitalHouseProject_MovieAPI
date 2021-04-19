@@ -37,7 +37,9 @@ class LoginSocialActivity : AppCompatActivity() {
             todoToast.show()
         }
         facebookButton.setOnClickListener() {
-            todoToast.show()
+            startActivity(
+                Intent(this, HomeActivity::class.java)
+            )
         }
         emailButton.setOnClickListener() {
             val intent = Intent(this, LoginEmailActivity::class.java)

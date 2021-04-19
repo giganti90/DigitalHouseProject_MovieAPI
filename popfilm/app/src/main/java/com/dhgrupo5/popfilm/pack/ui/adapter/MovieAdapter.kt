@@ -1,22 +1,16 @@
 package com.dhgrupo5.popfilm.pack.ui.adapter
 
-import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.R
-import com.dhgrupo5.popfilm.pack.model.Genre
 import com.dhgrupo5.popfilm.pack.model.Movie
 import com.dhgrupo5.popfilm.pack.model.MovieConfig
 import com.dhgrupo5.popfilm.pack.ui.MovieViewHolder
-import com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryDetailActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.DummyCategoryDetail
-import com.squareup.picasso.Picasso
-import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import com.squareup.picasso.Picasso
 import java.util.*
 

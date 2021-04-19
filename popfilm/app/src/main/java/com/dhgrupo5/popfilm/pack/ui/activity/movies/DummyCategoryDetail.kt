@@ -58,7 +58,8 @@ class DummyCategoryDetail : AppCompatActivity() {
 
         recyclerViewCategoria.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        recyclerViewCategoria.adapter = adapterGenre
+        val adapter = MovieAdapter(listReleaseMovies)
+        recyclerViewCategoria.adapter = adapter
     }
 
     private fun initClick() {
