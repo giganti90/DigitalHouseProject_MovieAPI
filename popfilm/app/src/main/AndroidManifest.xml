@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Design.NoActionBar">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatHomeActivity" />
         <activity android:name=".pack.SplashActivity">
             <intent-filter>
@@ -20,19 +20,6 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".notification.CustomNotificationExtenderService"
-            android:exported="false"
-            android:permission="android.permission.BIND_JOB_SERVICE">
-            <intent-filter>
-                <action android:name="com.onesignal.NotificationExtender" />
-            </intent-filter>
-        </service>
-        <service android:name=".pack.firebase.MyFirebaseMessagingService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
 
         <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatRoomActivity" />
         <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryDetailActivity" />
@@ -46,7 +33,26 @@
         <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieDetailsActivity" />
         <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.ProfileActivity" />
         <activity android:name=".pack.ui.activity.movies.RatingActivity" />
-        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatActivity"/>
+
+        // Chatfirebase
+        <activity android:name=".registerlogin.RegisterActivityChat"/>
+        <activity android:name=".registerlogin.LoginActivityChat" />
+        <activity android:name=".messages.NewMessageActivity">
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".messages.LatestMessagesActivity" />
+        </activity>
+        <activity android:name=".messages.ChatLogActivity">
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".messages.LatestMessagesActivity" />
+        </activity>
+
+        <activity android:name=".messages.LatestMessagesActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+
     </application>
 
 </manifest>

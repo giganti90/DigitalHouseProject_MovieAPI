@@ -253,4 +253,8 @@
     <string name="btn_categoria">Categoria</string>
     <string name="api_request_failed">Failure on fetching value from API</string>
 
+    //ChatFirebase
+
+
+
 </resources>
