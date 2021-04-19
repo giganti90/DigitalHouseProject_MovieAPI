@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true"
         >
-        <activity android:name=".pack.activity.MoviePlayActivity"></activity>
+        <activity android:name=".pack.activity.MoviePlayActivity"/>
         <activity android:name=".pack.activity.MovieActivity" />
         <activity android:name=".pack.activity.ChatHomeActivity" />
         <activity android:name=".pack.SplashActivity">
