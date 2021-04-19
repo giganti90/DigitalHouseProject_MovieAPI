@@ -26,9 +26,7 @@ import kotlinx.android.synthetic.main.activity_youtube.*
 class YoutubeActivity : AppCompatActivity() {
 
     companion object{
-
         const val LOG_DEBUG = "log_channel_app"
-
         const val FRAG_STACK_ID = "frag_stack_id"
 
         var APP_FOREGROUND = YoutubeActivityForegroundStatus.IS_NOT_IN_FOREGROUND

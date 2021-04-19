@@ -3,6 +3,7 @@
     package="com.dhgrupo5.popfilm">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -10,8 +11,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Design.NoActionBar">
-        <activity android:name=".pack.activity.ChatHomeActivity"></activity>
+        android:theme="@style/Theme.Design.NoActionBar"
+        android:usesCleartextTraffic="true"
+        >
+        <activity android:name=".pack.activity.MoviePlayActivity"></activity>
+        <activity android:name=".pack.activity.MovieActivity" />
+        <activity android:name=".pack.activity.ChatHomeActivity" />
         <activity android:name=".pack.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,7 +51,7 @@
         <activity android:name=".pack.activity.MovieDetailsActivity" />
         <activity android:name=".pack.activity.ProfileActivity" />
         <activity android:name=".pack.RatingActivity" />
-        <activity android:name=".pack.activity.ChatActivity"/>
+        <activity android:name=".pack.activity.ChatActivity" />
     </application>
 
 </manifest>

@@ -239,6 +239,7 @@
     <string name="menu_youtube">YouTube</string>
 
     <!-- buttons -->
+    <string name="btn_categoria">Categoria</string>
     <string name="btn_close">Fechar</string>
     <string name="btn_exit">Sair</string>
 
@@ -250,6 +251,7 @@
     <!-- titles activity -->
     <string name="title_activity_categoria">Categorias</string>
     <string name="title_activity_categoria_detalhe">Detalhes Categoria</string>
-    <string name="btn_categoria">Categoria</string>
+    <string name="title_activity_movie">Lista de Filmes</string>
+    <string name="title_activity_movie_play">Play</string>
 
 </resources>

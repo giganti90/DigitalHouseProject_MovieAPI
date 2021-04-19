@@ -26,10 +26,11 @@ class MovieDetailsActivity : AppCompatActivity() {
 
         }
 
-        val trailerButton = findViewById<ImageButton>(R.id.rate)
-        ratingButton.setOnClickListener {
-            val intent = Intent(this, RatingActivity::class.java)
-            startActivity(intent)
+        val trailerButton = findViewById<ImageButton>(R.id.play_trailer)
+        trailerButton.setOnClickListener {
+            startActivity(
+                Intent(this, MoviePlayActivity::class.java)
+            )
         }
     }
 }
