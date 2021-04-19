@@ -1,4 +1,4 @@
-package com.example.dgpopfilms.home
+package com.dhgrupo5.popfilm.pack.ui.recycleradapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -14,8 +14,8 @@ class ParentAdapter (private val parents : List<ParentModel>) : RecyclerView.Ada
     val viewPool = RecyclerView.RecycledViewPool()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val v = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_parent,parent,false)
-            return ViewHolder(v)
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_parent,parent,false)
+            return ViewHolder(view)
         }
 
         override fun getItemCount(): Int {

@@ -1,4 +1,4 @@
-package com.example.dgpopfilms.home
+package com.dhgrupo5.popfilm.pack.ui.recycleradapter
 
 import com.dhgrupo5.popfilm.R
 import java.util.*

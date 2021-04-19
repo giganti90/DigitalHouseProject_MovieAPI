@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.model.tmdb.auth.GuestSession
+import com.dhgrupo5.popfilm.pack.ui.activity.HomeActivity
 import com.dhgrupo5.popfilm.pack.ui.viewmodel.LoginSocialViewModel
 
 class LoginSocialActivity : AppCompatActivity() {
@@ -25,7 +26,7 @@ class LoginSocialActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this).get(LoginSocialViewModel::class.java)
         viewModel.getGuestSession()
-        viewModel.guestSession.observe(this, Observer { _guestSession ->
+        viewModel.guestSession.observe(this, { _guestSession ->
             guestSession = _guestSession
         })
 
@@ -47,7 +48,9 @@ class LoginSocialActivity : AppCompatActivity() {
             startActivity(intent)
         }
         ignoreButton.setOnClickListener() {
-            todoToast.show()
+            startActivity(
+                    Intent(this, HomeActivity::class.java)
+            )
         }
     }
 }

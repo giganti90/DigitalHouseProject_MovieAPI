@@ -12,13 +12,20 @@ class MoviesAPIRepository {
         const val key = NetworkUtils.API_KEY
     }
 
+    // Make this client a Singleton
     private val retrofitClient = NetworkUtils
             .getRetrofitInstance("https://api.themoviedb.org/3/")
-
-    private var endpoint = retrofitClient.create(Endpoint::class.java)
-
-    suspend fun getGuestSession() : GuestSession =
+    private val endpoint = retrofitClient.create(Endpoint::class.java)
+    suspend fun getGuestSession() =
             endpoint.getGuestSession()
+
+    suspend fun getGenres(language: String) =
+            endpoint.getGenres(language)
+
+    suspend fun getMoviesByGenre(genres: String) =
+            endpoint.discoverMovies(
+                    genresInclude = genres
+            )
 
     suspend fun getMovieGenre() : GenresResponse =
         endpoint.getGenre()
