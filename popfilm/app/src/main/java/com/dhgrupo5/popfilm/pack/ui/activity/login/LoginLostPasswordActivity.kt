@@ -1,12 +1,12 @@
-package com.dhgrupo5.popfilm.pack.activity
+package com.dhgrupo5.popfilm.pack.ui.activity.login
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.dhgrupo5.popfilm.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -38,7 +38,7 @@ class LoginLostPasswordActivity : AppCompatActivity() {
 
     private fun submit() {
         if (!invalidEmail()) {
-            Toast.makeText(this,getString(R.string.lost_password_success), Toast.LENGTH_LONG)
+            Toast.makeText(this, getString(R.string.lost_password_success), Toast.LENGTH_LONG)
                     .show()
             finish()
         }

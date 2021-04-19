@@ -8,10 +8,9 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.dhgrupo5.popfilm.R
-import com.dhgrupo5.popfilm.pack.activity.LoginEmailActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity
 
 
-@Suppress("DEPRECATION")
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,12 +21,12 @@ class SplashActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
-        val backgroundImage: ImageView = findViewById(R.id.SplashScreenImage)
+        val backgroundImage: ImageView = findViewById(R.id.image_splash_screen)
         val slideAnimation = AnimationUtils.loadAnimation(this, R.anim.side_slide)
         backgroundImage.startAnimation(slideAnimation)
 
         Handler().postDelayed({
-            val intent = Intent(this, LoginEmailActivity::class.java)
+            val intent = Intent(this, LoginSocialActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)

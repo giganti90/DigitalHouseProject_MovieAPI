@@ -1,11 +1,10 @@
-package com.dhgrupo5.popfilm.pack.activity
+package com.dhgrupo5.popfilm.pack.ui.activity.movies
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import com.dhgrupo5.popfilm.R
-import com.dhgrupo5.popfilm.pack.RatingActivity
 
 class MovieDetailsActivity : AppCompatActivity() {
 

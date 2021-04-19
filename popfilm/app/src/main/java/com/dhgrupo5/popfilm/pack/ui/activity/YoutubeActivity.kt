@@ -1,4 +1,4 @@
-package com.dhgrupo5.popfilm.pack.activity
+package com.dhgrupo5.popfilm.pack.ui.activity
 
 import android.app.NotificationManager
 import android.content.Context

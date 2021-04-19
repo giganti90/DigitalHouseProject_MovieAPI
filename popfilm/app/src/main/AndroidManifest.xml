@@ -3,7 +3,6 @@
     package="com.dhgrupo5.popfilm">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -39,19 +38,19 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".pack.activity.RoomActivity" />
-        <activity android:name=".pack.activity.CategoryDetailActivity" />
-        <activity android:name=".pack.activity.CategoryActivity" />
-        <activity android:name=".pack.activity.HomeActivity" />
-        <activity android:name=".pack.activity.YoutubeActivity" />
-        <activity android:name=".pack.activity.LoginLostPasswordActivity" />
-        <activity android:name=".pack.activity.LoginSignupActivity" />
-        <activity android:name=".pack.activity.LoginEmailActivity" />
-        <activity android:name=".pack.activity.LoginSocialActivity" />
-        <activity android:name=".pack.activity.MovieDetailsActivity" />
-        <activity android:name=".pack.activity.ProfileActivity" />
-        <activity android:name=".pack.RatingActivity" />
-        <activity android:name=".pack.activity.ChatActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatRoomActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryDetailActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.HomeActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.YoutubeActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.login.LoginLostPasswordActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSignupActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.login.LoginEmailActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieDetailsActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.ProfileActivity" />
+        <activity android:name=".pack.ui.activity.movies.RatingActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatActivity"/>
     </application>
 
 </manifest>

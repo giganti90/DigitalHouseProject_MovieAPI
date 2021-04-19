@@ -1,10 +1,10 @@
-package com.dhgrupo5.popfilm.pack.activity
+package com.dhgrupo5.popfilm.pack.ui.activity.movies
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ProgressBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
@@ -72,23 +72,23 @@ class CategoryActivity : AppCompatActivity() {
 
 //        listCategories.add(Category(1, "Ação", "https://picsum.photos/800/600?random=1"))
 //        listCategories.add(Category(2, "Suspense", "https://picsum.photos/800/600?random=2"))
-        listCategories.add(Category(3, "Romance", "https://picsum.photos/800/600?random=3",listMovies))
-        listCategories.add(Category(4, "Comédia", "https://picsum.photos/800/600?random=4",listMovies))
-        listCategories.add(Category(5, "Brasileiro", "https://picsum.photos/800/600?random=5",listMovies))
-        listCategories.add(Category(6, "Kids", "https://picsum.photos/800/600?random=6",listMovies))
-        listCategories.add(Category(7, "Terror", "https://picsum.photos/800/600?random=7",listMovies))
-        listCategories.add(Category(8, "Guerra", "https://picsum.photos/800/600?random=8",listMovies))
-        listCategories.add(Category(9, "Super Herói", "https://picsum.photos/800/600?random=9",listMovies))
-        listCategories.add(Category(10, "Categoria 1", "https://picsum.photos/800/600?random=10",listMovies))
-        listCategories.add(Category(10, "Categoria 1", "https://picsum.photos/800/600?random=11",listMovies))
-        listCategories.add(Category(11, "Categoria 2", "https://picsum.photos/800/600?random=12",listMovies))
-        listCategories.add(Category(12, "Categoria 3", "https://picsum.photos/800/600?random=13",listMovies))
-        listCategories.add(Category(13, "Categoria 4", "https://picsum.photos/800/600?random=14",listMovies))
-        listCategories.add(Category(14, "Categoria 5", "https://picsum.photos/800/600?random=15",listMovies))
-        listCategories.add(Category(15, "Categoria 6", "https://picsum.photos/800/600?random=16",listMovies))
-        listCategories.add(Category(16, "Categoria 7", "https://picsum.photos/800/600?random=17",listMovies))
-        listCategories.add(Category(17, "Categoria 8", "https://picsum.photos/800/600?random=18",listMovies))
-        listCategories.add(Category(18, "Categoria 9", "https://picsum.photos/800/600?random=19",listMovies))
+        listCategories.add(Category(3, "Romance", "https://picsum.photos/800/600?random=3", listMovies))
+        listCategories.add(Category(4, "Comédia", "https://picsum.photos/800/600?random=4", listMovies))
+        listCategories.add(Category(5, "Brasileiro", "https://picsum.photos/800/600?random=5", listMovies))
+        listCategories.add(Category(6, "Kids", "https://picsum.photos/800/600?random=6", listMovies))
+        listCategories.add(Category(7, "Terror", "https://picsum.photos/800/600?random=7", listMovies))
+        listCategories.add(Category(8, "Guerra", "https://picsum.photos/800/600?random=8", listMovies))
+        listCategories.add(Category(9, "Super Herói", "https://picsum.photos/800/600?random=9", listMovies))
+        listCategories.add(Category(10, "Categoria 1", "https://picsum.photos/800/600?random=10", listMovies))
+        listCategories.add(Category(10, "Categoria 1", "https://picsum.photos/800/600?random=11", listMovies))
+        listCategories.add(Category(11, "Categoria 2", "https://picsum.photos/800/600?random=12", listMovies))
+        listCategories.add(Category(12, "Categoria 3", "https://picsum.photos/800/600?random=13", listMovies))
+        listCategories.add(Category(13, "Categoria 4", "https://picsum.photos/800/600?random=14", listMovies))
+        listCategories.add(Category(14, "Categoria 5", "https://picsum.photos/800/600?random=15", listMovies))
+        listCategories.add(Category(15, "Categoria 6", "https://picsum.photos/800/600?random=16", listMovies))
+        listCategories.add(Category(16, "Categoria 7", "https://picsum.photos/800/600?random=17", listMovies))
+        listCategories.add(Category(17, "Categoria 8", "https://picsum.photos/800/600?random=18", listMovies))
+        listCategories.add(Category(18, "Categoria 9", "https://picsum.photos/800/600?random=19", listMovies))
         return listCategories;
     }
 

@@ -1,10 +1,9 @@
-package com.dhgrupo5.popfilm.pack.activity
+package com.dhgrupo5.popfilm.pack.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -15,7 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.BuildConfig
 import com.dhgrupo5.popfilm.R
-import com.dhgrupo5.popfilm.pack.RatingActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.movies.ProfileActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.movies.RatingActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatHomeActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity
 import com.example.dgpopfilms.home.Parent
 import com.example.dgpopfilms.home.ParentAdapter
 
@@ -59,7 +61,7 @@ class HomeActivity : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
     fun openAbout(){
-        var description :String = "Versão atual deste aplicativo: " + BuildConfig.VERSION_NAME;
+        val description :String = "Versão atual deste aplicativo: " + BuildConfig.VERSION_NAME;
 
         AlertDialog
             .Builder(this)
