@@ -132,5 +132,22 @@ dependencies {
     implementation 'jp.wasabeef:picasso-transformations:2.4.0'
     implementation 'jp.wasabeef:picasso-transformations:2.4.0'
     implementation 'com.google.android.exoplayer:exoplayer:2.9.6'
+    /*
+     * Glide
+     */
+    implementation 'com.github.bumptech.glide:glide:4.4.0'
+    kapt 'com.github.bumptech.glide:compiler:4.4.0'
+
+//    Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
+
+    implementation 'com.squareup.okhttp3:okhttp:4.2.2'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+
 
 }
