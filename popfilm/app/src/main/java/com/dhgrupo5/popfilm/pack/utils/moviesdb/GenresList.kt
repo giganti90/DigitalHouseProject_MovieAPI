@@ -1,7 +1,7 @@
 package com.dhgrupo5.popfilm.pack.utils.moviesdb
 
-import com.dhgrupo5.popfilm.pack.model.tmdb.movies.Genre
+import com.dhgrupo5.popfilm.pack.model.tmdb.movies.GenreT
 
 object GenresList {
-    var genres = listOf<Genre>()
+    var genres = listOf<GenreT>()
 }

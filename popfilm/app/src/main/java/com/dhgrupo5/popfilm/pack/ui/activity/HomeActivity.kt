@@ -15,27 +15,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.BuildConfig
 import com.dhgrupo5.popfilm.R
-import com.dhgrupo5.popfilm.pack.model.tmdb.movies.Genre
-import com.dhgrupo5.popfilm.pack.ui.activity.movies.ProfileActivity
-import com.dhgrupo5.popfilm.pack.ui.activity.movies.RatingActivity
+import com.dhgrupo5.popfilm.pack.model.tmdb.movies.GenreT
 import com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatHomeActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity
-import com.dhgrupo5.popfilm.pack.ui.activity.movies.DummyCategoryActivity
-import com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieActivity
-import com.example.dgpopfilms.home.Parent
-import com.example.dgpopfilms.home.ParentAdapter
+import com.dhgrupo5.popfilm.pack.ui.activity.movies.*
 import com.dhgrupo5.popfilm.pack.ui.recycleradapter.ParentAdapter
 import com.dhgrupo5.popfilm.pack.ui.viewmodel.HomeViewModel
-import android.util.Log
 import com.dhgrupo5.popfilm.pack.ui.recycleradapter.ChildModel
-import com.dhgrupo5.popfilm.pack.ui.recycleradapter.Parent
 import com.dhgrupo5.popfilm.pack.ui.recycleradapter.ParentModel
 import com.dhgrupo5.popfilm.pack.utils.moviesdb.GenresList
 
 class HomeActivity : AppCompatActivity() {
 
     private val toolbar by lazy { findViewById<Toolbar>(R.id.hom_tToolbar) }
-    private val menuBottomYoutube by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxFilms) }
     private val menuBottomProfile by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxPerfil) }
     private val menuBottomMovies by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxFilms) }
     private val menuBottomRatings by lazy { findViewById<LinearLayout>(R.id.layout_bot_bar_llBoxAvaliation) }
@@ -78,21 +70,18 @@ class HomeActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@HomeActivity,
                 LinearLayoutManager.VERTICAL, false)
             adapter = getAdapterFromList(GenresList.genres)
-//            adapter = ParentAdapter(
-//                Parent
-//                    .getParents(40))
         }
 
     }
 
-    private fun getAdapterFromList(genres: List<Genre>): ParentAdapter {
+    private fun getAdapterFromList(genres: List<GenreT>): ParentAdapter {
         val parents = mutableListOf<ParentModel>()
-        genres.forEach { genre ->
-            val children = mutableListOf<ChildModel>()
-            genre.movies.forEach { movie ->
-                children.add(ChildModel(title = movie.title))
-            }
-            parents.add(ParentModel(genre.name, children)) }
+//        genres.forEach { genre ->
+//            val children = mutableListOf<ChildModel>()
+//            genre.movies.forEach { movie ->
+//                children.add(ChildModel(title = movie.title))
+//            }
+//            parents.add(ParentModel(genre.name, children)) }
         return ParentAdapter(parents)
     }
 
@@ -130,11 +119,6 @@ class HomeActivity : AppCompatActivity() {
             }
             .show()
     }
-    private fun openYoutube(){
-        startActivity(
-            Intent(this, YoutubeActivity::class.java)
-        )
-    }
     private fun openProfile(){
         startActivity(
             Intent(this, ProfileActivity::class.java)
@@ -147,14 +131,13 @@ class HomeActivity : AppCompatActivity() {
     }
     private fun openRatings(){
         startActivity(
-            Intent(this, RatingActivity::class.java)
+            Intent(this, MoviePlayActivity::class.java)
         )
     }
     private fun openChat(){
        startActivity(
             Intent(this, ChatHomeActivity::class.java)
         )
-        //  Toast.makeText(this, "Em manutenção!", Toast.LENGTH_SHORT).show()
     }
 
 
@@ -162,12 +145,9 @@ class HomeActivity : AppCompatActivity() {
     private fun settingToolbar(){
         toolbar.setTitle("")
         toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.toolbar_textcolor));
-        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar)
     }
     private fun settingClicks(){
-        menuBottomYoutube.setOnClickListener {
-            openYoutube()
-        }
         menuBottomProfile.setOnClickListener {
             openProfile()
         }

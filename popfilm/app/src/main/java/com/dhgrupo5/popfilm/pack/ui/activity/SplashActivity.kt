@@ -30,7 +30,7 @@ class SplashActivity : AppCompatActivity() {
         backgroundImage.startAnimation(slideAnimation)
 
         Handler().postDelayed({
-            val intent = Intent(this, LoginEmailActivity::class.java)
+            val intent = Intent(this, LoginSocialActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)

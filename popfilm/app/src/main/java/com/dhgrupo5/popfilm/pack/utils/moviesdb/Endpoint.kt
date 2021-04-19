@@ -4,7 +4,7 @@ import com.dhgrupo5.popfilm.pack.model.*
 import com.dhgrupo5.popfilm.pack.model.tmdb.auth.GuestSession
 import com.dhgrupo5.popfilm.pack.model.tmdb.auth.v3.RequestToken
 import com.dhgrupo5.popfilm.pack.model.tmdb.movies.DiscoverResponse
-import com.dhgrupo5.popfilm.pack.model.tmdb.movies.GenresResponse
+import com.dhgrupo5.popfilm.pack.model.tmdb.movies.GenresResponseT
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -18,7 +18,7 @@ interface Endpoint {
     suspend fun getGuestSession() : GuestSession
 
     @GET("genre/movie/list?api_key=${NetworkUtils.API_KEY}")
-    suspend fun getGenresT(@Query("language") language: String) : GenresResponse
+    suspend fun getGenresT(@Query("language") language: String) : GenresResponseT
 
     @GET("discover/movie?api_key=${NetworkUtils.API_KEY}")
     suspend fun discoverMovies(

@@ -20,7 +20,7 @@ class MoviesAPIRepository {
             endpoint.getGuestSession()
 
     suspend fun getGenres(language: String) =
-            endpoint.getGenres(language)
+            endpoint.getGenresT(language)
 
     suspend fun getMoviesByGenreT(genres: String) =
             endpoint.discoverMovies(
@@ -28,7 +28,7 @@ class MoviesAPIRepository {
             )
 
     suspend fun getMovieGenre() : GenresResponse =
-        endpoint.getGenresT()
+        endpoint.getGenre()
 
 
 

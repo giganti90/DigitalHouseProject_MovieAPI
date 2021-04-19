@@ -42,7 +42,8 @@ class LoginActivityChat: AppCompatActivity() {
         .addOnCompleteListener {
           if (!it.isSuccessful) return@addOnCompleteListener
 
-          Log.d("Login", "Successfully logged in: ${it.result?.user?.uid}")
+            Log.d("Login", "Successfully logged in: ${it.result?.user?.uid}")
+            Toast.makeText(this, "Logged in: ${it.result?.user?.uid}", Toast.LENGTH_LONG).show()
 
           val intent = Intent(this, HomeActivity::class.java)
           intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)

@@ -3,7 +3,7 @@ package com.dhgrupo5.popfilm.pack.ui.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.dhgrupo5.popfilm.pack.model.tmdb.movies.Genre
+import com.dhgrupo5.popfilm.pack.model.tmdb.movies.GenreT
 import com.dhgrupo5.popfilm.pack.model.tmdb.movies.Movie
 import com.dhgrupo5.popfilm.pack.repository.MoviesAPIRepository
 import kotlinx.coroutines.CoroutineScope
@@ -13,8 +13,8 @@ import kotlinx.coroutines.launch
 class HomeViewModel : ViewModel() {
 
     // Movie genres LiveData
-    private val _genresLiveData = MutableLiveData<List<Genre>>()
-    val genresLiveData: LiveData<List<Genre>> =
+    private val _genresLiveData = MutableLiveData<List<GenreT>>()
+    val genresLiveData: LiveData<List<GenreT>> =
             _genresLiveData
     // Movies LiveData
     private val _moviesLiveData = MutableLiveData<List<Movie>>()
