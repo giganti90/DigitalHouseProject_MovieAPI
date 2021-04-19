@@ -8,8 +8,11 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.dhgrupo5.popfilm.R
+import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginEmailActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.DummyCategoryActivity
+import com.dhgrupo5.popfilm.registerlogin.LoginActivityChat
+import com.google.firebase.auth.FirebaseAuth
 
 
 class SplashActivity : AppCompatActivity() {
@@ -27,9 +30,18 @@ class SplashActivity : AppCompatActivity() {
         backgroundImage.startAnimation(slideAnimation)
 
         Handler().postDelayed({
-            val intent = Intent(this, DummyCategoryActivity::class.java)
+            val intent = Intent(this, LoginEmailActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)
     }
+    /*
+    private fun jump() {
+        if (FirebaseAuth.getInstance().currentUser == null)
+            startActivity(Intent(this, LoginEmailActivity::class.java))
+        else
+            startActivity(Intent(this, HomeActivity::class.java))
+        finish()
+
+    }*/
 }

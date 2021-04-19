@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".pack.ui.activity.chat.ChatHomeActivity">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageView"
@@ -25,18 +24,29 @@
         android:id="@+id/btn_chathome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="41dp"
-        android:layout_marginBottom="227dp"
-        android:text="Marvel Chat"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tv_welcome"
+        android:layout_marginStart="23dp"
+        android:layout_marginBottom="40dp"
+        android:text="Chat"
+        app:layout_constraintBottom_toTopOf="@+id/btn_logar_firebase"
+        app:layout_constraintStart_toStartOf="@+id/btn_logar_firebase"
         app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
+
+    <Button
+        android:id="@+id/btn_logar_firebase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="160dp"
+        android:text="Logar Firebase"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_chathome" />
 
     <TextView
         android:id="@+id/tv_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="73dp"
+        android:layout_marginBottom="52dp"
         android:gravity="center"
         android:text="Bem vindos ao Marvel Chat \n Clique abaixo para iniciar a sala!"
         android:textStyle="bold|italic"

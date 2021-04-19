@@ -11,8 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar"
-        android:usesCleartextTraffic="true"
-        >
+        android:usesCleartextTraffic="true">
         <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.MoviePlayActivity"/>
         <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieActivity" />
         <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatHomeActivity" />
@@ -52,6 +51,26 @@
         <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatActivity"/>
         <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.DummyCategoryDetail"/>
         <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.DummyCategoryActivity"/>
+
+        // Chatfirebase
+        <activity android:name=".registerlogin.RegisterActivityChat"/>
+        <activity android:name=".registerlogin.LoginActivityChat" />
+        <activity android:name=".messages.NewMessageActivity">
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".messages.LatestMessagesActivity" />
+        </activity>
+        <activity android:name=".messages.ChatLogActivity">
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".messages.LatestMessagesActivity" />
+        </activity>
+
+        <activity android:name=".messages.LatestMessagesActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+
     </application>
 
 </manifest>
