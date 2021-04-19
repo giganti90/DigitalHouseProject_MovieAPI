@@ -8,8 +8,8 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.R
-import com.dhgrupo5.popfilm.pack.activity.MovieActivity
-import com.dhgrupo5.popfilm.pack.activity.MovieDetailsActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieDetailsActivity
 import com.dhgrupo5.popfilm.pack.model.Movie
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.CropCircleTransformation

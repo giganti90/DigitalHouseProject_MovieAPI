@@ -18,6 +18,7 @@ import com.dhgrupo5.popfilm.pack.ui.activity.movies.ProfileActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.RatingActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatHomeActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieActivity
 import com.example.dgpopfilms.home.Parent
 import com.example.dgpopfilms.home.ParentAdapter
 

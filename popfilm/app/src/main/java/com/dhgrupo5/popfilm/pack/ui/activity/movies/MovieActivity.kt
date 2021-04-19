@@ -1,4 +1,4 @@
-package com.dhgrupo5.popfilm.pack.activity
+package com.dhgrupo5.popfilm.pack.ui.activity.movies
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

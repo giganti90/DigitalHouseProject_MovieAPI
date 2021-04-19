@@ -13,17 +13,16 @@
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true"
         >
-        <activity android:name=".pack.activity.MoviePlayActivity"/>
-        <activity android:name=".pack.activity.MovieActivity" />
-        <activity android:name=".pack.activity.ChatHomeActivity" />
-        <activity android:name=".pack.SplashActivity">
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.MoviePlayActivity"/>
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatHomeActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <service
             android:name=".notification.CustomNotificationExtenderService"
             android:exported="false"
