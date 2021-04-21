@@ -1,71 +1,74 @@
 package com.dhgrupo5.popfilm.pack.ui.activity.movies
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.R
-import com.dhgrupo5.popfilm.pack.model.Genre
-import com.dhgrupo5.popfilm.pack.model.GenresResponse
-import com.dhgrupo5.popfilm.pack.model.Movie
-import com.dhgrupo5.popfilm.pack.ui.MovieViewHolder
+import com.dhgrupo5.popfilm.pack.model.*
+import com.dhgrupo5.popfilm.pack.repository.MoviesAPIRepository
 import com.dhgrupo5.popfilm.pack.ui.adapter.MovieAdapter
-import com.dhgrupo5.popfilm.pack.ui.viewmodel.MovieVM
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 
 class DummyCategoryDetail : AppCompatActivity() {
-    private val recyclerViewCategoria by lazy { findViewById<RecyclerView>(R.id.cat_rvCategoriasDetalhes) }
-    private val toolbar by lazy { findViewById<Toolbar>(R.id.cat_pbCategoriasDetalhes) }
-    private val clickImagem by lazy { findViewById<ImageView>(R.id.layout_lista_cat_ivImage) }
+    private val recycler by lazy { findViewById<RecyclerView>(R.id.cat_rvCategoriasDetalhes) }
+    private val toolbar by lazy { findViewById<Toolbar>(R.id.layout_too_tPadrao) }
+    val repository by lazy { MoviesAPIRepository() }
 
-    private lateinit var viewModel: MovieVM
-    var listGenres = mutableListOf<Genre>()
-    var listReleaseMovies = mutableListOf<Movie>()
-    val adapterMovie = MovieAdapter(listReleaseMovies)
-    val adapterGenre = GenresResponse(listGenres)
-
+    val genreID by lazy { intent?.extras?.getString("id") ?: throw IllegalStateException() }
+    val title by lazy { intent?.extras?.getString("title") ?: throw IllegalStateException() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.layout_list_category_detail)
-        viewModel = ViewModelProviders.of(this).get(MovieVM::class.java)
-        viewModel.getMovieGenre()
+        setContentView(R.layout.activity_category_detail)
 
-        observers()
-        setupRecyclerView()
-        initClick()
+
+        settingToolbar()
+        getMoviesFromGenre()
+
     }
 
-    private fun observers() {
-        viewModel.movieList.observe(this, Observer {
-            it?.let {
-                listReleaseMovies.addAll(it)
-                adapterMovie.notifyDataSetChanged()
+
+
+    fun settingToolbar(){
+        toolbar.setTitle(title)
+        toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.toolbar_textcolor));
+
+        setSupportActionBar(toolbar)
+        var actionbar = supportActionBar
+        actionbar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    fun populateAdapter(discover: DiscoverResponse){
+
+        MainScope().launch {
+            var adapter = MovieAdapter(discover)
+            recycler.adapter = adapter
+
+
+            Toast.makeText(
+                    this@DummyCategoryDetail,
+                    "Primeiro filme é:\n${discover.movies[0].title}",
+                    Toast.LENGTH_SHORT
+            ).show()
+        }
+
+    }
+
+
+    fun getMoviesFromGenre(){
+        MainScope().launch {
+            CoroutineScope(Dispatchers.Main).launch {
+                val movieResponse = repository.getMoviesByGenre(genreID)
+
+                populateAdapter(movieResponse)
             }
-        })
-        viewModel.listGenre.observe(this, Observer {
-            it?.let {
-                listGenres.addAll(it)
-            }
-        })
-    }
-
-    private fun setupRecyclerView() {
-
-        recyclerViewCategoria.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        recyclerViewCategoria.adapter = adapterGenre
-    }
-
-    private fun initClick() {
-
-        clickImagem.setOnClickListener {
-            val intent = Intent(this, MovieDetailsActivity::class.java)
-            startActivity(intent)
         }
     }
+
 }

@@ -31,10 +31,9 @@ class MoviesAPIRepository {
 
     private val serviceMovie = RetrofitInit(url).create(service)
 
-    suspend fun getConfiguration() = serviceMovie.getMoviesConfiguration()
     suspend fun getGenre() = serviceMovie.getGenre(language)
-    suspend fun getMoviesByGenre(genre:String?,) = serviceMovie.getMoviesByGenre(language,genre)
-    suspend fun getMovieDetails(movieID: String) = serviceMovie.getMovieDetail(movieID, language,)
+    suspend fun getMoviesByGenre(genre:String) = serviceMovie.getMoviesByGenre(language, genre)
+    suspend fun getMovieDetails(movieID: String) = serviceMovie.getMovieDetail(movieID, language)
 
 
 }
