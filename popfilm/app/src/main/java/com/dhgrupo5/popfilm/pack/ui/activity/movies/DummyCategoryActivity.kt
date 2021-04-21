@@ -37,10 +37,7 @@ class DummyCategoryActivity : AppCompatActivity() {
         settingToolbar();
         recycler.layoutManager = GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false)
 
-
         getCategories()
-
-
 
     }
 

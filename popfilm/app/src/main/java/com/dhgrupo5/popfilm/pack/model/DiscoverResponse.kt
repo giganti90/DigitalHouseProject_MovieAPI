@@ -6,9 +6,10 @@ data class DiscoverResponse(
         @SerializedName("page")
         val page: Int?,
         @SerializedName("results")
-        val movies: List<MovieResponse>?,
+        val movies: List<MovieResponse>,
         @SerializedName("total_pages")
         val totalPages: Int?,
         @SerializedName("total_results")
-        val totalResults: Int?
+        val totalResults: Int?,
+        val title: String
 )

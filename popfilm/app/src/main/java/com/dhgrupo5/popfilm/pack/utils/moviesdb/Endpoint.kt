@@ -24,16 +24,13 @@ interface Endpoint {
 //    @GET("movie/{id}/images?api_key=${NetworkUtils.API_KEY}")
 //    suspend fun getMovieMedia(@Path("id") movieId: ImageResponse)
 
-    @GET("configuration")
-    suspend fun getMoviesConfiguration() : MovieDetail
-
     @GET("genre/movie/list")
     suspend fun getGenre(
         @Query("language") language: String?
     ): GenresResponse
 
 
-    @GET("discover/movie")
+    @GET("discover/movie?api_key=${NetworkUtils.API_KEY}\"")
     suspend fun getMoviesByGenre(
         @Query("language") language: String?,
         @Query("with_genres") genre:String?
