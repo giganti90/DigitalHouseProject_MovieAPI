@@ -10,8 +10,9 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.models.ChatMessage
 import com.dhgrupo5.popfilm.models.User
+import com.dhgrupo5.popfilm.pack.ui.activity.HomeActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginEmailActivity
-import com.dhgrupo5.popfilm.registerlogin.RegisterActivityChat
+import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSignupActivity
 import com.dhgrupo5.popfilm.views.LatestMessageRow
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -111,7 +112,7 @@ class LatestMessagesActivity : AppCompatActivity() {
   private fun verifyUserIsLoggedIn() {
     val uid = FirebaseAuth.getInstance().uid
     if (uid == null) {
-      val intent = Intent(this, RegisterActivityChat::class.java)
+      val intent = Intent(this, LoginSignupActivity::class.java)
       intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
       startActivity(intent)
     }
@@ -125,7 +126,7 @@ class LatestMessagesActivity : AppCompatActivity() {
       }
       R.id.menu_sign_out -> {
         FirebaseAuth.getInstance().signOut()
-        val intent = Intent(this,LoginEmailActivity::class.java)
+        val intent = Intent(this,HomeActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
       }

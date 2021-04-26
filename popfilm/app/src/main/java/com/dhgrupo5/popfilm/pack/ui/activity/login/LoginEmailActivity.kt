@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,8 @@ import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.ui.activity.HomeActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_login_chat.*
 
 class LoginEmailActivity : AppCompatActivity() {
 
@@ -75,26 +78,28 @@ class LoginEmailActivity : AppCompatActivity() {
     }
 
 
-    //validate
-    fun invalidEmail() = emailEditText.text?.isEmpty() ?: true
-    fun invalidPassword() = passwordEditText.text?.isEmpty() ?: true
-    fun login() {
-        if (!invalidEmail() && !invalidPassword()) {
-            //intent = Intent(this, YoutubeActivity::class.java)
-            //startActivity(intent)
+    private fun login() {
+        val email = emailEditText.text.toString()
+        val password = passwordEditText.text.toString()
 
-            openToast(getString(R.string.login_success))
-            openHome()
-            finish()
-        }
-        if (invalidEmail()) {
-            emailTextLayout.error = getString(R.string.field_required)
-        }
-        if (invalidPassword()) {
-            passwordTextLayout.error = getString(R.string.field_required)
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Please fill out email/pw.", Toast.LENGTH_SHORT).show()
+            return
         }
 
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener {
+                if (!it.isSuccessful) return@addOnCompleteListener
 
+                Log.d("Login", "Successfully logged in: ${it.result?.user?.uid}")
+
+                val intent = Intent(this, HomeActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Failed to log in: ${it.message}", Toast.LENGTH_SHORT).show()
+            }
     }
 
 }

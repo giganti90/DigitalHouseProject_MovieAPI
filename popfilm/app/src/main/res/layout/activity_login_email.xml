@@ -36,46 +36,51 @@
         app:layout_constraintBottom_toBottomOf="@id/login_email_buttons_guideline_start"
         app:layout_constraintStart_toStartOf="parent"
         android:contentDescription="@string/logo_description"/>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/login_email_email_layout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:errorEnabled="true"
+        android:layout_height="77dp"
         android:hint="@string/label_email"
-        app:endIconMode="clear_text"
         android:imeOptions="actionNext"
-        app:layout_constraintTop_toTopOf="@id/login_email_buttons_guideline_start"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
         app:layout_constraintBottom_toTopOf="@id/login_email_pass_layout"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/login_email_buttons_guideline_start">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/login_email_email_et"
-            android:layout_width="@dimen/btn_width"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:layout_width="245dp"
+            android:layout_height="52dp"
             android:autofillHints="emailAddress"
-            android:inputType="textEmailAddress"/>
+            android:backgroundTint="@color/white"
+            android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/login_email_pass_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="243dp"
         android:layout_height="wrap_content"
-        app:errorEnabled="true"
-        app:passwordToggleEnabled="true"
-        android:imeOptions="actionDone"
         android:hint="@string/label_password"
-        app:layout_constraintTop_toBottomOf="@id/login_email_email_layout"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:imeOptions="actionDone"
+        app:errorEnabled="true"
         app:layout_constraintBottom_toTopOf="@id/login_email_submit_btn"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintEnd_toEndOf="@+id/login_email_email_layout"
+        app:layout_constraintStart_toStartOf="@+id/login_email_email_layout"
+        app:layout_constraintTop_toBottomOf="@id/login_email_email_layout"
+        app:passwordToggleEnabled="true">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/login_email_password_et"
-            android:layout_width="@dimen/btn_width"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:layout_width="243dp"
+            android:layout_height="42dp"
             android:autofillHints="emailAddress"
-            android:inputType="textPassword"/>
+            android:backgroundTint="@color/white"
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:id="@+id/login_email_submit_btn"
         android:layout_width="@dimen/btn_width"
@@ -84,10 +89,12 @@
         android:text="@string/login"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/login_email_pass_layout"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/login_email_buttons_guideline_end"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/login_email_pass_layout"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toStartOf="@+id/login_email_pass_layout"
+        app:layout_constraintTop_toBottomOf="@id/login_email_pass_layout" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

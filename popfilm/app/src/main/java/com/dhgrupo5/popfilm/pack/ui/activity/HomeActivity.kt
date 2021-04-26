@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.BuildConfig
 import com.dhgrupo5.popfilm.R
+import com.dhgrupo5.popfilm.messages.LatestMessagesActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.ProfileActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.RatingActivity
-import com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatHomeActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity
 import com.example.dgpopfilms.home.Parent
 import com.example.dgpopfilms.home.ParentAdapter
@@ -111,7 +111,7 @@ class HomeActivity : AppCompatActivity() {
     }
     fun openChat(){
        startActivity(
-            Intent(this, ChatHomeActivity::class.java)
+            Intent(this, LatestMessagesActivity::class.java)
         )
       //  Toast.makeText(this, "Em manutenção!", Toast.LENGTH_SHORT).show()
     }
