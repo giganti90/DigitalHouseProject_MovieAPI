@@ -3,6 +3,7 @@ package com.dhgrupo5.popfilm.messages
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.models.User
@@ -65,9 +66,13 @@ class NewMessageActivity : AppCompatActivity() {
       }
     })
   }
-}
+  fun backChat(view: View){
+    startActivity(Intent(this, LatestMessagesActivity::class.java))
+    finish()
 
-class UserItem(val user: User): Item<ViewHolder>() {
+  }
+}
+ class UserItem(val user: User): Item<ViewHolder>() {
   override fun bind(viewHolder: ViewHolder, position: Int) {
     viewHolder.itemView.username_textview_new_message.text = user.username
 
@@ -77,5 +82,6 @@ class UserItem(val user: User): Item<ViewHolder>() {
   override fun getLayout(): Int {
     return R.layout.user_row_new_message
   }
+
 }
 

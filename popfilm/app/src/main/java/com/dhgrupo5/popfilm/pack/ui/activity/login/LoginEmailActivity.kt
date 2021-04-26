@@ -13,7 +13,7 @@ import com.dhgrupo5.popfilm.pack.ui.activity.HomeActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_login_chat.*
+
 
 class LoginEmailActivity : AppCompatActivity() {
 
