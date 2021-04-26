@@ -8,7 +8,10 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.dhgrupo5.popfilm.R
+import com.dhgrupo5.popfilm.pack.ui.activity.HomeActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginEmailActivity
+import com.google.firebase.auth.FirebaseAuth
+
 
 
 class SplashActivity : AppCompatActivity() {
@@ -21,19 +24,15 @@ class SplashActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
+
         val backgroundImage: ImageView = findViewById(R.id.image_splash_screen)
         val slideAnimation = AnimationUtils.loadAnimation(this, R.anim.side_slide)
         backgroundImage.startAnimation(slideAnimation)
 
         Handler().postDelayed({
-            val intent = Intent(this, LoginEmailActivity::class.java)
-            startActivity(intent)
-            finish()
-        }, 3000)
-
-       // jump()
+            jump()
+        },3000)
     }
-    /*
     private fun jump() {
         if (FirebaseAuth.getInstance().currentUser == null)
             startActivity(Intent(this, LoginEmailActivity::class.java))
@@ -41,5 +40,5 @@ class SplashActivity : AppCompatActivity() {
             startActivity(Intent(this, HomeActivity::class.java))
         finish()
 
-    }*/
+    }
 }
