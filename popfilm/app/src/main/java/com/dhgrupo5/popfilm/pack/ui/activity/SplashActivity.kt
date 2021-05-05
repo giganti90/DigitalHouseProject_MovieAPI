@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.ui.activity.HomeActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginEmailActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity
 import com.google.firebase.auth.FirebaseAuth
 
 
@@ -35,7 +36,7 @@ class SplashActivity : AppCompatActivity() {
     }
     private fun jump() {
         if (FirebaseAuth.getInstance().currentUser == null)
-            startActivity(Intent(this, LoginEmailActivity::class.java))
+            startActivity(Intent(this, LoginSocialActivity::class.java))
         else
             startActivity(Intent(this, HomeActivity::class.java))
         finish()

@@ -148,6 +148,16 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
 
 
+    // Login Facebook
+
+    implementation 'com.facebook.android:facebook-android-sdk:latest.version.here'
+
+    implementation 'com.facebook.android:facebook-core:[8,9)'
+    implementation 'com.facebook.android:facebook-login:[8,9)'
+    implementation 'com.facebook.android:facebook-share:[8,9)'
+    implementation 'com.facebook.android:facebook-messenger:[8,9)'
+    implementation 'com.facebook.android:facebook-applinks:[8,9)'
+
 
 
 }
