@@ -49,7 +49,6 @@
         <activity
             android:name=".messages.LatestMessagesActivity"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
-
     </application>
 
 </manifest>
