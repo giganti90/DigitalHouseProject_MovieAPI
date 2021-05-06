@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class Genre(
-    val id: Int,
+    val id: String,
     val name: String,
     var movies: MutableList<MovieResponse>?
 ):Serializable

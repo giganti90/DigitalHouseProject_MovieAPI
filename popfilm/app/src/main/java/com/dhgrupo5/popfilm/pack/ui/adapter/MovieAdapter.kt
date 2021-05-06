@@ -12,7 +12,6 @@ import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.model.DiscoverResponse
 import com.dhgrupo5.popfilm.pack.model.Genre
 import com.dhgrupo5.popfilm.pack.model.Movie
-import com.dhgrupo5.popfilm.pack.ui.MovieViewHolder
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.DummyCategoryDetail
 import com.squareup.picasso.Picasso
 
@@ -24,17 +23,17 @@ class MovieAdapter(private val discover: DiscoverResponse) : RecyclerView.Adapte
     }
 
     override fun getItemCount(): Int {
-        return discover.
+        return discover.movies.size
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.title.text = discover[position].title
+        holder.title.text = discover.movies[position].title
 
 
         holder.itemView.context.startActivity(
                 Intent(holder.itemView.context, DummyCategoryDetail::class.java)
-//                        .putExtra("id", discover[position].movies)
-                        .putExtra("title", discover[position].title)
+                       .putExtra("id", discover.movies[position].id)
+                        .putExtra("title", discover.movies[position].title)
 //                        .putExtra("listMovie", Gson().toJson(list[position].movies))
         )
     }
