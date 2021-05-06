@@ -67,7 +67,7 @@ class DummyCategoryActivity : AppCompatActivity() {
 
         MainScope().launch {
             CoroutineScope(Dispatchers.Main).launch {
-                val genres = repository.getMovieGenre()
+                val genres = repository.getGenre()
 
                 populateAdapter(genres.genres!!.toMutableList())
             }
