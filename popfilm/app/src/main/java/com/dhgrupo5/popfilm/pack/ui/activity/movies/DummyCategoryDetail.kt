@@ -5,10 +5,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.model.*
 import com.dhgrupo5.popfilm.pack.repository.MoviesAPIRepository
+import com.dhgrupo5.popfilm.pack.ui.adapter.CategoryDetailAdapter
 import com.dhgrupo5.popfilm.pack.ui.adapter.MovieAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -29,6 +32,7 @@ class DummyCategoryDetail : AppCompatActivity() {
 
 
         settingToolbar()
+        recycler.layoutManager = LinearLayoutManager(this);
         getMoviesFromGenre()
 
     }
@@ -47,7 +51,7 @@ class DummyCategoryDetail : AppCompatActivity() {
     fun populateAdapter(discover: DiscoverResponse){
 
         MainScope().launch {
-            var adapter = MovieAdapter(discover)
+            var adapter = CategoryDetailAdapter(discover.movies.toMutableList())
             recycler.adapter = adapter
 
 

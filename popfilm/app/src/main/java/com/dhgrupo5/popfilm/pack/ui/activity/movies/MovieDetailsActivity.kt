@@ -3,10 +3,14 @@ package com.dhgrupo5.popfilm.pack.ui.activity.movies
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dhgrupo5.popfilm.R
 
 class MovieDetailsActivity : AppCompatActivity() {
+
+    val movieID by lazy { intent?.extras?.getString("id") ?: throw IllegalStateException() }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,5 +34,12 @@ class MovieDetailsActivity : AppCompatActivity() {
             val intent = Intent(this, RatingActivity::class.java)
             startActivity(intent)
         }
+
+        Toast.makeText(
+                this,
+                "Você clicou no filme:\n${movieID}",
+                Toast.LENGTH_SHORT
+        ).show()
+
     }
 }
