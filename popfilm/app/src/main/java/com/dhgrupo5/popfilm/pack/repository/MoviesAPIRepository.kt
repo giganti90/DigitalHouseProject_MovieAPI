@@ -21,7 +21,7 @@ class MoviesAPIRepository {
             endpoint.getGuestSession()
 
     suspend fun getMovieGenre() : GenresResponse =
-        endpoint.getGenre()
+        endpoint.getGenre("pt-br")
 
 
 

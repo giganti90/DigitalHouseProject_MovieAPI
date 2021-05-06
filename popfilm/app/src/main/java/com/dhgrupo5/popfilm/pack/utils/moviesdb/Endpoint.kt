@@ -16,7 +16,7 @@ interface Endpoint {
     suspend fun getGuestSession() : GuestSession
 
     @GET("genre/movie/list?api_key=${NetworkUtils.API_KEY}")
-    suspend fun getGenre() : GenresResponse
+    suspend fun getGenreWithoutLanguage() : GenresResponse
 
     @GET("movie/{movie_id}?api_key=${NetworkUtils.API_KEY}")
     suspend fun getMovieID() : MovieResponse
@@ -30,7 +30,7 @@ interface Endpoint {
     ): GenresResponse
 
 
-    @GET("discover/movie?api_key=${NetworkUtils.API_KEY}\"")
+    @GET("discover/movie?api_key=${NetworkUtils.API_KEY}")
     suspend fun getMoviesByGenre(
         @Query("language") language: String?,
         @Query("with_genres") genre:String?

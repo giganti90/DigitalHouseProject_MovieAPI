@@ -6,10 +6,10 @@ import java.io.Serializable
 
 data class MovieResponse(
     @SerializedName("genre_ids")
-    val genreIds: List<Int>?,
+    val genreIds: List<Int>,
     @SerializedName("id")
-    val id: Int?,
+    val id: String,
     @SerializedName("poster_path")
-    val posterPath: String?,
+    val posterPath: String,
     val title: String
 ) : Serializable
