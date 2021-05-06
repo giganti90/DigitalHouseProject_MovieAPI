@@ -3,14 +3,14 @@
     <string name="logo_description">App logo</string>
     <string name="login_Google">Google login</string>
     <string name="login_Facebook">Facebook login</string>
-    <string name="login_Email">Log in with e-mail</string>
-    <string name="login_signup">Sign me up!</string>
-    <string name="login_ignore">Log in later</string>
+    <string name="login_Email">Entrar com email</string>
+    <string name="login_signup">Cadastre-se!</string>
+    <string name="login_ignore">Entrar mais tarde!</string>
     <string name="under_construction">Under construction</string>
     <string name="label_email">E-mail</string>
     <string name="label_password">Password</string>
-    <string name="login">Log in</string>
-    <string name="reset_password">Reset password</string>
+    <string name="login">Entrar</string>
+    <string name="reset_password">Recuperar login!</string>
     <string name="field_required">field required</string>
     <string name="login_success">Login successful</string>
     <string name="signup">Sign Up</string>
@@ -22,18 +22,18 @@
     <string name="signup_success">Signed up successfully. Welcome</string>
     <string name="tos_not_accepted">Please read and accept our terms of use</string>
     <string name="description_man_with_question_mark">Man with a question mark</string>
-    <string name="login_lost_password_title">Did you lose your password?</string>
-    <string name="login_lost_password_instructions">No worries. Type in your e-mail and we\'ll send you a new one.</string>
-    <string name="submit">submit</string>
+    <string name="login_lost_password_title">Esqueceu seu login? Digite o email!</string>
+    <string name="login_lost_password_instructions">Email cadastrado!.</string>
+    <string name="submit">Enviar</string>
     <string name="lost_password_success">Password sent. check your e-mail</string>
 
     //Login google
-    <string name="not_log_in">No se pudo iniciar sesión</string>
+    <string name="not_log_in">Não foi possivel logar!</string>
     <string name="log_out">Log Out</string>
     <string name="revoke">Revoke</string>
-    <string name="not_close_session">No se pudo cerrar sesión</string>
-    <string name="not_revoke">No se pudo revocar el acceso</string>
-    <string name="not_firebase_auth">No se pudo autenticar con Firebase</string>
+    <string name="not_close_session">Não foi possivel fechar a seção!</string>
+    <string name="not_revoke">Não foi possivel logar a seção!</string>
+    <string name="not_firebase_auth">Não foi possivel autenticar com Firebase</string>
 
     //Acesso Api Youtube
 

@@ -14,6 +14,11 @@ import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.model.tmdb.auth.GuestSession
 import com.dhgrupo5.popfilm.pack.ui.activity.HomeActivity
 import com.dhgrupo5.popfilm.pack.ui.viewmodel.LoginSocialViewModel
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -21,8 +26,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.GoogleApiClient
+import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import java.security.Provider
 
 @Suppress("DEPRECATION")
 class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedListener {
@@ -34,12 +41,20 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
     private lateinit var viewModel: LoginSocialViewModel
     private var guestSession = GuestSession()
 
-    //LoginGoogle
+    //LoginGoogle ----------------------------------------------------------------------------------
     private lateinit var googleApiClient: GoogleApiClient
     private lateinit var signInButton: SignInButton
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firebaseAuthListener: FirebaseAuth.AuthStateListener
     private lateinit var progressBar: ProgressBar
+
+    companion object {
+        const val SIGN_IN_CODE = 777
+    }
+
+    //Login Facebook -------------------------------------------------------------------------------
+    private val callbackManager = CallbackManager. Factory. create()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,12 +64,12 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
             guestSession = _guestSession
         })
 
+
+
         setContentView(R.layout.activity_login_social)
         val todoToast = Toast.makeText(this, "Under construction", Toast.LENGTH_SHORT)
 
-        facebookButton.setOnClickListener() {
-            todoToast.show()
-        }
+
         emailButton.setOnClickListener() {
             val intent = Intent(this, LoginEmailActivity::class.java)
             startActivity(intent)
@@ -93,6 +108,36 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
             }
         progressBar = findViewById(R.id.progressBar) as ProgressBar
 
+        //Login Facebook ---------------------------------------------------------------------------
+        facebookButton.setOnClickListener{
+            LoginManager.getInstance().logInWithReadPermissions(this, listOf("email"))
+            LoginManager.getInstance().registerCallback(callbackManager,
+                    object : FacebookCallback<LoginResult>{
+                        override fun onSuccess(result: LoginResult?) {
+                            result?.let {
+                                val token = it.accessToken
+
+                                val credential = FacebookAuthProvider.getCredential(token.token)
+
+                                FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener {
+                                    if (it.isSuccessful){
+                                    }else{
+                                    }
+                                }
+                            }
+
+                        }
+                        override fun onCancel() {
+
+                        }
+                        override fun onError(error: FacebookException?) {
+
+                        }
+
+                    } )
+        } //Login Facebook -------------------------------------------------------------------------
+
+
     }
 
     override fun onStart() {
@@ -101,7 +146,12 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
     }
 
     override fun onConnectionFailed(@NonNull connectionResult: ConnectionResult) {}
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+
+        //Login Facebook ---------------------------------------------------------------------------
+        callbackManager.onActivityResult(requestCode, resultCode, data)
+        //------------------------------------------------------------------------------------------
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == SIGN_IN_CODE) {
             val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
@@ -141,14 +191,7 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
 
     override fun onStop() {
         super.onStop()
-        if (firebaseAuthListener != null) {
-            firebaseAuth!!.removeAuthStateListener(firebaseAuthListener!!)
-        }
+        firebaseAuth.removeAuthStateListener(firebaseAuthListener)
     }
-
-    companion object {
-        const val SIGN_IN_CODE = 777
-    }
-
 
 }
