@@ -9,76 +9,76 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.R
+import com.dhgrupo5.popfilm.pack.model.DiscoverResponse
 import com.dhgrupo5.popfilm.pack.model.Movie
+import com.dhgrupo5.popfilm.pack.repository.MoviesAPIRepository
 import com.dhgrupo5.popfilm.pack.ui.adapter.CategoryDetailAdapter
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 
 class CategoryDetailActivity : AppCompatActivity() {
-//
-//    val toolbar by lazy { findViewById<Toolbar>(R.id.layout_too_tPadrao) }
-//    val recyclerView by lazy { findViewById<RecyclerView>(R.id.cat_rvCategoriasDetalhes) }
-//    val progressBar by lazy { findViewById<ProgressBar>(R.id.cat_pbCategoriasDetalhes) }
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_category_detail)
-//
-//        //settings
-//        settingToolbar()
-//        var listMovies = getListMovies()
-//
-//        if(listMovies != null){
-//
-//            recyclerView.layoutManager = GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)
-//
-//            var adapter = CategoryDetailAdapter(listMovies)
-//
-//            recyclerView.adapter = adapter
-//
-//        }
-//    }
-//
-//
-//    fun settingToolbar(){
-//        toolbar.setTitle(getString(R.string.title_activity_categoria_detalhe))
-//        toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.toolbar_textcolor));
-//
-//        setSupportActionBar(toolbar)
-//        var actionbar = supportActionBar
-//        actionbar?.setDisplayHomeAsUpEnabled(true)
-//    }
-//
+    private val recycler by lazy { findViewById<RecyclerView>(R.id.cat_rvCategoriasDetalhes) }
+    private val toolbar by lazy { findViewById<Toolbar>(R.id.layout_too_tPadrao) }
+    val repository by lazy { MoviesAPIRepository() }
 
-//    fun getListMovies():MutableList<Movie>?{
-//
-//        val code : Int = intent.getIntExtra("code", 0)
-//        var title : String = intent.getStringExtra("title").toString();
-//
-//        updateTitleToolbar(title)
-//
-//        if(code != null && title != null){
-//            //var list:MutableList<Movie> = Gson().fromJson(bundle, MutableList<Movie>)
-//
-//            var listMovies = mutableListOf<Movie>()
-//            var titleCategory = title;
-//            var codeCategory = code;
-//            for (i in 1 .. 10 ){
-//                listMovies.add(Movie(i, "Filme ${i}", "Filme para a categoria ${titleCategory}", "https://picsum.photos/800/600?random=${codeCategory}"))
-//            }
-//
-//            return listMovies;
-//        }
-//
-//        Toast.makeText(
-//                this,
-//                "Não foi possível obter a lista com os filmes! Dados não encontrados.",
-//                Toast.LENGTH_SHORT
-//        ).show()
-//
-//        return null;
-//    }
+    val genreID by lazy { intent?.extras?.getString("id") ?: throw IllegalStateException() }
+    val title by lazy { intent?.extras?.getString("title") ?: throw IllegalStateException() }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_category_detail)
+
+
+        settingToolbar()
+        recycler.layoutManager = LinearLayoutManager(this);
+        getMoviesFromGenre()
+
+    }
+
+
+
+    fun settingToolbar(){
+        toolbar.setTitle(title)
+        toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.toolbar_textcolor));
+
+        setSupportActionBar(toolbar)
+        var actionbar = supportActionBar
+        actionbar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    fun populateAdapter(discover: DiscoverResponse){
+
+        MainScope().launch {
+            var adapter = CategoryDetailAdapter(discover.movies.toMutableList())
+            recycler.adapter = adapter
+
+
+            Toast.makeText(
+                    this@CategoryDetailActivity,
+                    "Primeiro filme é:\n${discover.movies[0].title}",
+                    Toast.LENGTH_SHORT
+            ).show()
+        }
+
+    }
+
+
+    fun getMoviesFromGenre(){
+        MainScope().launch {
+            CoroutineScope(Dispatchers.Main).launch {
+                val movieResponse = repository.getMoviesByGenre(genreID)
+
+                populateAdapter(movieResponse)
+            }
+        }
+    }
+
+}
 
     //overrides
 //    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -94,4 +94,3 @@ class CategoryDetailActivity : AppCompatActivity() {
 //        toolbar.setTitle(newTitle)
 //    }
 
-}

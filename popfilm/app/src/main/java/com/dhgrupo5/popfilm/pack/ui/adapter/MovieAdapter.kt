@@ -12,7 +12,7 @@ import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.model.DiscoverResponse
 import com.dhgrupo5.popfilm.pack.model.Genre
 import com.dhgrupo5.popfilm.pack.model.Movie
-import com.dhgrupo5.popfilm.pack.ui.activity.movies.DummyCategoryDetail
+import com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryDetailActivity
 import com.squareup.picasso.Picasso
 
 class MovieAdapter(private val discover: DiscoverResponse) : RecyclerView.Adapter<MovieViewHolder>() {
@@ -31,7 +31,7 @@ class MovieAdapter(private val discover: DiscoverResponse) : RecyclerView.Adapte
 
 
         holder.itemView.context.startActivity(
-                Intent(holder.itemView.context, DummyCategoryDetail::class.java)
+                Intent(holder.itemView.context, CategoryDetailActivity::class.java)
                        .putExtra("id", discover.movies[position].id)
                         .putExtra("title", discover.movies[position].title)
 //                        .putExtra("listMovie", Gson().toJson(list[position].movies))

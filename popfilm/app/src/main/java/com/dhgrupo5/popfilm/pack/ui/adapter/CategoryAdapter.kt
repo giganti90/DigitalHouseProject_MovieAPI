@@ -12,7 +12,6 @@ import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryDetailActivity
 import com.dhgrupo5.popfilm.pack.model.Category
 import com.dhgrupo5.popfilm.pack.model.Genre
-import com.dhgrupo5.popfilm.pack.ui.activity.movies.DummyCategoryDetail
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
@@ -47,7 +46,7 @@ class CategoryAdapter(private val list :MutableList<Genre>) : RecyclerView.Adapt
             ).show()
 
             holder.itemView.context.startActivity(
-                Intent(holder.itemView.context, DummyCategoryDetail::class.java)
+                Intent(holder.itemView.context, CategoryDetailActivity::class.java)
                     .putExtra("id", list[position].id)
                     .putExtra("title", list[position].name)
 //                        .putExtra("listMovie", Gson().toJson(list[position].movies))

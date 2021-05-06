@@ -13,7 +13,6 @@ import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryDetailActivity
 import com.dhgrupo5.popfilm.pack.model.Movie
 import com.dhgrupo5.popfilm.pack.model.MovieResponse
-import com.dhgrupo5.popfilm.pack.ui.activity.movies.DummyCategoryDetail
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieDetailsActivity
 import com.squareup.picasso.Picasso
 

@@ -9,7 +9,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity
-import com.dhgrupo5.popfilm.pack.ui.activity.movies.DummyCategoryActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryActivity
 
 
 class SplashActivity : AppCompatActivity() {
@@ -27,7 +27,7 @@ class SplashActivity : AppCompatActivity() {
         backgroundImage.startAnimation(slideAnimation)
 
         Handler().postDelayed({
-            val intent = Intent(this, DummyCategoryActivity::class.java)
+            val intent = Intent(this, CategoryActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)
