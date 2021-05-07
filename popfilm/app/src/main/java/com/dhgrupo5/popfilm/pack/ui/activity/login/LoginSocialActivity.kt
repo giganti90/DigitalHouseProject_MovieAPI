@@ -39,7 +39,6 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
     private val facebookButton by lazy { findViewById<Button>(R.id.login_button) }
     private val emailButton by lazy { findViewById<Button>(R.id.login_social_email_btn) }
     private val signupButton by lazy { findViewById<Button>(R.id.login_social_signup_btn) }
-    private val ignoreButton by lazy { findViewById<Button>(R.id.login_social_ignore_btn) }
     private lateinit var viewModel: LoginSocialViewModel
     private var guestSession = GuestSession()
 
@@ -77,9 +76,7 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
             val intent = Intent(this, LoginSignupActivity::class.java)
             startActivity(intent)
         }
-        ignoreButton.setOnClickListener() {
-            todoToast.show()
-        }
+
 
         // LoginGoogle
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
