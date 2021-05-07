@@ -3,6 +3,7 @@ package com.dhgrupo5.popfilm.pack.ui.activity.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
@@ -14,6 +15,7 @@ import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.model.tmdb.auth.GuestSession
 import com.dhgrupo5.popfilm.pack.ui.activity.HomeActivity
 import com.dhgrupo5.popfilm.pack.ui.viewmodel.LoginSocialViewModel
+import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
@@ -58,17 +60,14 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login_social)
+
         viewModel = ViewModelProvider(this).get(LoginSocialViewModel::class.java)
         viewModel.getGuestSession()
         viewModel.guestSession.observe(this, Observer { _guestSession ->
             guestSession = _guestSession
         })
-
-
-
-        setContentView(R.layout.activity_login_social)
         val todoToast = Toast.makeText(this, "Under construction", Toast.LENGTH_SHORT)
-
 
         emailButton.setOnClickListener() {
             val intent = Intent(this, LoginEmailActivity::class.java)
@@ -113,9 +112,11 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
             LoginManager.getInstance().logInWithReadPermissions(this, listOf("email"))
             LoginManager.getInstance().registerCallback(callbackManager,
                     object : FacebookCallback<LoginResult>{
-                        override fun onSuccess(result: LoginResult?) {
-                            result?.let {
+                        override fun onSuccess(loginResult: LoginResult?) {
+                            loginResult?.let {
                                 val token = it.accessToken
+
+                                handleFacebookAccessToken(loginResult.accessToken)
 
                                 val credential = FacebookAuthProvider.getCredential(token.token)
 
@@ -135,9 +136,19 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
                         }
 
                     } )
-        } //Login Facebook -------------------------------------------------------------------------
+        }
 
 
+    }
+    //LoginFacebook
+    private fun handleFacebookAccessToken(token: AccessToken) {
+        Log.d("facebook", "handleFacebookAccessToken:$token")
+
+        startActivity(
+            Intent(this, HomeActivity::class.java)
+        )
+
+        finish()
     }
 
     override fun onStart() {
@@ -149,9 +160,10 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
-        //Login Facebook ---------------------------------------------------------------------------
+        //Login Facebook
         callbackManager.onActivityResult(requestCode, resultCode, data)
-        //------------------------------------------------------------------------------------------
+
+        //LoginGoogle
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == SIGN_IN_CODE) {
             val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
@@ -193,5 +205,4 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
         super.onStop()
         firebaseAuth.removeAuthStateListener(firebaseAuthListener)
     }
-
 }

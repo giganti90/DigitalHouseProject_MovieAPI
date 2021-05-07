@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.dhgrupo5.popfilm.R
@@ -111,10 +112,13 @@ class LatestMessagesActivity : AppCompatActivity() {
 
   private fun verifyUserIsLoggedIn() {
     val uid = FirebaseAuth.getInstance().uid
+
     if (uid == null) {
-      val intent = Intent(this, LoginSignupActivity::class.java)
+      val intent = Intent(this, LoginEmailActivity::class.java)
       intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
       startActivity(intent)
+      Toast.makeText(this, "Faça o Login com email e senha \n para entrar no Chat!",Toast.LENGTH_LONG).show()
+
     }
   }
 
