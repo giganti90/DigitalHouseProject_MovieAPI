@@ -11,6 +11,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
+
         android:theme="@style/Theme.AppCompat.NoActionBar" >
 
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id" />
@@ -18,12 +19,22 @@
         <activity android:name=".pack.ui.activity.login.LoginFacebookActivity" >
         </activity>
         <activity android:name=".pack.SplashActivity" >
+          
+        android:theme="@style/Theme.Design.NoActionBar"
+        android:usesCleartextTraffic="true"
+        >
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.MoviePlayActivity"/>
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatHomeActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.SplashActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".pack.ui.activity.movies.CategoryDetailActivity" />
         <activity android:name=".pack.ui.activity.movies.CategoryActivity" />
         <activity android:name=".pack.ui.activity.HomeActivity" />
@@ -32,6 +43,33 @@
         <activity android:name=".pack.ui.activity.login.LoginSocialActivity" />
         <activity android:name=".pack.ui.activity.movies.MovieDetailsActivity" />
         <activity android:name=".pack.ui.activity.movies.ProfileActivity" />
+          
+        <service
+            android:name=".notification.CustomNotificationExtenderService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE">
+            <intent-filter>
+                <action android:name="com.onesignal.NotificationExtender" />
+            </intent-filter>
+        </service>
+        <service android:name=".pack.firebase.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatRoomActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryDetailActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.HomeActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.YoutubeActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.login.LoginLostPasswordActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSignupActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.login.LoginEmailActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieDetailsActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.ProfileActivity" />
+
         <activity android:name=".pack.ui.activity.movies.RatingActivity" />
         <activity android:name=".pack.ui.activity.login.LoginSignupActivity" />
         <activity android:name=".pack.ui.activity.login.LoginEmailActivity" />
