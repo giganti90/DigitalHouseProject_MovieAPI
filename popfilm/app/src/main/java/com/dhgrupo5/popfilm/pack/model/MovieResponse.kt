@@ -11,5 +11,7 @@ data class MovieResponse(
     val id: String,
     @SerializedName("poster_path")
     val posterPath: String,
-    val title: String
+    val title: String,
+    @SerializedName("overview")
+    val overview: String?,
 ) : Serializable

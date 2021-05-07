@@ -13,6 +13,7 @@ import com.dhgrupo5.popfilm.pack.model.DiscoverResponse
 import com.dhgrupo5.popfilm.pack.model.Genre
 import com.dhgrupo5.popfilm.pack.model.Movie
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryDetailActivity
+import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 
 class MovieAdapter(private val discover: DiscoverResponse) : RecyclerView.Adapter<MovieViewHolder>() {
@@ -28,13 +29,15 @@ class MovieAdapter(private val discover: DiscoverResponse) : RecyclerView.Adapte
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.title.text = discover.movies[position].title
+        holder.synopsis.text = discover.movies[position].overview
 
 
         holder.itemView.context.startActivity(
                 Intent(holder.itemView.context, CategoryDetailActivity::class.java)
                        .putExtra("id", discover.movies[position].id)
                         .putExtra("title", discover.movies[position].title)
-//                        .putExtra("listMovie", Gson().toJson(list[position].movies))
+                        .putExtra("overview", discover.movies[position].overview)
+
         )
     }
 }
@@ -45,4 +48,5 @@ class MovieAdapter(private val discover: DiscoverResponse) : RecyclerView.Adapte
 class MovieViewHolder(view : View) : RecyclerView.ViewHolder(view){
     val image by lazy { view.findViewById<ImageView>(R.id.layout_list_cat_det_ivImage) }
     val title by lazy { view.findViewById<TextView>(R.id.layout_lista_detcat_tvTitle) }
+    val synopsis by lazy { view.findViewById<TextView>(R.id.movie_details) }
 }

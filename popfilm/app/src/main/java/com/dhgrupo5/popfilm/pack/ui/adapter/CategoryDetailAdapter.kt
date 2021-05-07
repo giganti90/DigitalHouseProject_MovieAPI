@@ -19,11 +19,7 @@ import com.squareup.picasso.Picasso
 
 class CategoryDetailAdapter(var list:MutableList<MovieResponse>): RecyclerView.Adapter<CategoryDetailViewHolder>() {
 
-    init {
-        Log.d("category detail adapter", "init do category detail adapter ${list.size}")
-    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryDetailViewHolder {
-        Log.d("category detail adapter", "chamando oncreateViewHolder")
 
         var view = LayoutInflater.from(parent.context).inflate(R.layout.layout_list_category_detail, parent, false)
         return CategoryDetailViewHolder(view);
@@ -31,16 +27,12 @@ class CategoryDetailAdapter(var list:MutableList<MovieResponse>): RecyclerView.A
 
 
     override fun getItemCount(): Int {
-        val size = this.list.size
-        Log.d("category detail adapter", "item count ${size}")
-        return size
+        return list.size
         }
+
 
     override fun onBindViewHolder(holder: CategoryDetailViewHolder, position: Int) {
         holder.title.text = list[position].title
-
-        Log.d("category detail adapter", "carregando item: ${list[position].title}")
-
 
 //        Toast.makeText(
 //                holder.itemView.context,

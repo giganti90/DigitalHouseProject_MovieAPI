@@ -40,7 +40,7 @@ interface Endpoint {
     suspend fun getMovieDetail(
         @Path("movie_id") movieId: String,
         @Query("language") language: String?
-    ):Movie
+    ):DiscoverResponse
 
 
     @GET("discover/movie?api_key=${NetworkUtils.API_KEY}")

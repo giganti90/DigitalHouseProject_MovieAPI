@@ -26,6 +26,8 @@
     <string name="login_lost_password_instructions">No worries. Type in your e-mail and we\'ll send you a new one.</string>
     <string name="submit">submit</string>
     <string name="lost_password_success">Password sent. check your e-mail</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum dignissim erat non faucibus. Nunc vel lorem vulputate, egestas lectus eu, mattis nunc. Nullam pharetra tellus ut sollicitudin hendrerit. In ultrices libero vulputate arcu tincidunt, a blandit nunc facilisis. Donec neque purus, pharetra vitae eleifend et, semper nec ipsum. Nullam felis purus, tincidunt ut scelerisque et, semper porta turpis. Curabitur eleifend efficitur mollis. Suspendisse id leo libero. Donec risus diam, aliquet id sagittis a, ultricies eu ipsum. Vivamus vestibulum leo sed tellus dapibus porta. Sed mattis malesuada lorem, at pharetra massa tincidunt sit amet. Suspendisse commodo ipsum eget orci tincidunt sagittis. In in volutpat lorem. Fusce eu mollis lacus. Proin euismod, libero a efficitur accumsan, justo erat venenatis arcu, eget dapibus ante felis elementum quam.</string>
+
 
     //Acesso Api Youtube
 
