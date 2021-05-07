@@ -14,13 +14,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.BuildConfig
 import com.dhgrupo5.popfilm.R
+import com.dhgrupo5.popfilm.messages.LatestMessagesActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginEmailActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.ProfileActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.RatingActivity
-import com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatHomeActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieActivity
 import com.example.dgpopfilms.home.Parent
 import com.example.dgpopfilms.home.ParentAdapter
+import com.google.firebase.auth.FirebaseAuth
 
 class HomeActivity : AppCompatActivity() {
 
@@ -37,9 +39,9 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        settingToolbar();
+        settingToolbar()
         initRecycler()
-        settingClicks();
+        settingClicks()
 
     }
 
@@ -111,10 +113,15 @@ class HomeActivity : AppCompatActivity() {
         )
     }
     fun openChat(){
+
+       startActivity(
+            Intent(this, LatestMessagesActivity::class.java)
+
         startActivity(
             Intent(this, ChatHomeActivity::class.java)
+
         )
-        //  Toast.makeText(this, "Em manutenção!", Toast.LENGTH_SHORT).show()
+       
     }
 
 
@@ -159,11 +166,15 @@ class HomeActivity : AppCompatActivity() {
                 openLogin()
             }
             R.id.menu_hom_mLogoff -> {
-                openLogoff()
+                FirebaseAuth.getInstance().signOut()
+                val intent = Intent(this, LoginSocialActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
             }
         }
 
         return super.onOptionsItemSelected(item)
+
     }
 
 }

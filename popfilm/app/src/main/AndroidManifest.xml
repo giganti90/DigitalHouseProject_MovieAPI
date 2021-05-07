@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.dhgrupo5.popfilm">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.dhgrupo5.popfilm" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,6 +11,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
+
+        android:theme="@style/Theme.AppCompat.NoActionBar" >
+
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id" />
+
+        <activity android:name=".pack.ui.activity.login.LoginFacebookActivity" >
+        </activity>
+        <activity android:name=".pack.SplashActivity" >
+          
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true"
         >
@@ -17,12 +27,23 @@
         <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieActivity" />
         <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatHomeActivity" />
         <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.SplashActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".pack.ui.activity.movies.CategoryDetailActivity" />
+        <activity android:name=".pack.ui.activity.movies.CategoryActivity" />
+        <activity android:name=".pack.ui.activity.HomeActivity" />
+        <activity android:name=".pack.ui.activity.YoutubeActivity" />
+        <activity android:name=".pack.ui.activity.login.ForgotPasswordActivity" />
+        <activity android:name=".pack.ui.activity.login.LoginSocialActivity" />
+        <activity android:name=".pack.ui.activity.movies.MovieDetailsActivity" />
+        <activity android:name=".pack.ui.activity.movies.ProfileActivity" />
+          
         <service
             android:name=".notification.CustomNotificationExtenderService"
             android:exported="false"
@@ -48,8 +69,42 @@
         <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity" />
         <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieDetailsActivity" />
         <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.movies.ProfileActivity" />
+
         <activity android:name=".pack.ui.activity.movies.RatingActivity" />
-        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatActivity"/>
+        <activity android:name=".pack.ui.activity.login.LoginSignupActivity" />
+        <activity android:name=".pack.ui.activity.login.LoginEmailActivity" />
+        <activity
+            android:name=".messages.NewMessageActivity"
+            tools:ignore="ExtraText" >
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".messages.LatestMessagesActivity" />
+        </activity>
+        <activity android:name=".messages.ChatLogActivity" >
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".messages.LatestMessagesActivity" />
+        </activity>
+        <activity
+            android:name=".messages.LatestMessagesActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/> <activity
+        android:name="com.facebook.FacebookActivity"
+        android:configChanges= "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+        android:label="@string/app_name" /> <activity
+        android:name="com.facebook.CustomTabActivity"
+        android:exported="true"> <intent-filter> <action
+        android:name="android.intent.action.VIEW" /> <category
+        android:name="android.intent.category.DEFAULT" /> <category
+        android:name="android.intent.category.BROWSABLE" /> <data
+        android:scheme="@string/fb_login_protocol_scheme" /> </intent-filter>
+    </activity>
+
     </application>
 
 </manifest>
