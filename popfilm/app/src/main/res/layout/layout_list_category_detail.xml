@@ -7,9 +7,9 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/teal_700"
+    android:background="@color/white"
     android:paddingRight="3dp"
-    android:paddingBottom="3dp"
+    android:paddingBottom="10dp"
     >
 
     <ImageView
