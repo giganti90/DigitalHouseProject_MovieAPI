@@ -37,8 +37,9 @@ class MovieAdapter(private val discover: DiscoverResponse) : RecyclerView.Adapte
 //                        .putExtra("listMovie", Gson().toJson(list[position].movies))
         )
     }
-
 }
+
+
 
 
 class MovieViewHolder(view : View) : RecyclerView.ViewHolder(view){

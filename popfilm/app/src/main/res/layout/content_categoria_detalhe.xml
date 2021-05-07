@@ -8,13 +8,13 @@
     android:background="@color/colorListItemBackground_RippleStart"
     >
 
-<!--    <ProgressBar-->
-<!--        android:id="@+id/cat_pbCategoriasDetalhes"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        style="?android:attr/progressBarStyle"-->
-<!--        android:layout_centerInParent="true"-->
-<!--        />-->
+    <ProgressBar
+        android:id="@+id/cat_pbCategoriasDetalhes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyle"
+        android:layout_centerInParent="true"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cat_rvCategoriasDetalhes"

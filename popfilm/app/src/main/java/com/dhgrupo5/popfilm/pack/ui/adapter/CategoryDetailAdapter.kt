@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.R
+import com.dhgrupo5.popfilm.pack.model.Image
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryDetailActivity
 import com.dhgrupo5.popfilm.pack.model.Movie
 import com.dhgrupo5.popfilm.pack.model.MovieResponse
@@ -47,19 +48,22 @@ class CategoryDetailAdapter(var list:MutableList<MovieResponse>): RecyclerView.A
 //                Toast.LENGTH_SHORT
 //        ).show()
 
-
-//        Picasso
-//            .get()
-//            .load(list[position].posterPath)
-//            //.placeholder(ContextCompat.getDrawable(, R.drawable.ic_loader))
-//            .into(holder.image);
-
         holder.itemView.setOnClickListener {
             holder.itemView.context.startActivity(
-                Intent(holder.itemView.context, MovieDetailsActivity::class.java)
-                        .putExtra("id", list[position].id)
+                    Intent(holder.itemView.context, MovieDetailsActivity::class.java)
+                            .putExtra("id", list[position].id)
             )
         }
+
+//        val position = list[position]
+//        val imageUrl = "${Image()?.secure_base_url}${Image()?.poster_sizes?.get(0)}${position.posterPath}"
+//        val image = holder.image
+//        Picasso.get().load(imageUrl).into(image)
+//        holder.image.setOnClickListener {
+//            val intent = Intent(it.context, MovieDetailsActivity::class.java)
+//            intent.putExtra("id", position.id)
+//            it.context.startActivity(intent)
+//        }
 
     }
 }
