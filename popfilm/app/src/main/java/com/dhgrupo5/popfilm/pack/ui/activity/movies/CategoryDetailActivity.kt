@@ -35,7 +35,8 @@ class CategoryDetailActivity : AppCompatActivity() {
 
 
         settingToolbar()
-        recycler.layoutManager = GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)
+        recycler.layoutManager = LinearLayoutManager(this);
+//        recycler.layoutManager = GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)
 
         getMoviesFromGenre()
 
