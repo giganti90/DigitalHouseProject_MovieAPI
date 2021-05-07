@@ -124,7 +124,6 @@ class HomeActivity : AppCompatActivity() {
        
     }
 
-
     //settings
     fun settingToolbar(){
         toolbar.setTitle("")
