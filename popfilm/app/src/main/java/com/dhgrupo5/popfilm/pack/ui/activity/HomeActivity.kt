@@ -19,7 +19,6 @@ import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginEmailActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.ProfileActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.RatingActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity
-import com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieActivity
 import com.example.dgpopfilms.home.Parent
 import com.example.dgpopfilms.home.ParentAdapter
 import com.google.firebase.auth.FirebaseAuth
@@ -104,7 +103,7 @@ class HomeActivity : AppCompatActivity() {
     }
     fun openMovies(){
         startActivity(
-            Intent(this, MovieActivity::class.java)
+            Intent(this, YoutubeActivity::class.java)
         )
     }
     fun openAvaliations(){
@@ -113,16 +112,12 @@ class HomeActivity : AppCompatActivity() {
         )
     }
     fun openChat(){
-
-       startActivity(
-            Intent(this, LatestMessagesActivity::class.java)
-
         startActivity(
-            Intent(this, ChatHomeActivity::class.java)
-
+            Intent(this, LatestMessagesActivity::class.java)
         )
-       
+        //  Toast.makeText(this, "Em manutenção!", Toast.LENGTH_SHORT).show()
     }
+
 
     //settings
     fun settingToolbar(){
