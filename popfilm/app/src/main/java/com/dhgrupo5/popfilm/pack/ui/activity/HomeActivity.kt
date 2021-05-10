@@ -41,7 +41,6 @@ class HomeActivity : AppCompatActivity() {
         settingToolbar()
         initRecycler()
         settingClicks()
-
     }
 
     private fun initRecycler(){
@@ -56,8 +55,6 @@ class HomeActivity : AppCompatActivity() {
         }
 
     }
-
-
     //open
     fun openToast(message:String){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()

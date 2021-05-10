@@ -3,6 +3,7 @@ package com.dhgrupo5.popfilm.pack
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
@@ -30,7 +31,7 @@ class SplashActivity : AppCompatActivity() {
         val slideAnimation = AnimationUtils.loadAnimation(this, R.anim.side_slide)
         backgroundImage.startAnimation(slideAnimation)
 
-        Handler().postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             jump()
         },3000)
     }

@@ -66,7 +66,6 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
         viewModel.guestSession.observe(this, Observer { _guestSession ->
             guestSession = _guestSession
         })
-        val todoToast = Toast.makeText(this, "Under construction", Toast.LENGTH_SHORT)
 
         emailButton.setOnClickListener() {
             val intent = Intent(this, LoginEmailActivity::class.java)
@@ -76,7 +75,6 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
             val intent = Intent(this, LoginSignupActivity::class.java)
             startActivity(intent)
         }
-
 
         // LoginGoogle
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -102,7 +100,7 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
                     goMainScreen()
                 }
             }
-        progressBar = findViewById(R.id.progressBar) as ProgressBar
+        progressBar = findViewById(R.id.progressBar)
 
         //Login Facebook ---------------------------------------------------------------------------
         facebookButton.setOnClickListener{
@@ -177,10 +175,10 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
     }
 
     private fun firebaseAuthWithGoogle(signInAccount: GoogleSignInAccount?) {
-        progressBar!!.visibility = View.VISIBLE
-        signInButton!!.visibility = View.GONE
+        progressBar.visibility = View.VISIBLE
+        signInButton.visibility = View.GONE
         val credential = GoogleAuthProvider.getCredential(signInAccount!!.idToken, null)
-        firebaseAuth!!.signInWithCredential(credential).addOnCompleteListener(
+        firebaseAuth.signInWithCredential(credential).addOnCompleteListener(
             this
         ) { task ->
             progressBar!!.visibility = View.GONE
