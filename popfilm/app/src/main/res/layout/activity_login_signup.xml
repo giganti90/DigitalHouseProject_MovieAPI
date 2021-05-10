@@ -10,10 +10,11 @@
     <ImageView
         android:id="@+id/selectphoto_imageview_register"
         android:layout_width="136dp"
-        android:layout_height="100dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_signup_title"
         app:srcCompat="@drawable/ic_person" />
@@ -21,34 +22,38 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginBottom="1dp"
-        android:text="Insert your Photo!"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="2dp"
+        android:gravity="center"
+        android:text="Inserir sua foto!"
         app:layout_constraintBottom_toTopOf="@+id/login_signup_name_layout"
-        app:layout_constraintEnd_toEndOf="@+id/selectphoto_imageview_register"
         app:layout_constraintStart_toStartOf="@+id/selectphoto_imageview_register"
         app:layout_constraintTop_toBottomOf="@+id/selectphoto_imageview_register" />
 
     <TextView
         android:id="@+id/login_signup_title"
-        android:layout_width="69dp"
-        android:layout_height="27dp"
+        android:layout_width="104dp"
+        android:layout_height="0dp"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
         android:text="@string/signup"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/selectphoto_imageview_register"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/login_signup_name_layout"
         android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_height="0dp"
         android:layout_marginStart="62dp"
         android:layout_marginEnd="62dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="1dp"
+        android:gravity="center"
         android:hint="@string/label_name"
         android:imeOptions="actionNext"
         app:endIconMode="clear_text"
@@ -63,7 +68,7 @@
             android:id="@+id/login_signup_name_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="Name"
+            android:autofillHints="Nome"
             android:gravity="start"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -71,18 +76,17 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/login_signup_email_layout"
         android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="80dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginEnd="63dp"
         android:gravity="start"
         android:hint="@string/label_email"
         android:imeOptions="actionNext"
         app:endIconMode="clear_text"
         app:errorEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/login_signup_paswword_layout"
-        app:layout_constraintEnd_toEndOf="@+id/login_signup_phone_layout"
-        app:layout_constraintStart_toStartOf="@+id/login_signup_name_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_signup_name_layout"
         app:startIconDrawable="@drawable/ic_action_email">
 
@@ -95,36 +99,12 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_signup_phone_layout"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="65dp"
-        android:gravity="start"
-        android:hint="@string/label_phone"
-        android:imeOptions="actionNext"
-        app:endIconMode="clear_text"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_signup_email_layout"
-        app:startIconDrawable="@drawable/ic_action_local_phone">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/login_signup_phone_et"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="Phone number"
-            android:inputType="phone" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/login_signup_paswword_layout"
         android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="65dp"
-        android:layout_marginEnd="65dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="26dp"
         android:gravity="start"
         android:hint="@string/label_password"
         android:imeOptions="actionDone"
@@ -146,8 +126,8 @@
     <Button
         android:id="@+id/login_signup_submit_btn"
         android:layout_width="187dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="50dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="72dp"
         android:text="@string/login_signup_form"
         app:layout_constraintBottom_toTopOf="@+id/already_have_account_text_view"
         app:layout_constraintEnd_toEndOf="parent"
@@ -158,19 +138,20 @@
         android:id="@+id/login_signup_tos_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="32dp"
         android:text="@string/form_acceptance"
         app:layout_constraintBottom_toTopOf="@+id/login_signup_submit_btn"
         app:layout_constraintEnd_toEndOf="@+id/login_signup_paswword_layout"
-        app:layout_constraintStart_toStartOf="@+id/login_signup_paswword_layout"
         app:layout_constraintTop_toBottomOf="@+id/login_signup_paswword_layout" />
 
     <TextView
         android:id="@+id/already_have_account_text_view"
-        android:layout_width="295dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginEnd="62dp"
-        android:layout_marginBottom="49dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginBottom="31dp"
         android:background="@drawable/rounded_edittext_register_login"
         android:gravity="center"
         android:text="Clique para entrar com Login já cadastrado!"

@@ -19,12 +19,8 @@ import com.google.firebase.storage.FirebaseStorage
 import java.util.*
 
 class LoginSignupActivity : AppCompatActivity() {
-    val nameTextLayout by lazy { findViewById<TextInputLayout>(R.id.login_signup_name_layout) }
-    val phoneTextLayout by lazy { findViewById<TextInputLayout>(R.id.login_signup_phone_layout) }
-    val emailTextLayout by lazy { findViewById<TextInputLayout>(R.id.login_signup_email_layout) }
-    val passwordTextLayout by lazy { findViewById<TextInputLayout>(R.id.login_signup_paswword_layout) }
+
     val nameEditText by lazy { findViewById<TextInputEditText>(R.id.login_signup_name_et) }
-    val phoneEditText by lazy { findViewById<TextInputEditText>(R.id.login_signup_phone_et) }
     val emailEditText by lazy { findViewById<TextInputEditText>(R.id.login_signup_email_et) }
     val passwordEditText by lazy { findViewById<TextInputEditText>(R.id.login_signup_pasword_et) }
     val tosCheckbox by lazy { findViewById<CheckBox>(R.id.login_signup_tos_checkbox) }

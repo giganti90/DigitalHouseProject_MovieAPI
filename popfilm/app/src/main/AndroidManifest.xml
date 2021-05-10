@@ -24,17 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".pack.ui.activity.movies.CategoryDetailActivity" />
-        <activity android:name=".pack.ui.activity.movies.CategoryActivity" />
-        <activity android:name=".pack.ui.activity.HomeActivity" />
-        <activity android:name=".pack.ui.activity.YoutubeActivity" />
-        <activity android:name=".pack.ui.activity.login.ForgotPasswordActivity" />
-        <activity android:name=".pack.ui.activity.login.LoginSocialActivity" />
-        <activity android:name=".pack.ui.activity.movies.MovieDetailsActivity" />
-        <activity android:name=".pack.ui.activity.movies.ProfileActivity" />
-        <activity android:name=".pack.ui.activity.movies.RatingActivity" />
-        <activity android:name=".pack.ui.activity.login.LoginSignupActivity" />
-        <activity android:name=".pack.ui.activity.login.LoginEmailActivity" />
+
         <activity
             android:name=".messages.NewMessageActivity"
             tools:ignore="ExtraText" >
@@ -53,19 +43,17 @@
             android:name=".messages.LatestMessagesActivity"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
 
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/> <activity
-        android:name="com.facebook.FacebookActivity"
-        android:configChanges= "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-        android:label="@string/app_name" /> <activity
-        android:name="com.facebook.CustomTabActivity"
-        android:exported="true"> <intent-filter> <action
-        android:name="android.intent.action.VIEW" /> <category
-        android:name="android.intent.category.DEFAULT" /> <category
-        android:name="android.intent.category.BROWSABLE" /> <data
-        android:scheme="@string/fb_login_protocol_scheme" /> </intent-filter>
-    </activity>
+        <activity android:name=".pack.ui.activity.movies.CategoryDetailActivity" />
+        <activity android:name=".pack.ui.activity.movies.CategoryActivity" />
+        <activity android:name=".pack.ui.activity.HomeActivity" />
+        <activity android:name=".pack.ui.activity.YoutubeActivity" />
+        <activity android:name=".pack.ui.activity.login.ForgotPasswordActivity" />
+        <activity android:name=".pack.ui.activity.login.LoginSocialActivity" />
+        <activity android:name=".pack.ui.activity.movies.MovieDetailsActivity" />
+        <activity android:name=".pack.ui.activity.movies.ProfileActivity" />
+        <activity android:name=".pack.ui.activity.movies.RatingActivity" />
+        <activity android:name=".pack.ui.activity.login.LoginSignupActivity" />
+        <activity android:name=".pack.ui.activity.login.LoginEmailActivity" />
 
     </application>
 
