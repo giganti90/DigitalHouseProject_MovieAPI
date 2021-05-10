@@ -100,7 +100,7 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
                     goMainScreen()
                 }
             }
-        progressBar = findViewById(R.id.progressBar) as ProgressBar
+        progressBar = findViewById(R.id.progressBar)
 
         //Login Facebook ---------------------------------------------------------------------------
         facebookButton.setOnClickListener{
@@ -175,10 +175,10 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
     }
 
     private fun firebaseAuthWithGoogle(signInAccount: GoogleSignInAccount?) {
-        progressBar!!.visibility = View.VISIBLE
-        signInButton!!.visibility = View.GONE
+        progressBar.visibility = View.VISIBLE
+        signInButton.visibility = View.GONE
         val credential = GoogleAuthProvider.getCredential(signInAccount!!.idToken, null)
-        firebaseAuth!!.signInWithCredential(credential).addOnCompleteListener(
+        firebaseAuth.signInWithCredential(credential).addOnCompleteListener(
             this
         ) { task ->
             progressBar!!.visibility = View.GONE
