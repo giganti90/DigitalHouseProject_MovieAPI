@@ -28,7 +28,7 @@ class LoginEmailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        val todoToast = Toast.makeText(this,getString(R.string.under_construction), Toast.LENGTH_SHORT)
+
         setContentView(R.layout.activity_login_email)
 
         submitButton.setOnClickListener() {
@@ -66,24 +66,12 @@ class LoginEmailActivity : AppCompatActivity() {
         })
     }
 
-
-    //open
-    fun openToast(message:String){
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
-    fun openHome() {
-        startActivity(
-                Intent(this, HomeActivity::class.java)
-        )
-    }
-
-
     private fun login() {
         val email = emailEditText.text.toString()
         val password = passwordEditText.text.toString()
 
         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Please fill out email/pw.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Preencha com seu email e senha!", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -91,14 +79,14 @@ class LoginEmailActivity : AppCompatActivity() {
             .addOnCompleteListener {
                 if (!it.isSuccessful) return@addOnCompleteListener
 
-                Log.d("Login", "Successfully logged in: ${it.result?.user?.uid}")
+                Log.d("Login", "Successo ao logar!: ${it.result?.user?.uid}")
 
                 val intent = Intent(this, HomeActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Failed to log in: ${it.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Falha ao logar!: ${it.message}", Toast.LENGTH_SHORT).show()
             }
     }
 

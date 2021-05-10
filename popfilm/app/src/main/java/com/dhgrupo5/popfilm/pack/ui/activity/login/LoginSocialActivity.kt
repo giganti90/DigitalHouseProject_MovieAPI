@@ -66,7 +66,6 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
         viewModel.guestSession.observe(this, Observer { _guestSession ->
             guestSession = _guestSession
         })
-        val todoToast = Toast.makeText(this, "Under construction", Toast.LENGTH_SHORT)
 
         emailButton.setOnClickListener() {
             val intent = Intent(this, LoginEmailActivity::class.java)
@@ -76,7 +75,6 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
             val intent = Intent(this, LoginSignupActivity::class.java)
             startActivity(intent)
         }
-
 
         // LoginGoogle
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
