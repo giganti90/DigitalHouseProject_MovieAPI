@@ -118,6 +118,7 @@ class HomeActivity : AppCompatActivity() {
       //  Toast.makeText(this, "Em manutenção!", Toast.LENGTH_SHORT).show()
     }
 
+
     //settings
     fun settingToolbar(){
         toolbar.setTitle("")
