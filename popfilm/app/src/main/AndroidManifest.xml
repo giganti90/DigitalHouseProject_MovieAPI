@@ -15,7 +15,9 @@
 
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id" />
 
-        <activity android:name=".pack.SplashActivity" >
+        <activity android:name=".pack.ui.activity.login.LoginFacebookActivity" >
+        </activity>
+        <activity android:name=".pack.ui.activity.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
