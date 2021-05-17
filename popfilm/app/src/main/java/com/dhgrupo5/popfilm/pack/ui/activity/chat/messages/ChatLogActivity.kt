@@ -18,7 +18,6 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_chat_log.*
 
-
 class ChatLogActivity : AppCompatActivity() {
 
   companion object {
