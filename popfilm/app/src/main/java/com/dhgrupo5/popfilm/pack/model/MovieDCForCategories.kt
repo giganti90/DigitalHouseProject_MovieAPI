@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 
-data class Movie(
+data class MovieDCForCategories(
         @SerializedName("adult")
         val adult: Boolean?,
         @SerializedName("backdrop_path")
