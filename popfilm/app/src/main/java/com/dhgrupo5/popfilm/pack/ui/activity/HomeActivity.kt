@@ -38,9 +38,11 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        settingToolbar()
+        settingToolbar();
         initRecycler()
-        settingClicks()
+        settingClicks();
+        categoryButton()
+
     }
 
     private fun initRecycler(){
@@ -55,6 +57,8 @@ class HomeActivity : AppCompatActivity() {
         }
 
     }
+
+
     //open
     fun openToast(message:String){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
@@ -109,10 +113,10 @@ class HomeActivity : AppCompatActivity() {
         )
     }
     fun openChat(){
-        startActivity(
-            Intent(this, LatestMessagesActivity::class.java)
+       startActivity(
+            Intent(this, ChatHomeActivity::class.java)
         )
-        //  Toast.makeText(this, "Em manutenção!", Toast.LENGTH_SHORT).show()
+      //  Toast.makeText(this, "Em manutenção!", Toast.LENGTH_SHORT).show()
     }
 
 
@@ -165,9 +169,14 @@ class HomeActivity : AppCompatActivity() {
         }
 
         return super.onOptionsItemSelected(item)
-
     }
 
+    fun categoryButton() {
+        val categoryButton = findViewById<TextView>(R.id.title_categories)
+        categoryButton.setOnClickListener {
+            val intent = Intent(this, CategoryActivity::class.java)
+            startActivity(intent)
+        }
 
 
 }
