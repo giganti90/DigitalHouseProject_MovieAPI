@@ -1,8 +1,6 @@
 package com.dhgrupo5.popfilm.pack.ui.activity.movies
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -10,11 +8,9 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.R
-import com.dhgrupo5.popfilm.pack.model.Category
-import com.dhgrupo5.popfilm.pack.model.Genre
-import com.dhgrupo5.popfilm.pack.model.Movie
+import com.dhgrupo5.popfilm.pack.model.GenreDCModelForCategories
 import com.dhgrupo5.popfilm.pack.repository.MoviesAPIRepository
-import com.dhgrupo5.popfilm.pack.ui.adapter.CategoryAdapter
+import com.dhgrupo5.popfilm.pack.ui.adapter.CategoryAdapterForGenres
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
@@ -40,10 +36,10 @@ class CategoryActivity : AppCompatActivity() {
     }
 
 
-    fun populateAdapter(listCategories: MutableList<Genre>) {
+    fun populateAdapter(listCategories: MutableList<GenreDCModelForCategories>) {
 
         MainScope().launch {
-            var adapter = CategoryAdapter(listCategories)
+            var adapter = CategoryAdapterForGenres(listCategories)
             recycler.adapter = adapter
 
         }
