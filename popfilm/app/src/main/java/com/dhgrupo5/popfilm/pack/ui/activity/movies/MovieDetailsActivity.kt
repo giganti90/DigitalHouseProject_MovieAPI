@@ -6,18 +6,8 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.dhgrupo5.popfilm.R
-import com.dhgrupo5.popfilm.pack.model.DiscoverResponse
-import com.dhgrupo5.popfilm.pack.model.MovieResponse
 import com.dhgrupo5.popfilm.pack.repository.MoviesAPIRepository
-import com.dhgrupo5.popfilm.pack.ui.adapter.CategoryDetailAdapter
-import com.dhgrupo5.popfilm.pack.ui.adapter.MovieAdapter
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
 
 class MovieDetailsActivity : AppCompatActivity() {
 
