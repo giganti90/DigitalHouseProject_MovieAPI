@@ -6,15 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.model.DiscoverResponse
-import com.dhgrupo5.popfilm.pack.model.Genre
-import com.dhgrupo5.popfilm.pack.model.Movie
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryDetailActivity
-import com.google.gson.Gson
-import com.squareup.picasso.Picasso
 
 class MovieAdapter(private val discover: DiscoverResponse) : RecyclerView.Adapter<MovieViewHolder>() {
 

@@ -1,21 +1,5 @@
 package com.dhgrupo5.popfilm.pack.ui.adapter
 
-import android.content.Intent
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
-import androidx.recyclerview.widget.RecyclerView
-import com.dhgrupo5.popfilm.R
-import com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryDetailActivity
-import com.dhgrupo5.popfilm.pack.model.Category
-import com.dhgrupo5.popfilm.pack.model.Genre
-import com.google.gson.Gson
-import com.squareup.picasso.Picasso
-import jp.wasabeef.picasso.transformations.CropCircleTransformation
-
 //class HomeCategoryAdapter(private val list :MutableList<Genre>) : RecyclerView.Adapter<HomeCategoryViewHolder>() {
 //
 //    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeCategoryViewHolder {
