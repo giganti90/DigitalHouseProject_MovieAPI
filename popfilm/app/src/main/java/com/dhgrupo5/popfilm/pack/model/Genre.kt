@@ -8,3 +8,6 @@ data class Genre(
     val name: String,
     var movies: MutableList<MovieResponse>?
 ):Serializable
+
+
+//versão correta
