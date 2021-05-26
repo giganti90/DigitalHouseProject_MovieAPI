@@ -80,7 +80,6 @@
         android:paddingStart="12dp"
         android:paddingTop="12dp"
         android:paddingEnd="12dp"
-        android:text="@string/lorem_ipsum"
         android:textAlignment="viewStart"
         android:textColor="#000"
         android:textSize="14sp"
