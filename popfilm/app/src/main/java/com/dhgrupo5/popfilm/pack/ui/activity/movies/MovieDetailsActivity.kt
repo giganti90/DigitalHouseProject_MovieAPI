@@ -6,13 +6,22 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import com.dhgrupo5.popfilm.R
+import com.dhgrupo5.popfilm.pack.model.DiscoverResponse
+import com.dhgrupo5.popfilm.pack.model.MovieResponse
 import com.dhgrupo5.popfilm.pack.repository.MoviesAPIRepository
+import com.dhgrupo5.popfilm.pack.ui.adapter.MovieAdapter
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 
 class MovieDetailsActivity : AppCompatActivity() {
 
-    val movieID by lazy { intent?.extras?.getString("id") ?: throw IllegalStateException() }
     private val toolbar by lazy { findViewById<Toolbar>(R.id.layout_too_tPadrao) }
+    val movieID by lazy { intent?.extras?.getString("id") ?: throw IllegalStateException() }
+    //    val synopsis by lazy { intent?.extras?.getString("overview") ?: throw IllegalStateException() }
     val repository by lazy { MoviesAPIRepository() }
 
     val title by lazy { intent?.extras?.getString("title") ?: throw IllegalStateException() }
@@ -21,7 +30,8 @@ class MovieDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
 
-//        getMovieDetails()
+        settingToolbar()
+        getMovieDetails()
 
 
         val ratingButton = findViewById<ImageButton>(R.id.rate)
@@ -50,43 +60,44 @@ class MovieDetailsActivity : AppCompatActivity() {
         ).show()
     }
 
-}
 
 
 
-//        fun settingToolbar(){
-//            toolbar.setTitle(title)
-//            toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.toolbar_textcolor));
-//
-//            setSupportActionBar(toolbar)
-//            var actionbar = supportActionBar
-//            actionbar?.setDisplayHomeAsUpEnabled(true)
-//        }
-//
-//        fun populateAdapter(discover: MovieResponse){
-//
-//            MainScope().launch {
-//                var adapter = MovieAdapter(movieID. .toMutableList())
-//
+
+        fun settingToolbar(){
+            toolbar.setTitle(title)
+            toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.toolbar_textcolor));
+
+            setSupportActionBar(toolbar)
+            var actionbar = supportActionBar
+            actionbar?.setDisplayHomeAsUpEnabled(true)
+        }
+
+        fun populateAdapter(discover: DiscoverResponse){
+
+            MainScope().launch {
+                var adapter = MovieAdapter(discover.movies.toMutableList())
+
 //                Toast.makeText(
 //                        this@MovieDetailsActivity,
-//                        "Nome do filme é:\n${discover.movies[0].title}",
+//                        "Nome do filme é:\n${discover.title[0]}",
 //                        Toast.LENGTH_SHORT
 //                ).show()
-//            }
-//
-//        }
-//
-//
-//        fun getMovieDetails(){
-//            MainScope().launch {
-//                CoroutineScope(Dispatchers.Main).launch {
-//                    val movieResponse = repository.getMovieDetails(movieID)
-//
-//                    populateAdapter(movieResponse)
-//                }
-//            }
-//        }
+            }
+
+        }
+
+
+        fun getMovieDetails(){
+            MainScope().launch {
+                CoroutineScope(Dispatchers.Main).launch {
+                    val movieResponse = repository.getMovieDetails(movieID)
+
+                    populateAdapter(movieResponse)
+                }
+            }
+        }
+}
 
 
 
