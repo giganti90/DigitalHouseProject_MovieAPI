@@ -21,17 +21,16 @@ class MovieDetailsActivity : AppCompatActivity() {
 
     private val toolbar by lazy { findViewById<Toolbar>(R.id.layout_too_tPadrao) }
     val movieID by lazy { intent?.extras?.getString("id") ?: throw IllegalStateException() }
-    //    val synopsis by lazy { intent?.extras?.getString("overview") ?: throw IllegalStateException() }
+    val overview by lazy { intent?.extras?.getString("overview") ?: throw IllegalStateException() }
     val repository by lazy { MoviesAPIRepository() }
 
-    val title by lazy { intent?.extras?.getString("title") ?: throw IllegalStateException() }
-
+    val title by lazy { intent?.extras?.getString("title") }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
 
         settingToolbar()
-        getMovieDetails()
+//        getMovieDetails()
 
 
         val ratingButton = findViewById<ImageButton>(R.id.rate)
@@ -73,30 +72,32 @@ class MovieDetailsActivity : AppCompatActivity() {
             actionbar?.setDisplayHomeAsUpEnabled(true)
         }
 
-        fun populateAdapter(discover: DiscoverResponse){
-
-            MainScope().launch {
-                var adapter = MovieAdapter(discover.movies.toMutableList())
+//        fun populateAdapter(discover: DiscoverResponse){
+//
+//            MainScope().launch {
+//                var movieOverview = MovieAdapter(discover.movies.toMutableList())
+//                var movieTitle = MovieAdapter(discover.id)
 
 //                Toast.makeText(
 //                        this@MovieDetailsActivity,
 //                        "Nome do filme é:\n${discover.title[0]}",
 //                        Toast.LENGTH_SHORT
 //                ).show()
-            }
-
-        }
+//            }
 
 
-        fun getMovieDetails(){
-            MainScope().launch {
-                CoroutineScope(Dispatchers.Main).launch {
-                    val movieResponse = repository.getMovieDetails(movieID)
 
-                    populateAdapter(movieResponse)
-                }
-            }
-        }
+
+
+//        fun getMovieDetails(){
+//            MainScope().launch {
+//                CoroutineScope(Dispatchers.Main).launch {
+//                    val overviewResponse = repository.getMovieDetails(overview) //movieID?
+//
+//                    populateAdapter(overviewResponse)
+//                }
+//            }
+//        }
 }
 
 
