@@ -9,7 +9,7 @@
     android:gravity="center"
     android:background="@color/white"
     android:paddingRight="3dp"
-    android:paddingBottom="3dp"
+    android:paddingBottom="6dp"
     >
 
     <ImageView
@@ -18,6 +18,19 @@
         android:layout_height="match_parent"
         android:src="@drawable/ic_launcher_background"
         android:scaleType="centerCrop"
+        />
+
+    <TextView
+        android:id="@+id/layout_lista_detcat_tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@string/menu_youtube"
+        android:textSize="14sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/colorListItemText"
         />
 
 </LinearLayout>

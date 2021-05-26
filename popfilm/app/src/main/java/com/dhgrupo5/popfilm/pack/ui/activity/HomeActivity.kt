@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,7 @@ import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginEmailActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.ProfileActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.RatingActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryActivity
 import com.example.dgpopfilms.home.Parent
 import com.example.dgpopfilms.home.ParentAdapter
 import com.google.firebase.auth.FirebaseAuth
@@ -38,29 +40,37 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        settingToolbar()
+        settingToolbar();
         initRecycler()
-        settingClicks()
+        settingClicks();
+        categoryButton()
+
     }
 
-    private fun initRecycler(){
+    private fun initRecycler() {
         recyclerView = findViewById<RecyclerView>(R.id.rv_parent)
 
         recyclerView.apply {
-            layoutManager = LinearLayoutManager(this@HomeActivity,
-                LinearLayoutManager.VERTICAL, false)
+            layoutManager = LinearLayoutManager(
+                this@HomeActivity,
+                LinearLayoutManager.VERTICAL, false
+            )
             adapter = ParentAdapter(
                 Parent
-                    .getParents(40))
+                    .getParents(40)
+            )
         }
 
     }
+
+
     //open
-    fun openToast(message:String){
+    fun openToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
-    fun openAbout(){
-        val description :String = "Versão atual deste aplicativo: " + BuildConfig.VERSION_NAME;
+
+    fun openAbout() {
+        val description: String = "Versão atual deste aplicativo: " + BuildConfig.VERSION_NAME;
 
         AlertDialog
             .Builder(this)
@@ -70,12 +80,14 @@ class HomeActivity : AppCompatActivity() {
                 dialog.dismiss()
             }.show()
     }
-    fun openLogin(){
+
+    fun openLogin() {
         startActivity(
             Intent(this, LoginSocialActivity::class.java)
         )
     }
-    fun openLogoff(){
+
+    fun openLogoff() {
         AlertDialog
             .Builder(this)
             .setTitle(R.string.exit_title)
@@ -83,32 +95,37 @@ class HomeActivity : AppCompatActivity() {
             .setPositiveButton(R.string.btn_exit) { dialog, _ ->
                 openToast(getString(R.string.exit_confirmed));
             }
-            .setNegativeButton(R.string.btn_close){ dialog, _ ->
+            .setNegativeButton(R.string.btn_close) { dialog, _ ->
                 dialog.dismiss()
             }
             .show()
     }
-    fun openYoutube(){
+
+    fun openYoutube() {
         startActivity(
             Intent(this, YoutubeActivity::class.java)
         )
     }
-    fun openProfile(){
+
+    fun openProfile() {
         startActivity(
             Intent(this, ProfileActivity::class.java)
         )
     }
-    fun openMovies(){
+
+    fun openMovies() {
         startActivity(
             Intent(this, YoutubeActivity::class.java)
         )
     }
-    fun openAvaliations(){
+
+    fun openAvaliations() {
         startActivity(
             Intent(this, RatingActivity::class.java)
         )
     }
-    fun openChat(){
+
+    fun openChat() {
         startActivity(
             Intent(this, LatestMessagesActivity::class.java)
         )
@@ -117,12 +134,13 @@ class HomeActivity : AppCompatActivity() {
 
 
     //settings
-    fun settingToolbar(){
+    fun settingToolbar() {
         toolbar.setTitle("")
         toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.toolbar_textcolor));
         setSupportActionBar(toolbar);
     }
-    fun settingClicks(){
+
+    fun settingClicks() {
         menuBottomYoutube.setOnClickListener {
             openYoutube()
         }
@@ -139,6 +157,7 @@ class HomeActivity : AppCompatActivity() {
             openChat()
         }
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
         menuInflater.inflate(R.menu.menu_home, menu)
@@ -147,6 +166,7 @@ class HomeActivity : AppCompatActivity() {
 
         return super.onCreateOptionsMenu(menu)
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
@@ -165,7 +185,15 @@ class HomeActivity : AppCompatActivity() {
         }
 
         return super.onOptionsItemSelected(item)
-
     }
 
+    fun categoryButton() {
+        val categoryButton = findViewById<TextView>(R.id.title_categories)
+        categoryButton.setOnClickListener {
+            val intent = Intent(this, CategoryActivity::class.java)
+            startActivity(intent)
+        }
+
+
+    }
 }
