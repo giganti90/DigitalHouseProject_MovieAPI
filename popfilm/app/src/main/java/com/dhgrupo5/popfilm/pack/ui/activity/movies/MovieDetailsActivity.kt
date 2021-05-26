@@ -29,7 +29,7 @@ class MovieDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
 
-        settingToolbar()
+//        settingToolbar()
 //        getMovieDetails()
 
 
@@ -63,14 +63,14 @@ class MovieDetailsActivity : AppCompatActivity() {
 
 
 
-        fun settingToolbar(){
-            toolbar.setTitle(title)
-            toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.toolbar_textcolor));
-
-            setSupportActionBar(toolbar)
-            var actionbar = supportActionBar
-            actionbar?.setDisplayHomeAsUpEnabled(true)
-        }
+//        fun settingToolbar(){
+//            toolbar.setTitle(title)
+//            toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.toolbar_textcolor));
+//
+//            setSupportActionBar(toolbar)
+//            var actionbar = supportActionBar
+//            actionbar?.setDisplayHomeAsUpEnabled(true)
+//        }
 
 //        fun populateAdapter(discover: DiscoverResponse){
 //
