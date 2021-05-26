@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.model.MovieResponse
+import com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieDetailsActivity
 
 class CategoryInfoAdapterForCategories(var list:MutableList<MovieResponse>): RecyclerView.Adapter<CategoryInfoViewHolderForCategories>() {
