@@ -200,8 +200,8 @@ class HomeActivity : AppCompatActivity() {
                 // TODO: remove business logic from activity and decouple method
                 // This won't work, because there is no identifier available
                 FirebaseRepository().userLoggedOff("")
-                Toast.makeText(this, "The users will stay on loggedInUsers collections," +
-                        " because there is no identifier available yet",Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "The user will stay on loggedInUsers collection," +
+                        " because there is no user identifier available yet",Toast.LENGTH_LONG).show()
             }
         }
 
