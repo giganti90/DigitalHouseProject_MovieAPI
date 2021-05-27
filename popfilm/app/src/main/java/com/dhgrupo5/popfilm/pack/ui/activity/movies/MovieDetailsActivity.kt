@@ -47,16 +47,11 @@ class MovieDetailsActivity : AppCompatActivity() {
         }
 
         val trailerButton = findViewById<ImageButton>(R.id.play_trailer)
-        ratingButton.setOnClickListener {
-            val intent = Intent(this, RatingActivity::class.java)
+        trailerButton.setOnClickListener {
+            val intent = Intent(this, MoviePlayActivity::class.java)
             startActivity(intent)
         }
 
-        Toast.makeText(
-                this,
-                "Você clicou no filme:\n${movieID}",
-                Toast.LENGTH_SHORT
-        ).show()
     }
 
 
