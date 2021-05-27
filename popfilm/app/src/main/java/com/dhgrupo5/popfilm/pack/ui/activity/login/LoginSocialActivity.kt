@@ -32,7 +32,6 @@ import com.google.android.gms.common.api.GoogleApiClient
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import java.security.Provider
 
 @Suppress("DEPRECATION")
 class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedListener {
@@ -46,7 +45,7 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
 
     //LoginGoogle ----------------------------------------------------------------------------------
     private lateinit var googleApiClient: GoogleApiClient
-    private lateinit var signInButton: SignInButton
+    private lateinit var googleSignInButton: SignInButton
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firebaseAuthListener: FirebaseAuth.AuthStateListener
     private lateinit var progressBar: ProgressBar
@@ -91,10 +90,10 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
             .enableAutoManage(this, this)
             .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
             .build()
-        signInButton = findViewById(R.id.login_social_google_btn) as SignInButton
-        signInButton!!.setSize(SignInButton.SIZE_WIDE)
-        signInButton!!.setColorScheme(SignInButton.COLOR_DARK)
-        signInButton!!.setOnClickListener {
+        googleSignInButton = findViewById(R.id.login_social_google_btn) as SignInButton
+        googleSignInButton!!.setSize(SignInButton.SIZE_WIDE)
+        googleSignInButton!!.setColorScheme(SignInButton.COLOR_DARK)
+        googleSignInButton!!.setOnClickListener {
             val intent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient)
             startActivityForResult(intent, LoginSocialActivity.SIGN_IN_CODE)
         }
@@ -103,6 +102,11 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
             FirebaseAuth.AuthStateListener { firebaseAuth ->
                 val user = firebaseAuth.currentUser
                 if (user != null) {
+
+                    // TODO: remove business logic from activity and decouple method
+                    FirebaseRepository().userLoogedIn(user.email
+                        ?: "Failed to get email. Google login identifier: ${user.toString()}")
+
                     goMainScreen()
                 }
             }
@@ -185,13 +189,13 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
 
     private fun firebaseAuthWithGoogle(signInAccount: GoogleSignInAccount?) {
         progressBar.visibility = View.VISIBLE
-        signInButton.visibility = View.GONE
+        googleSignInButton.visibility = View.GONE
         val credential = GoogleAuthProvider.getCredential(signInAccount!!.idToken, null)
         firebaseAuth.signInWithCredential(credential).addOnCompleteListener(
             this
         ) { task ->
             progressBar!!.visibility = View.GONE
-            signInButton!!.visibility = View.VISIBLE
+            googleSignInButton!!.visibility = View.VISIBLE
             if (!task.isSuccessful) {
                 Toast.makeText(applicationContext, R.string.not_firebase_auth, Toast.LENGTH_SHORT)
                     .show()
@@ -200,9 +204,16 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
     }
 
     private fun goMainScreen() {
-        val intent = Intent(this, HomeActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-        startActivity(intent)
+//        Code commented out to avoid unknown behaviour
+//        val intent = Intent(this, HomeActivity::class.java)
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+//        startActivity(intent)
+        
+        startActivity(
+            Intent(
+                this, HomeActivity::class.java))
+
+
     }
 
     override fun onStop() {
