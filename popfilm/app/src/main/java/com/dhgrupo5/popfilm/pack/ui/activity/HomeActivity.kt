@@ -40,9 +40,9 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        settingToolbar();
+        settingToolbar()
         initRecycler()
-        settingClicks();
+        settingClicks()
         categoryButton()
 
     }
@@ -132,6 +132,14 @@ class HomeActivity : AppCompatActivity() {
         //  Toast.makeText(this, "Em manutenção!", Toast.LENGTH_SHORT).show()
     }
 
+    fun openCategory() {
+        startActivity(
+            Intent(this, CategoryActivity::class.java)
+        )
+        //  Toast.makeText(this, "Em manutenção!", Toast.LENGTH_SHORT).show()
+    }
+
+
 
     //settings
     fun settingToolbar() {
@@ -148,7 +156,8 @@ class HomeActivity : AppCompatActivity() {
             openProfile()
         }
         menuBottomMovies.setOnClickListener {
-            openMovies()
+            //openMovies()
+            openCategory()
         }
         menuBottomAvaliations.setOnClickListener {
             openAvaliations()
@@ -175,6 +184,9 @@ class HomeActivity : AppCompatActivity() {
             }
             R.id.menu_hom_mLogin -> {
                 openLogin()
+            }
+            R.id.menu_hom_mPerfil -> {
+                openProfile()
             }
             R.id.menu_hom_mLogoff -> {
                 FirebaseAuth.getInstance().signOut()
