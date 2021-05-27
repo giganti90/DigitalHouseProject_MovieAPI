@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.model.tmdb.auth.GuestSession
+import com.dhgrupo5.popfilm.pack.repository.FirebaseRepository
 import com.dhgrupo5.popfilm.pack.ui.activity.HomeActivity
 import com.dhgrupo5.popfilm.pack.ui.viewmodel.LoginSocialViewModel
 import com.facebook.AccessToken
@@ -31,7 +32,6 @@ import com.google.android.gms.common.api.GoogleApiClient
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import java.security.Provider
 
 @Suppress("DEPRECATION")
 class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedListener {
@@ -45,7 +45,7 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
 
     //LoginGoogle ----------------------------------------------------------------------------------
     private lateinit var googleApiClient: GoogleApiClient
-    private lateinit var signInButton: SignInButton
+    private lateinit var googleSignInButton: SignInButton
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firebaseAuthListener: FirebaseAuth.AuthStateListener
     private lateinit var progressBar: ProgressBar
@@ -90,10 +90,10 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
             .enableAutoManage(this, this)
             .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
             .build()
-        signInButton = findViewById(R.id.login_social_google_btn) as SignInButton
-        signInButton!!.setSize(SignInButton.SIZE_WIDE)
-        signInButton!!.setColorScheme(SignInButton.COLOR_DARK)
-        signInButton!!.setOnClickListener {
+        googleSignInButton = findViewById(R.id.login_social_google_btn) as SignInButton
+        googleSignInButton!!.setSize(SignInButton.SIZE_WIDE)
+        googleSignInButton!!.setColorScheme(SignInButton.COLOR_DARK)
+        googleSignInButton!!.setOnClickListener {
             val intent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient)
             startActivityForResult(intent, LoginSocialActivity.SIGN_IN_CODE)
         }
@@ -102,6 +102,11 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
             FirebaseAuth.AuthStateListener { firebaseAuth ->
                 val user = firebaseAuth.currentUser
                 if (user != null) {
+
+                    // TODO: remove business logic from activity and decouple method
+                    FirebaseRepository().userLoggedIn(user.email
+                        ?: "Failed to get email. Google login identifier: ${user.toString()}")
+
                     goMainScreen()
                 }
             }
@@ -144,6 +149,9 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
     private fun handleFacebookAccessToken(token: AccessToken) {
         Log.d("facebook", "handleFacebookAccessToken:$token")
 
+        // TODO: remove business logic from activity and decouple method
+        FirebaseRepository().userLoggedIn("Facebook token: ${token.userId}")
+
         startActivity(
             Intent(this, HomeActivity::class.java)
         )
@@ -181,13 +189,13 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
 
     private fun firebaseAuthWithGoogle(signInAccount: GoogleSignInAccount?) {
         progressBar.visibility = View.VISIBLE
-        signInButton.visibility = View.GONE
+        googleSignInButton.visibility = View.GONE
         val credential = GoogleAuthProvider.getCredential(signInAccount!!.idToken, null)
         firebaseAuth.signInWithCredential(credential).addOnCompleteListener(
             this
         ) { task ->
             progressBar!!.visibility = View.GONE
-            signInButton!!.visibility = View.VISIBLE
+            googleSignInButton!!.visibility = View.VISIBLE
             if (!task.isSuccessful) {
                 Toast.makeText(applicationContext, R.string.not_firebase_auth, Toast.LENGTH_SHORT)
                     .show()

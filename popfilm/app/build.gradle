@@ -164,6 +164,12 @@ dependencies {
 
     implementation 'com.google.android.exoplayer:exoplayer:2.9.6'
 
+
+    // Firestore
+    implementation platform('com.google.firebase:firebase-bom:28.0.1')
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+
+
     implementation "android.arch.lifecycle:extensions:1.1.1"
 
     implementation 'com.squareup.okhttp3:okhttp:4.2.2'
