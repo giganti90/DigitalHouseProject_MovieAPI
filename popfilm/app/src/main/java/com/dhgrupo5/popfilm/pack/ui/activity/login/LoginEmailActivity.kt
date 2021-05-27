@@ -38,18 +38,10 @@ class LoginEmailActivity : AppCompatActivity() {
             val intent = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(intent)
         }
-
         signupButton.setOnClickListener() {
             val intent = Intent(this, LoginSignupActivity::class.java)
             startActivity(intent)
         }
-        emailTextLayout.editText?.addTextChangedListener(object: TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                emailTextLayout.error = null
-            }
-            override fun afterTextChanged(s: Editable?) {}
-        })
         emailTextLayout.editText?.addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
