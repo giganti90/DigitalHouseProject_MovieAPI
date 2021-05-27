@@ -52,9 +52,10 @@
         <activity android:name=".pack.ui.activity.movies.MovieDetailsActivity" />
         <activity android:name=".pack.ui.activity.movies.ProfileActivity" />
         <activity android:name=".pack.ui.activity.movies.RatingActivity" />
+        <activity android:name="com.dhgrupo5.popfilm.pack.ui.activity.chat.ChatActivity"/>
         <activity android:name=".pack.ui.activity.login.LoginSignupActivity" />
         <activity android:name=".pack.ui.activity.login.LoginEmailActivity" />
 
-    </application>
+</application>
 
 </manifest>
