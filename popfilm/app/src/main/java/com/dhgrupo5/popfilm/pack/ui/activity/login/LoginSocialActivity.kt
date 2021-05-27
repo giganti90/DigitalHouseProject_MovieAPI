@@ -208,12 +208,12 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
 //        val intent = Intent(this, HomeActivity::class.java)
 //        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
 //        startActivity(intent)
-        
+
         startActivity(
             Intent(
-                this, HomeActivity::class.java))
-
-
+                this, HomeActivity::class.java
+            )
+        )
     }
 
     override fun onStop() {
