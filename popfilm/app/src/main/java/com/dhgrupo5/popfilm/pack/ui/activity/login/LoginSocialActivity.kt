@@ -39,6 +39,7 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
     private val facebookButton by lazy { findViewById<Button>(R.id.login_button) }
     private val emailButton by lazy { findViewById<Button>(R.id.login_social_email_btn) }
     private val signupButton by lazy { findViewById<Button>(R.id.login_social_signup_btn) }
+    private val loginLaterButton by lazy { findViewById<Button>(R.id.login_later_btn) }
     private lateinit var viewModel: LoginSocialViewModel
     private var guestSession = GuestSession()
 
@@ -73,6 +74,10 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
         }
         signupButton.setOnClickListener() {
             val intent = Intent(this, LoginSignupActivity::class.java)
+            startActivity(intent)
+        }
+        loginLaterButton.setOnClickListener() {
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
 

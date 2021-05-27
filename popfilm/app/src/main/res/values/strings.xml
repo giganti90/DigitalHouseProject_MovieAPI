@@ -6,6 +6,7 @@
     <string name="login_Email">Entrar com email</string>
     <string name="login_signup">Cadastre-se aqui!</string>
     <string name="login_ignore">Entrar mais tarde!</string>
+    <string name="login_later">Fazer login depois</string>
     <string name="under_construction">Under construction</string>
     <string name="label_email">E-mail</string>
     <string name="label_password">Senha</string>
@@ -239,6 +240,7 @@
     <string name="menu_about">Sobre</string>
     <string name="menu_avaliacoes">Avaliações</string>
     <string name="menu_chat">Chat</string>
+    <string name="menu_catalogos">Catálogo</string>
     <string name="menu_filmes">Filmes</string>
     <string name="menu_home">Home</string>
     <string name="menu_login">Login</string>

@@ -7,4 +7,10 @@
         android:tooltipText="@string/menu_about"
         android:title="@string/menu_about"
         />
+    <item
+        android:id="@+id/menu_hom_mPerfil"
+        app:showAsAction="never"
+        android:tooltipText="@string/menu_perfil"
+        android:title="@string/menu_perfil"
+        />
 </menu>

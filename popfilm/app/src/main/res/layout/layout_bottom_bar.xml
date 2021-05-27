@@ -11,7 +11,6 @@
     android:paddingBottom="5dp"
     >
 
-
     <!-- home -->
     <LinearLayout style="@style/box_menu_bottom_bar" android:id="@+id/layout_bot_bar_llBoxHome">
         <ImageView android:id="@+id/layout_bottom_bar_ivHome" style="@style/image_view_menu_bottom_bar.home" app:tint="@android:color/black" />
@@ -19,7 +18,7 @@
     </LinearLayout>
 
     <!-- perfil -->
-    <LinearLayout style="@style/box_menu_bottom_bar" android:id="@+id/layout_bot_bar_llBoxPerfil">
+    <LinearLayout style="@style/box_menu_bottom_bar" android:id="@+id/layout_bot_bar_llBoxPerfil" android:visibility="gone">
         <ImageView android:id="@+id/layout_bottom_bar_ivPerfil" style="@style/image_view_menu_bottom_bar.perfil" app:tint="@color/colorMenu" />
         <TextView android:id="@+id/layout_bottom_bar_tvPerfil" style="@style/text_view_menu_bottom_bar" android:text="@string/menu_perfil"/>
     </LinearLayout>
@@ -31,7 +30,7 @@
     </LinearLayout>
 
     <!-- avaliações -->
-    <LinearLayout style="@style/box_menu_bottom_bar" android:id="@+id/layout_bot_bar_llBoxAvaliation">
+    <LinearLayout style="@style/box_menu_bottom_bar" android:id="@+id/layout_bot_bar_llBoxAvaliation" android:visibility="gone">
         <ImageView android:id="@+id/layout_bottom_bar_ivAvaliacoes" style="@style/image_view_menu_bottom_bar.avaliations" app:tint="@color/colorMenu" />
         <TextView android:id="@+id/layout_bottom_bar_tvAvaliacoes" style="@style/text_view_menu_bottom_bar" android:text="@string/menu_avaliacoes"/>
     </LinearLayout>
