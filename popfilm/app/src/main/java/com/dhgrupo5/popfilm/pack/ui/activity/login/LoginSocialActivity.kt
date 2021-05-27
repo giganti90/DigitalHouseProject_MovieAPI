@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.model.tmdb.auth.GuestSession
+import com.dhgrupo5.popfilm.pack.repository.FirebaseRepository
 import com.dhgrupo5.popfilm.pack.ui.activity.HomeActivity
 import com.dhgrupo5.popfilm.pack.ui.viewmodel.LoginSocialViewModel
 import com.facebook.AccessToken
@@ -143,6 +144,9 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
     //LoginFacebook
     private fun handleFacebookAccessToken(token: AccessToken) {
         Log.d("facebook", "handleFacebookAccessToken:$token")
+
+        // TODO: remove business logic from activity and decouple method
+        FirebaseRepository().userLoogedIn("Facebook token: ${token.userId}")
 
         startActivity(
             Intent(this, HomeActivity::class.java)

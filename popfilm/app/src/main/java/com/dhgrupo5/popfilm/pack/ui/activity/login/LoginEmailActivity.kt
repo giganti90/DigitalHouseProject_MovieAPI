@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dhgrupo5.popfilm.R
+import com.dhgrupo5.popfilm.pack.repository.FirebaseRepository
 import com.dhgrupo5.popfilm.pack.ui.activity.HomeActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -75,7 +76,12 @@ class LoginEmailActivity : AppCompatActivity() {
 
                 val intent = Intent(this, HomeActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+
+                // TODO: remove business logic from activity and decouple method
+                FirebaseRepository().userLoogedIn(email)
+
                 startActivity(intent)
+                finish()
             }
             .addOnFailureListener {
                 Toast.makeText(this, "Falha ao logar!: ${it.message}", Toast.LENGTH_SHORT).show()
