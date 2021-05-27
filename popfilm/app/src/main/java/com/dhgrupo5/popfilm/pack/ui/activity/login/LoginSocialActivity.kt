@@ -104,7 +104,7 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
                 if (user != null) {
 
                     // TODO: remove business logic from activity and decouple method
-                    FirebaseRepository().userLoogedIn(user.email
+                    FirebaseRepository().userLoggedIn(user.email
                         ?: "Failed to get email. Google login identifier: ${user.toString()}")
 
                     goMainScreen()
@@ -150,7 +150,7 @@ class LoginSocialActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFai
         Log.d("facebook", "handleFacebookAccessToken:$token")
 
         // TODO: remove business logic from activity and decouple method
-        FirebaseRepository().userLoogedIn("Facebook token: ${token.userId}")
+        FirebaseRepository().userLoggedIn("Facebook token: ${token.userId}")
 
         startActivity(
             Intent(this, HomeActivity::class.java)

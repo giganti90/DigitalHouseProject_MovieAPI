@@ -74,12 +74,11 @@ class LoginEmailActivity : AppCompatActivity() {
 
                 Log.d("Login", "Successo ao logar!: ${it.result?.user?.uid}")
 
+                // TODO: remove business logic from activity and decouple method
+                FirebaseRepository().userLoggedIn(email)
+
                 val intent = Intent(this, HomeActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-
-                // TODO: remove business logic from activity and decouple method
-                FirebaseRepository().userLoogedIn(email)
-
                 startActivity(intent)
                 finish()
             }

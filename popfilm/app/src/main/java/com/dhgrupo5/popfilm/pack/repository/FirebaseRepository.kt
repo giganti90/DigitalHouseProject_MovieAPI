@@ -6,9 +6,14 @@ import com.google.firebase.ktx.Firebase
 class FirebaseRepository {
     val firestore = Firebase.firestore
 
-    fun userLoogedIn(identifier: String) {
+    fun userLoggedIn(identifier: String) {
         firestore.collection("loggedInUsers")
             .add(identifier)
+    }
+
+    fun userLoggedOff(identifier: String) {
+        firestore.collection("loggedInUsers")
+            .document(identifier)
     }
 
     fun newRating(identifier: String) {
