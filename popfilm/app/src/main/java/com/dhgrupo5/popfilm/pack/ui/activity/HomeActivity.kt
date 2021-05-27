@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.BuildConfig
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.messages.LatestMessagesActivity
+import com.dhgrupo5.popfilm.pack.repository.FirebaseRepository
 import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginEmailActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.ProfileActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.RatingActivity
@@ -190,9 +191,17 @@ class HomeActivity : AppCompatActivity() {
             }
             R.id.menu_hom_mLogoff -> {
                 FirebaseAuth.getInstance().signOut()
+
+
                 val intent = Intent(this, LoginSocialActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
+
+                // TODO: remove business logic from activity and decouple method
+                // This won't work, because there is no identifier available
+                FirebaseRepository().userLoggedOff("")
+                Toast.makeText(this, "The user will stay on loggedInUsers collection," +
+                        " because there is no user identifier available yet",Toast.LENGTH_LONG).show()
             }
         }
 

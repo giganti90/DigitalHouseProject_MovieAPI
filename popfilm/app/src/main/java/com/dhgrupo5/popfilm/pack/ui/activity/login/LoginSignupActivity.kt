@@ -136,10 +136,16 @@ class LoginSignupActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 Log.d(LoginSignupActivity.TAG, "Finally we saved the user to Firebase Database")
 
-                val intent = Intent(this, LatestMessagesActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(intent)
+//                Code commented out to return to login screen after signing up
+//                val intent = Intent(this, LatestMessagesActivity::class.java)
+//                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+//                startActivity(intent)
 
+                startActivity(
+                    Intent(
+                        this, LoginEmailActivity::class.java
+                    )
+                )
             }
             .addOnFailureListener {
                 Log.d(LoginSignupActivity.TAG, "Failed to set value to database: ${it.message}")
