@@ -24,7 +24,7 @@ class MovieDetailsActivity : AppCompatActivity() {
     val overview by lazy { intent?.extras?.getString("overview") ?: throw IllegalStateException() }
     val repository by lazy { MoviesAPIRepository() }
 
-    val title by lazy { intent?.extras?.getString("title") }
+    val title by lazy { intent?.extras?.getString("title") ?: "Not found" }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
@@ -36,6 +36,7 @@ class MovieDetailsActivity : AppCompatActivity() {
         val ratingButton = findViewById<ImageButton>(R.id.rate)
         ratingButton.setOnClickListener {
             val intent = Intent(this, RatingActivity::class.java)
+                .putExtra("title",title)
             startActivity(intent)
         }
 

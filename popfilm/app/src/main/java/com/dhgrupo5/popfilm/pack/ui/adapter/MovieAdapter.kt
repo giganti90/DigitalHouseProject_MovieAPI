@@ -43,6 +43,7 @@ class MovieAdapter(private val list: MutableList<Movie>): RecyclerView.Adapter<M
 
             holder.itemView.context.startActivity(
                 Intent(holder.itemView.context, MovieDetailsActivity::class.java)
+                    .putExtra("title",list[position].title)
             )
         }
 
