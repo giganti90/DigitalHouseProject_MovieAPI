@@ -22,6 +22,7 @@ class FirebaseRepository {
 
     fun newRating(identifier: String) {
         firestore.collection("ratings")
-            .add(identifier)
+            .document(identifier)
+            .set(hashMapOf("identifier" to identifier))
     }
 }
