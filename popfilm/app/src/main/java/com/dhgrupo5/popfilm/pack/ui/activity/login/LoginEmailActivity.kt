@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.repository.FirebaseRepository
-import com.dhgrupo5.popfilm.pack.ui.activity.HomeActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.home.HomeActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
