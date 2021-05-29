@@ -4,5 +4,5 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class HomeViewModel: ViewModel() {
-    private val _genres: MutableLiveData<List<Genre>>()
+//    private val _genres: MutableLiveData<List<Genre>>()
 }
