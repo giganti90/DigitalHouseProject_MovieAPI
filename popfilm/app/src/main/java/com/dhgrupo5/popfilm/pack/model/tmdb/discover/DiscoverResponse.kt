@@ -2,7 +2,6 @@ package com.dhgrupo5.popfilm.pack.model.tmdb.discover
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
-import java.util.*
 
 data class DiscoverResponse(
     val page: Int? = null,
