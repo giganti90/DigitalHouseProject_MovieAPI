@@ -6,7 +6,7 @@ import java.io.Serializable
 data class DiscoverResponse(
     val page: Int? = null,
     @SerializedName("results")
-    val movie: List<Movie>? = null,
+    val movies: List<Movie>? = null,
     val total_pages: Int? = null,
     val total_results: Int? = null
 ) : Serializable

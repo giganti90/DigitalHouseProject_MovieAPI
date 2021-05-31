@@ -60,7 +60,7 @@ class CategoryActivity : AppCompatActivity() {
 
         MainScope().launch {
             CoroutineScope(Dispatchers.Main).launch {
-                val genres = repository.getGenre()
+                val genres = repository.getGenres()
 
                 populateAdapter(genres.genres!!.toMutableList())
             }

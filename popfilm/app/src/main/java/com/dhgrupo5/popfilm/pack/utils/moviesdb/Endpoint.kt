@@ -27,7 +27,7 @@ interface Endpoint {
 //    suspend fun getMovieMedia(@Path("id") movieId: ImageResponse)
 
     @GET("genre/movie/list")
-    suspend fun getGenre(
+    suspend fun getGenres(
         @Query("language") language: String?
     ): GenresResponseForCategories
 
@@ -49,7 +49,7 @@ interface Endpoint {
     suspend fun discoverMovies(
         @Query("language") language: String = "pt-BR",
         @Query("region") region: String = "BR",
-        @Query("sort_by") sortBy: String = "",
+        @Query("sort_by") sortBy: String = "popularity.desc",
         @Query("certification_country") certCountry: String = "",
         @Query("certification") certification: String = "",
         @Query("certification.lte") certMax: String = "",
@@ -72,7 +72,7 @@ interface Endpoint {
         @Query("with_crew") crew: String = "",
         @Query("with_people") people: String = "",
         @Query("with_companies") companies: String = "",
-        @Query("with_genres") genresInclude: List<GenreDCModelForCategories>,
+        @Query("with_genres") genresInclude: String = "",
         @Query("without_genres") genresExclude: String = "",
         @Query("with_keywords") keywordsInclude: String = "",
         @Query("without_keywords") keywordsExclude: String = "",
