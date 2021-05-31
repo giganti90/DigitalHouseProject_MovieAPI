@@ -1,6 +1,8 @@
 package com.dhgrupo5.popfilm.pack.model.tmdb.discover
 
-data class Result(
+import java.io.Serializable
+
+data class Movie(
     val adult: Boolean? = null,
     val backdrop_path: String? = null,
     val genre_ids: List<Int>? = null,
@@ -15,4 +17,4 @@ data class Result(
     val video: Boolean? = null,
     val vote_average: Double? = null,
     val vote_count: Int? = null
-)
+) : Serializable
