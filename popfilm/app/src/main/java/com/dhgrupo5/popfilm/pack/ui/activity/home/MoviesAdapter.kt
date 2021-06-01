@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.model.MovieResponse
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieDetailsActivity
+import com.dhgrupo5.popfilm.pack.utils.moviesdb.NetworkUtils
+import com.squareup.picasso.Picasso
 
 class MoviesAdapter(val movies: MutableList<MovieResponse>) : RecyclerView.Adapter<MoviesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -21,9 +23,11 @@ class MoviesAdapter(val movies: MutableList<MovieResponse>) : RecyclerView.Adapt
 
     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
         val movie = movies[position]
-        // Picasso
-        holder.imageView.setImageResource(R.drawable.bpposter)
         holder.textView.text = movie.title
+        // Picasso
+        val imageSize = "w500"
+        val posterUrl = "${NetworkUtils.IMG_BASE_URL}$imageSize${movie.posterPath}"
+        Picasso.get().load(posterUrl).into(holder.imageView)
 
         holder.itemView.setOnClickListener {
             holder.itemView.context.startActivity(
