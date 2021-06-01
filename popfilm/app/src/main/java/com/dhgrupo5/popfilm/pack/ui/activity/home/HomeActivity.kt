@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.BuildConfig
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.messages.LatestMessagesActivity
+import com.dhgrupo5.popfilm.pack.model.GenreDCModelForCategories
 import com.dhgrupo5.popfilm.pack.repository.FirebaseRepository
 import com.dhgrupo5.popfilm.pack.ui.activity.YoutubeActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity
@@ -36,9 +37,10 @@ class HomeActivity : AppCompatActivity() {
     private val menuBottomRatings: LinearLayout by lazy { findViewById(R.id.layout_bot_bar_llBoxAvaliation) }
     private val menuBottomChat: LinearLayout by lazy { findViewById(R.id.layout_bot_bar_llBoxChat) }
 
-    lateinit var recyclerView: RecyclerView
-
     private val viewmodel: HomeViewModel by viewModels()
+    private val recyclerView: RecyclerView by lazy { findViewById(R.id.rv_parent) }
+    private lateinit var adapter: GenresAdapter
+    private var genres = mutableListOf<GenreDCModelForCategories>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,26 +51,37 @@ class HomeActivity : AppCompatActivity() {
         settingClicks()
         categoryButton()
 
-        viewmodel.getGenres("1")
-        viewmodel.genres.observe(this) { genresList ->
 
-        }
+
+
+
+
 
     }
 
     private fun initRecycler() {
-        recyclerView = findViewById(R.id.rv_parent)
+        adapter = GenresAdapter(genres)
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(
+            this,
+            LinearLayoutManager.VERTICAL,
+            false
+        )
+        viewmodel.getGenres()
+        viewmodel.genres.observe(this, { genresList ->
+            genres.addAll(genresList)
+            adapter.notifyDataSetChanged()
+        })
 
-        recyclerView.apply {
-            layoutManager = LinearLayoutManager(
-                this@HomeActivity,
-                LinearLayoutManager.VERTICAL, false
-            )
-            adapter = ParentAdapter(
-                Parent.getParents(40)
-            )
-        }
-
+//        recyclerView.apply {
+//            layoutManager = LinearLayoutManager(
+//                this@HomeActivity,
+//                LinearLayoutManager.VERTICAL, false
+//            )
+//            adapter = ParentAdapter(
+//                Parent.getParents(40)
+//            )
+//        }
     }
 
 

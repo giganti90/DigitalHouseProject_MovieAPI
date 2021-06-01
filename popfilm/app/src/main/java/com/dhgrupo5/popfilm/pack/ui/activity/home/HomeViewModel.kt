@@ -16,7 +16,7 @@ class HomeViewModel: ViewModel() {
 
     private val moviesRepository = MoviesAPIRepository()
 
-    fun getGenres(genre: String) = CoroutineScope(Dispatchers.IO).launch {
+    fun getGenres() = CoroutineScope(Dispatchers.IO).launch {
         val genresList = moviesRepository.getGenres().genres?.toMutableList() ?: listOf()
         genresList.forEach { genre ->
             genre.movies = moviesRepository.getMoviesByGenre(genre.id).movies.toMutableList()
