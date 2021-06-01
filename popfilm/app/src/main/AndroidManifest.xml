@@ -45,7 +45,7 @@
 
         <activity android:name=".pack.ui.activity.movies.CategoryDetailActivity" />
         <activity android:name=".pack.ui.activity.movies.CategoryActivity" />
-        <activity android:name=".pack.ui.activity.HomeActivity" />
+        <activity android:name=".pack.ui.activity.home.HomeActivity" />
         <activity android:name=".pack.ui.activity.YoutubeActivity" />
         <activity android:name=".pack.ui.activity.login.ForgotPasswordActivity" />
         <activity android:name=".pack.ui.activity.login.LoginSocialActivity" />

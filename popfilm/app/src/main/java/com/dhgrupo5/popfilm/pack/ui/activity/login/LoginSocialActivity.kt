@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.model.tmdb.auth.GuestSession
 import com.dhgrupo5.popfilm.pack.repository.FirebaseRepository
-import com.dhgrupo5.popfilm.pack.ui.activity.HomeActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.home.HomeActivity
 import com.dhgrupo5.popfilm.pack.ui.viewmodel.LoginSocialViewModel
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
