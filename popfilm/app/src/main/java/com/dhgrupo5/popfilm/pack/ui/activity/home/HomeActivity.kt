@@ -49,6 +49,11 @@ class HomeActivity : AppCompatActivity() {
         settingClicks()
         categoryButton()
 
+        viewmodel.getGenres("1")
+        viewmodel.genres.observe(this) { genresList ->
+
+        }
+
     }
 
     private fun initRecycler() {
