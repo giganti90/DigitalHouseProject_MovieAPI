@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.models.ChatMessage
 import com.dhgrupo5.popfilm.models.User
-import com.dhgrupo5.popfilm.pack.ui.activity.HomeActivity
+import com.dhgrupo5.popfilm.pack.ui.activity.home.HomeActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginEmailActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSignupActivity
 import com.dhgrupo5.popfilm.views.LatestMessageRow

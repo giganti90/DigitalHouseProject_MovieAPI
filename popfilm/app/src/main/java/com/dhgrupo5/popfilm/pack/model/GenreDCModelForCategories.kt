@@ -6,7 +6,7 @@ import java.io.Serializable
 data class GenreDCModelForCategories(
     val id: String,
     val name: String,
-    var movies: MutableList<MovieResponse>?
+    var movies: MutableList<MovieResponse> = mutableListOf()
 ):Serializable
 
 
