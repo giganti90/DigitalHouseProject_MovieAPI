@@ -6,9 +6,13 @@ import android.widget.RatingBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dhgrupo5.popfilm.R
+import com.dhgrupo5.popfilm.pack.repository.FirebaseRepository
 import com.google.android.material.snackbar.Snackbar
 
 class RatingActivity : AppCompatActivity() {
+
+    val title by lazy { intent?.extras?.getString("title") ?: "Not found" }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rating)
@@ -34,11 +38,12 @@ class RatingActivity : AppCompatActivity() {
         val rBar = findViewById<RatingBar>(R.id.ratingBar)
 
         updatebutton?.setOnClickListener {
-            val msg = rBar.rating.toString()
+            val msg = "Avaliado em ${rBar.rating}"
             Toast.makeText(
-                    this, "Avaliado em " + rBar,
+                    this, msg,
                     Toast.LENGTH_SHORT
             ).show()
+            FirebaseRepository().newRating(title, rBar.rating)
         }
     }
 }

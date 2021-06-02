@@ -1,5 +1,6 @@
 package com.dhgrupo5.popfilm.pack.repository
 
+import android.media.Rating
 import com.google.common.base.Strings
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -20,8 +21,14 @@ class FirebaseRepository {
             .delete()
     }
 
-    fun newRating(identifier: String) {
+    fun newRating(title: String, rating: Float) {
         firestore.collection("ratings")
-            .add(identifier)
+            .document(title)
+            .set(
+                hashMapOf(
+                    "title" to title,
+                    "rating" to rating
+                )
+            )
     }
 }
