@@ -54,12 +54,6 @@ class CategoryDetailActivity : AppCompatActivity() {
             var adapter = CategoryInfoAdapterForCategories(discover.movies.toMutableList())
             recycler.adapter = adapter
 
-
-            Toast.makeText(
-                    this@CategoryDetailActivity,
-                    "Primeiro filme é:\n${discover.movies[0].title}",
-                    Toast.LENGTH_SHORT
-            ).show()
         }
 
     }

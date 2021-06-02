@@ -28,9 +28,8 @@ class CategoryInfoAdapterForCategories(var list:MutableList<MovieResponse>): Rec
 
     override fun onBindViewHolder(holderForCategories: CategoryInfoViewHolderForCategories, position: Int) {
         holderForCategories.title.text = list[position].title
-
         val movie = list[position]
-//        holderForCategories.textView.text = movie.title
+
         // Picasso
         val imageSize = "w500"
         val posterUrl = "${NetworkUtils.IMG_BASE_URL}$imageSize${movie.posterPath}"
@@ -49,5 +48,4 @@ class CategoryInfoViewHolderForCategories(view : View) : RecyclerView.ViewHolder
     val title by lazy { view.findViewById<TextView>(R.id.layout_lista_detcat_tvTitle) }
     val image by lazy { view.findViewById<ImageView>(R.id.layout_list_cat_det_ivImage) }
 
-//    val imageView: ImageView = itemView.findViewById(R.id.child_imageView)
 }
