@@ -49,3 +49,6 @@ class CategoryInfoViewHolderForCategories(view : View) : RecyclerView.ViewHolder
     val image by lazy { view.findViewById<ImageView>(R.id.layout_list_cat_det_ivImage) }
 
 }
+
+
+//adicionando este comentario para fazer o merge com a development de novo e subir a home atualizada
