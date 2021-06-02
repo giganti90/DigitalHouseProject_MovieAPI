@@ -36,7 +36,6 @@ class HomeActivity : AppCompatActivity() {
     private val menuBottomMovies: LinearLayout by lazy { findViewById(R.id.layout_bot_bar_llBoxFilms) }
     private val menuBottomRatings: LinearLayout by lazy { findViewById(R.id.layout_bot_bar_llBoxAvaliation) }
     private val menuBottomChat: LinearLayout by lazy { findViewById(R.id.layout_bot_bar_llBoxChat) }
-
     private val viewmodel: HomeViewModel by viewModels()
     private val recyclerView: RecyclerView by lazy { findViewById(R.id.rv_parent) }
     private lateinit var adapter: GenresAdapter
@@ -49,13 +48,6 @@ class HomeActivity : AppCompatActivity() {
         settingToolbar()
         initRecycler()
         settingClicks()
-        categoryButton()
-
-
-
-
-
-
 
     }
 
@@ -228,13 +220,4 @@ class HomeActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun categoryButton() {
-        val categoryButton = findViewById<TextView>(R.id.title_categories)
-        categoryButton.setOnClickListener {
-            val intent = Intent(this, CategoryActivity::class.java)
-            startActivity(intent)
-        }
-
-
-    }
 }
