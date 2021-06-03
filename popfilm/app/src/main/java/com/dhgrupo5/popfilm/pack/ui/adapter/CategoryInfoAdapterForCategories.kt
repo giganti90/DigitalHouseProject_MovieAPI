@@ -24,7 +24,7 @@ class CategoryInfoAdapterForCategories(var list:MutableList<MovieResponse>): Rec
 
     override fun getItemCount(): Int {
         return list.size
-        }
+    }
 
     override fun onBindViewHolder(holderForCategories: CategoryInfoViewHolderForCategories, position: Int) {
         holderForCategories.title.text = list[position].title
@@ -37,8 +37,10 @@ class CategoryInfoAdapterForCategories(var list:MutableList<MovieResponse>): Rec
 
         holderForCategories.itemView.setOnClickListener {
             holderForCategories.itemView.context.startActivity(
-                    Intent(holderForCategories.itemView.context, MovieDetailsActivity::class.java)
-                            .putExtra("id", list[position].id)
+                Intent(holderForCategories.itemView.context, MovieDetailsActivity::class.java)
+                    .putExtra("id", list[position].id)
+                    .putExtra("title", list[position].title)
+                    .putExtra("overview", list[position].overview)
             )
         }
     }
@@ -52,3 +54,4 @@ class CategoryInfoViewHolderForCategories(view : View) : RecyclerView.ViewHolder
 
 
 //adicionando este comentario para fazer o merge com a development de novo e subir a home atualizada
+

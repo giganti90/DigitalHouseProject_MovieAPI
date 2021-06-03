@@ -25,13 +25,12 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".messages.NewMessageActivity"
+        <activity android:name=".messages.NewMessageActivity"
             tools:ignore="ExtraText" >
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".messages.LatestMessagesActivity" />
+                android:value=".messages.LatestMessagesActivity"  />
         </activity>
         <activity android:name=".messages.ChatLogActivity" >
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
@@ -57,6 +56,6 @@
         <activity android:name=".pack.ui.activity.login.LoginSignupActivity" />
         <activity android:name=".pack.ui.activity.login.LoginEmailActivity" />
 
-</application>
+    </application>
 
 </manifest>
