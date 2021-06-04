@@ -32,6 +32,7 @@ class MoviesAdapter(val movies: MutableList<MovieResponse>) : RecyclerView.Adapt
         holder.itemView.setOnClickListener {
             holder.itemView.context.startActivity(
                 Intent(holder.itemView.context, MovieDetailsActivity::class.java)
+                    .putExtra("movie",movie)
             )
         }
     }
