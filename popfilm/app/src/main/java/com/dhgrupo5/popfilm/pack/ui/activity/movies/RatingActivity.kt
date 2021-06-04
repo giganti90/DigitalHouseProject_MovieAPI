@@ -29,7 +29,7 @@ class RatingActivity : AppCompatActivity() {
         val url = "${NetworkUtils.IMG_BASE_URL}w500${movie.posterPath}"
         Picasso.get().load(url).into(image)
         synopsis.text = movie.overview.toString()
-        
+
     }
 
 
