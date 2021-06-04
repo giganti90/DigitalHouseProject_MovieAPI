@@ -11,6 +11,7 @@ import com.dhgrupo5.popfilm.pack.model.MovieResponse
 import com.dhgrupo5.popfilm.pack.repository.MoviesAPIRepository
 import androidx.activity.viewModels
 import com.dhgrupo5.popfilm.pack.ui.adapter.CategoryInfoAdapterForCategories
+import com.dhgrupo5.popfilm.pack.utils.moviesdb.NetworkUtils
 import com.squareup.picasso.Picasso
 
 class MovieDetailsActivity : AppCompatActivity() {
@@ -27,7 +28,7 @@ class MovieDetailsActivity : AppCompatActivity() {
 
     val name: TextView by lazy { findViewById(R.id.moviedetails_name) }
     val image: ImageView by lazy { findViewById(R.id.moviedetails_poster) }
-    val synopsis: TextView by lazy { findViewById(R.id.moviedetails) }
+    val synopsis: TextView by lazy { findViewById(R.id.moviedetails_synopsis) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +42,8 @@ class MovieDetailsActivity : AppCompatActivity() {
         if (informacoes != null) {
             movieResponse = informacoes.getSerializable("movie") as MovieResponse
             name.text = movieResponse.title
-            Picasso.get().load(movieResponse.url).into(image)
+            val url = "${NetworkUtils.IMG_BASE_URL}w500${movieResponse.posterPath}"
+            Picasso.get().load(url).into(image)
             synopsis.text = movieResponse.overview.toString()
         }
 
@@ -55,7 +57,9 @@ class MovieDetailsActivity : AppCompatActivity() {
         val ratingButton = findViewById<ImageButton>(R.id.rate)
         ratingButton.setOnClickListener {
             val intent = Intent(this, RatingActivity::class.java)
-                .putExtra("title",title)
+            movieResponse.let {
+                intent.putExtra("movie", movieResponse)
+            }
             startActivity(intent)
         }
 

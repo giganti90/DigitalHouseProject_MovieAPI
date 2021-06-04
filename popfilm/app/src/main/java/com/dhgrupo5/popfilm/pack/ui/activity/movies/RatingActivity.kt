@@ -1,24 +1,38 @@
 package com.dhgrupo5.popfilm.pack.ui.activity.movies
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.RatingBar
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.dhgrupo5.popfilm.R
+import com.dhgrupo5.popfilm.pack.model.MovieResponse
 import com.dhgrupo5.popfilm.pack.repository.FirebaseRepository
+import com.dhgrupo5.popfilm.pack.utils.moviesdb.NetworkUtils
 import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.Picasso
 
 class RatingActivity : AppCompatActivity() {
 
-    val title by lazy { intent?.extras?.getString("title") ?: "Not found" }
+    val movie by lazy { intent?.extras?.getSerializable("movie") as MovieResponse }
+
+    val name: TextView by lazy { findViewById(R.id.ratings_moviename)}
+    val image: ImageView by lazy { findViewById(R.id.rating_poster) }
+    val synopsis: TextView by lazy { findViewById(R.id.rating_synopsis)}
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rating)
 
         initViews()
+
+        name.text = movie.title
+        val url = "${NetworkUtils.IMG_BASE_URL}w500${movie.posterPath}"
+        Picasso.get().load(url).into(image)
+        synopsis.text = movie.overview.toString()
+        
     }
+
+
 
     private fun initViews() {
         val updatebutton = findViewById<Button>(R.id.button)
@@ -43,7 +57,7 @@ class RatingActivity : AppCompatActivity() {
                     this, msg,
                     Toast.LENGTH_SHORT
             ).show()
-            FirebaseRepository().newRating(title, rBar.rating)
+            FirebaseRepository().newRating(movie.title, rBar.rating)
         }
     }
 }
