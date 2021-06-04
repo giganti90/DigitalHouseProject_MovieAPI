@@ -41,7 +41,7 @@ class MovieDetailsActivity : AppCompatActivity() {
         if (informacoes != null) {
             val films = informacoes.getSerializable("id") as MovieResponse
             name.text = films.title
-            Picasso.with(this).load(films.url).into(imagem)
+            Picasso.get().load(films.url).into(imagem)
             synopsis.text = films.overview.toString()
         }
 
