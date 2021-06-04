@@ -3,49 +3,66 @@ package com.dhgrupo5.popfilm.pack.ui.activity.movies
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
-import android.widget.Toast
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat
 import com.dhgrupo5.popfilm.R
-import com.dhgrupo5.popfilm.pack.model.DiscoverResponse
 import com.dhgrupo5.popfilm.pack.model.MovieResponse
 import com.dhgrupo5.popfilm.pack.repository.MoviesAPIRepository
-import com.dhgrupo5.popfilm.pack.ui.adapter.MovieAdapter
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
+import androidx.activity.viewModels
+import com.dhgrupo5.popfilm.pack.ui.adapter.CategoryInfoAdapterForCategories
+import com.dhgrupo5.popfilm.pack.utils.moviesdb.NetworkUtils
+import com.squareup.picasso.Picasso
 
 class MovieDetailsActivity : AppCompatActivity() {
 
-    private val toolbar by lazy { findViewById<Toolbar>(R.id.layout_too_tPadrao) }
-    val movieID by lazy { intent?.extras?.getString("id") ?: throw IllegalStateException() }
-    val overview by lazy { intent?.extras?.getString("overview") ?: throw IllegalStateException() }
-    val repository by lazy { MoviesAPIRepository() }
+//    private val toolbar = findViewById<Toolbar>(R.id.layout_too_tPadrao)
+    val repository = MoviesAPIRepository()
 
-    val title by lazy { intent?.extras?.getString("title") ?: "Not found" }
+    private lateinit var movieResponse: MovieResponse
+
+    private val viewmodel: MovieDetailsViewModel by viewModels()
+    private lateinit var adapter: CategoryInfoAdapterForCategories
+    private var films = mutableListOf<MovieResponse>()
+
+
+    val name: TextView by lazy { findViewById(R.id.moviedetails_name) }
+    val image: ImageView by lazy { findViewById(R.id.moviedetails_poster) }
+    val synopsis: TextView by lazy { findViewById(R.id.moviedetails_synopsis) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
 
 //        settingToolbar()
-//        getMovieDetails()
+
+
+        val informacoes = intent.extras
+
+        if (informacoes != null) {
+            movieResponse = informacoes.getSerializable("movie") as MovieResponse
+            name.text = movieResponse.title
+            val url = "${NetworkUtils.IMG_BASE_URL}w500${movieResponse.posterPath}"
+            Picasso.get().load(url).into(image)
+            synopsis.text = movieResponse.overview.toString()
+        }
+
+//        adapter = CategoryInfoAdapterForCategories(films)
+//        viewmodel.getGenres()
+//        viewmodel.genres.observe( this, {list ->
+//            films.addAll()
+//        } )
 
 
         val ratingButton = findViewById<ImageButton>(R.id.rate)
         ratingButton.setOnClickListener {
             val intent = Intent(this, RatingActivity::class.java)
-                .putExtra("title",title)
+            movieResponse.let {
+                intent.putExtra("movie", movieResponse)
+            }
             startActivity(intent)
         }
 
-        val whereButton = findViewById<ImageButton>(R.id.where_to_watch)
-        ratingButton.setOnClickListener {
-            val intent = Intent(this, RatingActivity::class.java)
-            startActivity(intent)
-
-        }
 
         val trailerButton = findViewById<ImageButton>(R.id.play_trailer)
         trailerButton.setOnClickListener {
@@ -68,33 +85,13 @@ class MovieDetailsActivity : AppCompatActivity() {
 //            actionbar?.setDisplayHomeAsUpEnabled(true)
 //        }
 
-//        fun populateAdapter(discover: DiscoverResponse){
+//        fun populateAdapter(discover: DiscoverResponse) : CategoryInfoAdapterForCategories {
+//            var movieOverview = CategoryInfoAdapterForCategories()
 //
 //            MainScope().launch {
-//                var movieOverview = MovieAdapter(discover.movies.toMutableList())
-//                var movieTitle = MovieAdapter(discover.id)
-
-//                Toast.makeText(
-//                        this@MovieDetailsActivity,
-//                        "Nome do filme é:\n${discover.title[0]}",
-//                        Toast.LENGTH_SHORT
-//                ).show()
-//            }
-
-
-
-
-
-//        fun getMovieDetails(){
-//            MainScope().launch {
-//                CoroutineScope(Dispatchers.Main).launch {
-//                    val overviewResponse = repository.getMovieDetails(overview) //movieID?
+//                movieOverview = CategoryInfoAdapterForCategories(discover.movies.toMutableList())
 //
-//                    populateAdapter(overviewResponse)
-//                }
 //            }
+//            return movieOverview
 //        }
 }
-
-
-

@@ -11,7 +11,7 @@
 
 
     <ImageView
-        android:id="@+id/profilePhoto"
+        android:id="@+id/rating_poster"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="#999"
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/profilePhoto" />
+        app:layout_constraintTop_toBottomOf="@id/rating_poster" />
 
 <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
 <!--        android:id="@+id/botao_foto"-->
@@ -72,9 +72,9 @@
         android:inputType="text"
         android:textColorHint="#369fbb"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@id/profilePhoto"
-        app:layout_constraintStart_toStartOf="@id/profilePhoto"
-        app:layout_constraintTop_toBottomOf="@id/profilePhoto" />
+        app:layout_constraintEnd_toEndOf="@id/rating_poster"
+        app:layout_constraintStart_toStartOf="@id/rating_poster"
+        app:layout_constraintTop_toBottomOf="@id/rating_poster" />
 
 
     <com.google.android.material.textfield.TextInputLayout

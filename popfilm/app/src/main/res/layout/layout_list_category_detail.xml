@@ -7,30 +7,34 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/white"
-    android:paddingRight="3dp"
-    android:paddingBottom="6dp"
+    android:background="@drawable/background_movieposters"
     >
 
     <ImageView
         android:id="@+id/layout_list_cat_det_ivImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/ic_launcher_background"
         android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="12dp"
+
         />
 
     <TextView
+
         android:id="@+id/layout_lista_detcat_tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="@string/menu_youtube"
-        android:textSize="14sp"
+        android:textSize="22sp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="5dp"
-        android:textColor="@color/colorListItemText"
+        android:layout_marginBottom="6dp"
+        android:background="#F6F6F6"
+        android:paddingBottom="4dp"
+        android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
         />
 
 </LinearLayout>
