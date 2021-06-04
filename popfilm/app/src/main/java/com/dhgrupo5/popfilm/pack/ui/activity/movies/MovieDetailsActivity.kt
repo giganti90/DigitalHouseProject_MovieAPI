@@ -27,7 +27,7 @@ class MovieDetailsActivity : AppCompatActivity() {
 
     val name: TextView by lazy { findViewById(R.id.moviedetails_name) }
     val image: ImageView by lazy { findViewById(R.id.moviedetails_poster) }
-    val synopsis: TextView by lazy { findViewById(R.id.rating_synopsis) }
+    val synopsis: TextView by lazy { findViewById(R.id.moviedetails) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
