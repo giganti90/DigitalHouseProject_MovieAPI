@@ -16,15 +16,18 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
+import android.widget.ImageView
+import android.widget.TextView
+import com.squareup.picasso.Picasso
 
 class MovieDetailsActivity : AppCompatActivity() {
 
-    private val toolbar by lazy { findViewById<Toolbar>(R.id.layout_too_tPadrao) }
-    val repository by lazy { MoviesAPIRepository() }
+    private val toolbar = findViewById<Toolbar>(R.id.layout_too_tPadrao)
+    val repository = MoviesAPIRepository()
 
-    val name by lazy { findViewById<ImageView>(R.id.movie_name) }
-    val imagem by lazy { findViewById<ImageView>(R.id.profilePhoto) }
-    val synopsis by lazy { findViewById<ImageView>(R.id.movie_details) }
+    val name = findViewById<TextView>(R.id.movie_name)
+    val imagem = findViewById<ImageView>(R.id.profilePhoto)
+    val synopsis = findViewById<TextView>(R.id.movie_details)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,10 +39,10 @@ class MovieDetailsActivity : AppCompatActivity() {
         val informacoes = intent.extras
 
         if (informacoes != null) {
-            val films = informacoes.getSerializable("MOVIE") as MovieResponse
-            name.text = name.title
-            Picasso.with(this).load(films.imageUrl).into(imagem)
-            synopsis.text = films.id.toString()
+            val films = informacoes.getSerializable("id") as MovieResponse
+            name.text = films.title
+            Picasso.with(this).load(films.url).into(imagem)
+            synopsis.text = films.overview.toString()
         }
 
 
@@ -50,12 +53,6 @@ class MovieDetailsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val whereButton = findViewById<ImageButton>(R.id.where_to_watch)
-        ratingButton.setOnClickListener {
-            val intent = Intent(this, RatingActivity::class.java)
-            startActivity(intent)
-
-        }
 
         val trailerButton = findViewById<ImageButton>(R.id.play_trailer)
         trailerButton.setOnClickListener {
