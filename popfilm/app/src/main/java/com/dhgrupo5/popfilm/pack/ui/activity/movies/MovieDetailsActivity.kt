@@ -3,31 +3,31 @@ package com.dhgrupo5.popfilm.pack.ui.activity.movies
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat
-import com.dhgrupo5.popfilm.R
-import com.dhgrupo5.popfilm.pack.model.DiscoverResponse
-import com.dhgrupo5.popfilm.pack.model.MovieResponse
-import com.dhgrupo5.popfilm.pack.repository.MoviesAPIRepository
-import com.dhgrupo5.popfilm.pack.ui.adapter.MovieAdapter
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.dhgrupo5.popfilm.R
+import com.dhgrupo5.popfilm.pack.model.MovieResponse
+import com.dhgrupo5.popfilm.pack.repository.MoviesAPIRepository
+import androidx.activity.viewModels
+import com.dhgrupo5.popfilm.pack.ui.adapter.CategoryInfoAdapterForCategories
 import com.squareup.picasso.Picasso
 
 class MovieDetailsActivity : AppCompatActivity() {
 
-    private val toolbar = findViewById<Toolbar>(R.id.layout_too_tPadrao)
+//    private val toolbar = findViewById<Toolbar>(R.id.layout_too_tPadrao)
     val repository = MoviesAPIRepository()
 
-    val name = findViewById<TextView>(R.id.movie_name)
-    val imagem = findViewById<ImageView>(R.id.profilePhoto)
-    val synopsis = findViewById<TextView>(R.id.movie_details)
+    private lateinit var movieResponse: MovieResponse
+
+    private val viewmodel: MovieDetailsViewModel by viewModels()
+    private lateinit var adapter: CategoryInfoAdapterForCategories
+    private var films = mutableListOf<MovieResponse>()
+
+
+    val name: TextView by lazy { findViewById(R.id.moviedetails_name) }
+    val image: ImageView by lazy { findViewById(R.id.moviedetails_poster) }
+    val synopsis: TextView by lazy { findViewById(R.id.rating_synopsis) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,11 +39,17 @@ class MovieDetailsActivity : AppCompatActivity() {
         val informacoes = intent.extras
 
         if (informacoes != null) {
-            val films = informacoes.getSerializable("id") as MovieResponse
-            name.text = films.title
-            Picasso.get().load(films.url).into(imagem)
-            synopsis.text = films.overview.toString()
+            movieResponse = informacoes.getSerializable("movie") as MovieResponse
+            name.text = movieResponse.title
+            Picasso.get().load(movieResponse.url).into(image)
+            synopsis.text = movieResponse.overview.toString()
         }
+
+//        adapter = CategoryInfoAdapterForCategories(films)
+//        viewmodel.getGenres()
+//        viewmodel.genres.observe( this, {list ->
+//            films.addAll()
+//        } )
 
 
         val ratingButton = findViewById<ImageButton>(R.id.rate)
@@ -75,18 +81,13 @@ class MovieDetailsActivity : AppCompatActivity() {
 //            actionbar?.setDisplayHomeAsUpEnabled(true)
 //        }
 
-//        fun populateAdapter(discover: DiscoverResponse){
+//        fun populateAdapter(discover: DiscoverResponse) : CategoryInfoAdapterForCategories {
+//            var movieOverview = CategoryInfoAdapterForCategories()
 //
 //            MainScope().launch {
-//                var movieOverview = MovieAdapter(discover.movies.toMutableList())
-//                var movieTitle = MovieAdapter(discover.id)
-
-//                Toast.makeText(
-//                        this@MovieDetailsActivity,
-//                        "Nome do filme é:\n${discover.title[0]}",
-//                        Toast.LENGTH_SHORT
-//                ).show()
+//                movieOverview = CategoryInfoAdapterForCategories(discover.movies.toMutableList())
+//
 //            }
-
-
+//            return movieOverview
+//        }
 }

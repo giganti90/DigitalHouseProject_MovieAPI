@@ -12,7 +12,7 @@
 
 
     <ImageView
-        android:id="@+id/profilePhoto"
+        android:id="@+id/moviedetails_poster"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:adjustViewBounds="true"
@@ -29,13 +29,13 @@
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:layout_marginTop="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/movie_name"
-        app:layout_constraintEnd_toEndOf="@+id/movie_name"
-        app:layout_constraintStart_toStartOf="@+id/movie_name"
-        app:layout_constraintTop_toBottomOf="@+id/profilePhoto" />
+        app:layout_constraintBottom_toBottomOf="@+id/moviedetails_name"
+        app:layout_constraintEnd_toEndOf="@+id/moviedetails_name"
+        app:layout_constraintStart_toStartOf="@+id/moviedetails_name"
+        app:layout_constraintTop_toBottomOf="@+id/moviedetails_poster" />
 
     <TextView
-        android:id="@+id/movie_name"
+        android:id="@+id/moviedetails_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -47,7 +47,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/screen_layout_movie_details"
         app:layout_constraintStart_toStartOf="@id/screen_layout_movie_details"
-        app:layout_constraintTop_toBottomOf="@id/profilePhoto" />
+        app:layout_constraintTop_toBottomOf="@id/moviedetails_poster" />
 
     <TextView
         android:id="@+id/movie_length"
@@ -60,20 +60,20 @@
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@id/screen_layout_movie_details"
         app:layout_constraintStart_toStartOf="@id/screen_layout_movie_details"
-        app:layout_constraintTop_toBottomOf="@id/movie_name" />
+        app:layout_constraintTop_toBottomOf="@id/moviedetails_name" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/LayoutThree"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/movie_details"
-        app:layout_constraintEnd_toEndOf="@+id/movie_details"
-        app:layout_constraintStart_toStartOf="@+id/movie_details"
+        app:layout_constraintBottom_toBottomOf="@+id/rating_synopsis"
+        app:layout_constraintEnd_toEndOf="@+id/rating_synopsis"
+        app:layout_constraintStart_toStartOf="@+id/rating_synopsis"
         app:layout_constraintTop_toBottomOf="@+id/LayoutTwo" />
 
     <TextView
-        android:id="@+id/movie_details"
+        android:id="@+id/rating_synopsis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -119,7 +119,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/play_trailer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/movie_details"
+        app:layout_constraintTop_toBottomOf="@+id/rating_synopsis"
         app:layout_constraintVertical_bias="0.501" />
 
     <TextView
@@ -151,7 +151,7 @@
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/screen_layout_movie_details"
-        app:layout_constraintTop_toBottomOf="@+id/movie_details"
+        app:layout_constraintTop_toBottomOf="@+id/rating_synopsis"
         app:layout_constraintVertical_bias="0.501" />
 
     <TextView

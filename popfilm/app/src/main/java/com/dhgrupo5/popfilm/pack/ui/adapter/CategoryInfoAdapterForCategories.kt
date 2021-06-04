@@ -38,9 +38,8 @@ class CategoryInfoAdapterForCategories(var list:MutableList<MovieResponse>): Rec
         holderForCategories.itemView.setOnClickListener {
             holderForCategories.itemView.context.startActivity(
                 Intent(holderForCategories.itemView.context, MovieDetailsActivity::class.java)
-                    .putExtra("id", list[position].id)
-                    .putExtra("title", list[position].title)
-                    .putExtra("overview", list[position].overview)
+                    .putExtra("movie", list[position])
+
             )
         }
     }
