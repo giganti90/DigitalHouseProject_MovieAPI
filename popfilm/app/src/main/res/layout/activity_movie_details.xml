@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/screen_layout_movie_details"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#f3f3f3"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".pack.ui.activity.movies.MovieDetailsActivity">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/layout_toolbar" />
 
 
     <ImageView
         android:id="@+id/moviedetails_poster"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:background="#999"
         android:scaleType="fitXY"
         android:src="@drawable/bpposter"
         app:layout_constraintEnd_toEndOf="@id/screen_layout_movie_details"
         app:layout_constraintStart_toStartOf="@id/screen_layout_movie_details"
-        app:layout_constraintTop_toTopOf="@id/screen_layout_movie_details" />
+        app:layout_constraintTop_toBottomOf="@+id/include" />
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -83,6 +90,7 @@
         android:textAlignment="viewStart"
         android:textColor="#000"
         android:textSize="18sp"
+        android:paddingBottom="40dp"
         app:layout_constraintEnd_toEndOf="@id/screen_layout_movie_details"
         app:layout_constraintStart_toStartOf="@id/screen_layout_movie_details"
         app:layout_constraintTop_toBottomOf="@id/LayoutTwo" />
@@ -93,7 +101,7 @@
         android:id="@+id/choose_action"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="60dp"
+        android:layout_marginTop="40dp"
         android:text="Escolha uma ação:"
         android:textAlignment="center"
         android:textColor="#000"
@@ -111,7 +119,7 @@
         android:adjustViewBounds="true"
         android:background="#f3f3f3"
         android:contentDescription="Avaliar"
-        android:padding="0dp"
+        android:paddingTop="20dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_action_greystar"
         android:textAlignment="center"
@@ -145,7 +153,7 @@
         android:background="#f3f3f3"
         android:contentDescription="Ver Trailer"
         android:gravity="center"
-        android:padding="0dp"
+        android:paddingTop="20dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_action_playfilled"
         android:textAlignment="center"
@@ -167,11 +175,12 @@
         android:textStyle="bold"
         android:background="#f3f3f3"
         app:layout_constraintEnd_toEndOf="@+id/play_trailer"
-        app:layout_constraintTop_toBottomOf="@+id/play_trailer" />
+        app:layout_constraintTop_toBottomOf="@+id/play_trailer"
+        android:paddingBottom="8dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+    </ScrollView>
 
 

@@ -10,6 +10,8 @@ import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.model.MovieResponse
 import com.dhgrupo5.popfilm.pack.repository.MoviesAPIRepository
 import androidx.activity.viewModels
+import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import com.dhgrupo5.popfilm.pack.ui.adapter.CategoryInfoAdapterForCategories
 import com.dhgrupo5.popfilm.pack.utils.moviesdb.NetworkUtils
 import com.squareup.picasso.Picasso
@@ -21,9 +23,8 @@ class MovieDetailsActivity : AppCompatActivity() {
 
     private lateinit var movieResponse: MovieResponse
 
-    private val viewmodel: MovieDetailsViewModel by viewModels()
-    private lateinit var adapter: CategoryInfoAdapterForCategories
-    private var films = mutableListOf<MovieResponse>()
+    val toolbar by lazy { findViewById<Toolbar>(R.id.layout_too_tPadrao) }
+    val title by lazy { intent?.extras?.getString("title") ?: throw IllegalStateException() }
 
 
     val name: TextView by lazy { findViewById(R.id.moviedetails_name) }
@@ -34,7 +35,7 @@ class MovieDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
 
-//        settingToolbar()
+        settingToolbar()
 
 
         val informacoes = intent.extras
@@ -47,11 +48,6 @@ class MovieDetailsActivity : AppCompatActivity() {
             synopsis.text = movieResponse.overview.toString()
         }
 
-//        adapter = CategoryInfoAdapterForCategories(films)
-//        viewmodel.getGenres()
-//        viewmodel.genres.observe( this, {list ->
-//            films.addAll()
-//        } )
 
 
         val ratingButton = findViewById<ImageButton>(R.id.rate)
@@ -76,14 +72,14 @@ class MovieDetailsActivity : AppCompatActivity() {
 
 
 
-//        fun settingToolbar(){
-//            toolbar.setTitle(title)
-//            toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.toolbar_textcolor));
-//
-//            setSupportActionBar(toolbar)
-//            var actionbar = supportActionBar
-//            actionbar?.setDisplayHomeAsUpEnabled(true)
-//        }
+    fun settingToolbar() {
+//        toolbar.setTitle(title)
+        toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.toolbar_textcolor));
+
+        setSupportActionBar(toolbar)
+        var actionbar = supportActionBar
+        actionbar?.setDisplayHomeAsUpEnabled(true)
+    }
 
 //        fun populateAdapter(discover: DiscoverResponse) : CategoryInfoAdapterForCategories {
 //            var movieOverview = CategoryInfoAdapterForCategories()
