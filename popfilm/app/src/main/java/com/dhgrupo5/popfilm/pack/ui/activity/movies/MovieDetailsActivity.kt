@@ -18,7 +18,6 @@ import com.squareup.picasso.Picasso
 
 class MovieDetailsActivity : AppCompatActivity() {
 
-//    private val toolbar = findViewById<Toolbar>(R.id.layout_too_tPadrao)
     val repository = MoviesAPIRepository()
 
     private lateinit var movieResponse: MovieResponse
@@ -30,6 +29,9 @@ class MovieDetailsActivity : AppCompatActivity() {
     val name: TextView by lazy { findViewById(R.id.moviedetails_name) }
     val image: ImageView by lazy { findViewById(R.id.moviedetails_poster) }
     val synopsis: TextView by lazy { findViewById(R.id.moviedetails_synopsis) }
+    val releaseDate: TextView by lazy { findViewById(R.id.moviedetails_releasedate) }
+//    val length: TextView by lazy { findViewById(R.id.moviedetails_length) }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +48,7 @@ class MovieDetailsActivity : AppCompatActivity() {
             val url = "${NetworkUtils.IMG_BASE_URL}w500${movieResponse.posterPath}"
             Picasso.get().load(url).into(image)
             synopsis.text = movieResponse.overview.toString()
+            releaseDate.text = movieResponse.releaseDateYear.toString()
         }
 
 
