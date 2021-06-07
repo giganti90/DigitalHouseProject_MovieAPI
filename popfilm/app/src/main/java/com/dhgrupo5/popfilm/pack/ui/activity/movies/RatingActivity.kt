@@ -3,6 +3,8 @@ package com.dhgrupo5.popfilm.pack.ui.activity.movies
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.model.MovieResponse
 import com.dhgrupo5.popfilm.pack.repository.FirebaseRepository
@@ -17,6 +19,8 @@ class RatingActivity : AppCompatActivity() {
     val name: TextView by lazy { findViewById(R.id.ratings_moviename)}
     val image: ImageView by lazy { findViewById(R.id.rating_poster) }
     val synopsis: TextView by lazy { findViewById(R.id.rating_synopsis)}
+    val toolbar by lazy { findViewById<Toolbar>(R.id.layout_too_tPadrao) }
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +28,7 @@ class RatingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_rating)
 
         initViews()
+        settingToolbar()
 
         name.text = movie.title
         val url = "${NetworkUtils.IMG_BASE_URL}w500${movie.posterPath}"
@@ -60,4 +65,14 @@ class RatingActivity : AppCompatActivity() {
             FirebaseRepository().newRating(movie.title, rBar.rating)
         }
     }
+
+    fun settingToolbar() {
+//        toolbar.setTitle(title)
+        toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.toolbar_textcolor));
+
+        setSupportActionBar(toolbar)
+        var actionbar = supportActionBar
+        actionbar?.setDisplayHomeAsUpEnabled(true)
+    }
+
 }

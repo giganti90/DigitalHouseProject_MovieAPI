@@ -1,26 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/scroll_rating">
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/screen_movie_rating"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".pack.ui.activity.movies.RatingActivity">
+    tools:context=".pack.ui.activity.movies.RatingActivity"
+    android:background="@color/colorListItemBackground_RippleStart"
+    >
+
+    <include
+        android:id="@+id/include_rating"
+        layout="@layout/layout_toolbar" />
 
 
     <ImageView
         android:id="@+id/rating_poster"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="#999"
-        android:src="@drawable/bpposter"
-        android:scaleType="fitXY"
+        android:layout_height="wrap_content"
         android:adjustViewBounds="true"
+        android:background="#999"
+        android:scaleType="fitXY"
+        android:src="@drawable/bpposter"
         app:layout_constraintEnd_toEndOf="@id/screen_movie_rating"
         app:layout_constraintStart_toStartOf="@id/screen_movie_rating"
-        app:layout_constraintTop_toTopOf="@id/screen_movie_rating" />
+        app:layout_constraintTop_toBottomOf="@+id/include_rating" />
 
     <TextView
         android:id="@+id/ratings_moviename"
@@ -28,10 +38,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:paddingStart="12dp"
-        android:text="Black Panther"
         android:textAlignment="viewStart"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/screen_movie_rating"
         app:layout_constraintStart_toStartOf="@id/screen_movie_rating"
@@ -44,8 +53,8 @@
         android:paddingStart="12dp"
         android:text="2h14min    2018"
         android:textAlignment="viewStart"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@id/screen_movie_rating"
         app:layout_constraintStart_toStartOf="@id/screen_movie_rating"
         app:layout_constraintTop_toBottomOf="@id/ratings_moviename" />
@@ -62,16 +71,6 @@
 
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/LayoutThree"
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/rating_synopsis"
-        app:layout_constraintEnd_toEndOf="@+id/rating_synopsis"
-        app:layout_constraintStart_toStartOf="@+id/rating_synopsis"
-        app:layout_constraintTop_toBottomOf="@+id/LayoutTwo" />
-
     <TextView
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
@@ -80,49 +79,44 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="PopFilm"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
+        android:textSize="18sp"
+        android:paddingTop="20dp"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="@id/screen_movie_rating"
         app:layout_constraintStart_toStartOf="@id/screen_movie_rating"
         app:layout_constraintTop_toBottomOf="@id/LayoutTwo" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/LayoutFour"
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_marginTop="12dp"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/rating_synopsis"
-        app:layout_constraintStart_toStartOf="@+id/rating_synopsis"
-        app:layout_constraintTop_toBottomOf="@+id/rating_synopsis" />
 
     <TextView
         android:id="@+id/choose_action"
-        android:paddingTop="90dp"
+        android:paddingTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Avalie este filme!"
         android:textAlignment="center"
         android:paddingBottom="12dp"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/screen_movie_rating"
         app:layout_constraintStart_toStartOf="@id/screen_movie_rating"
-        app:layout_constraintTop_toBottomOf="@id/rating_synopsis" />
+        app:layout_constraintTop_toBottomOf="@id/rating_synopsis"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        />
 
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorTopWave"
+        android:paddingTop="20dp"
+        android:background="#f3f3f3"
         android:numStars="5"
+        android:progressBackgroundTint="#B7B4BB"
+        android:progressTint="#ffe242"
         android:rating="0"
         android:stepSize="1"
-        android:progressBackgroundTint="#fff"
-        android:progressTint="#ffe242"
         android:theme="@style/Widget.AppCompat.RatingBar"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/choose_action" />
@@ -131,11 +125,18 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorAccent"
+        android:paddingTop="20dp"
+
+        android:backgroundTint="#B7B4BB"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
         android:text="Confirmar"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choose_action" />
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+        app:layout_constraintBottom_toBottomOf="@id/screen_movie_rating"
+        android:paddingBottom="15dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
