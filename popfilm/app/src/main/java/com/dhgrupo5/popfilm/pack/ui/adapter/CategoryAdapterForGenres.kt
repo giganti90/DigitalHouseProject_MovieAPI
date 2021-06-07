@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryDetailActivity
 import com.dhgrupo5.popfilm.pack.model.GenreDCModelForCategories
+import com.dhgrupo5.popfilm.pack.utils.moviesdb.NetworkUtils
+import com.squareup.picasso.Picasso
 
 class CategoryAdapterForGenres(private val list :MutableList<GenreDCModelForCategories>) : RecyclerView.Adapter<CategoryViewHolderForGenres>() {
 
@@ -26,13 +28,12 @@ class CategoryAdapterForGenres(private val list :MutableList<GenreDCModelForCate
     override fun onBindViewHolder(holderForGenres: CategoryViewHolderForGenres, position: Int) {
         holderForGenres.title.text = list[position].name
 
-//        Picasso
-//            .get()
-//            .load(list[position].url)
-//            //.placeholder(ContextCompat.getDrawable(, R.drawable.ic_loader))
-//            .transform(CropCircleTransformation())
-//            .resize(200, 200)
-//            .into(holder.image);
+        list[position].movies.let { movies ->
+            val randomMovieNumber = (Math.random() * 10).toInt()
+            val posterPath = movies[randomMovieNumber].posterPath
+            val posterUrl = "${NetworkUtils.IMG_BASE_URL}w500$posterPath"
+            Picasso.get().load(posterUrl).into(holderForGenres.image)
+        }
 
         holderForGenres.itemView.setOnClickListener {
             Toast.makeText(
