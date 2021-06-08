@@ -9,24 +9,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.model.GenreDCModelForCategories
 
-class GenresAdapter(private val genres: MutableList<GenreDCModelForCategories>) :
-    RecyclerView.Adapter<GenresViewHolder>() {
+class HomeGenresAdapter(private val genres: MutableList<GenreDCModelForCategories>) :
+    RecyclerView.Adapter<HomeGenresViewHolder>() {
 
     val viewPool = RecyclerView.RecycledViewPool()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        GenresViewHolder(LayoutInflater.from(parent.context)
+        HomeGenresViewHolder(LayoutInflater.from(parent.context)
             .inflate(
                 R.layout.recyclerview_parent, parent, false
             )
         )
 
-    override fun onBindViewHolder(holder: GenresViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: HomeGenresViewHolder, position: Int) {
         val genre = genres[position]
         holder.textView.text = genre.name
         holder.recyclerView.apply {
             layoutManager = LinearLayoutManager(holder.recyclerView.context, LinearLayoutManager.HORIZONTAL, false)
-            adapter = MoviesAdapter(genre.movies)
+            adapter = HomeMoviesAdapter(genre.movies)
             setRecycledViewPool(viewPool)
         }
     }
@@ -34,7 +34,7 @@ class GenresAdapter(private val genres: MutableList<GenreDCModelForCategories>) 
     override fun getItemCount() = genres.size
 }
 
-class GenresViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class HomeGenresViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     val recyclerView : RecyclerView = itemView.findViewById(R.id.child_recycler)
     val textView: TextView = itemView.findViewById(R.id.textView)

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
@@ -24,8 +23,6 @@ import com.dhgrupo5.popfilm.pack.ui.activity.login.LoginSocialActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.CategoryActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.ProfileActivity
 import com.dhgrupo5.popfilm.pack.ui.activity.movies.RatingActivity
-import com.example.dgpopfilms.home.Parent
-import com.example.dgpopfilms.home.ParentAdapter
 import com.google.firebase.auth.FirebaseAuth
 
 class HomeActivity : AppCompatActivity() {
@@ -38,7 +35,7 @@ class HomeActivity : AppCompatActivity() {
     private val menuBottomChat: LinearLayout by lazy { findViewById(R.id.layout_bot_bar_llBoxChat) }
     private val viewmodel: HomeViewModel by viewModels()
     private val recyclerView: RecyclerView by lazy { findViewById(R.id.rv_parent) }
-    private lateinit var adapter: GenresAdapter
+    private lateinit var adapter: HomeGenresAdapter
     private var genres = mutableListOf<GenreDCModelForCategories>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,7 +49,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun initRecycler() {
-        adapter = GenresAdapter(genres)
+        adapter = HomeGenresAdapter(genres)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(
             this,
