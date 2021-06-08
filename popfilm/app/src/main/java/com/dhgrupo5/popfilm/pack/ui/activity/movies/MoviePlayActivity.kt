@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.MediaController
@@ -12,6 +13,8 @@ import android.widget.VideoView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.dhgrupo5.popfilm.R
+import com.dhgrupo5.popfilm.pack.model.MovieResponse
+import com.dhgrupo5.popfilm.pack.utils.moviesdb.NetworkUtils
 import com.google.android.exoplayer2.*
 
 class MoviePlayActivity : AppCompatActivity() {
@@ -26,6 +29,7 @@ class MoviePlayActivity : AppCompatActivity() {
     //private lateinit var videoView: PlayerView
     private lateinit var exoPlayer: ExoPlayer
     private lateinit var context: Context
+    private lateinit var movieResponse: MovieResponse
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,11 +38,13 @@ class MoviePlayActivity : AppCompatActivity() {
         //settings
         settingToolbar()
         //settingPlayer()
-        settingVideoView()
+        //settingVideoView()
+        getExtras()
+
     }
 
 
-    //setttings
+    //settings
     fun settingToolbar(){
         toolbar.setTitle(getString(R.string.title_activity_movie_play))
         toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.toolbar_textcolor))
@@ -46,10 +52,10 @@ class MoviePlayActivity : AppCompatActivity() {
         var actionbar = supportActionBar
         actionbar?.setDisplayHomeAsUpEnabled(true)
     }
-    fun settingPlayer(){
+//    fun settingPlayer(){
 //        simpleExoPlayer = ExoPlayerFactory.newSimpleInstance(this)
 //        playerView.player = simpleExoPlayer;
-    }
+//    }
     fun settingVideoView(){
         val videoView = findViewById<VideoView>(R.id.videoView)
         //Creating MediaController
@@ -76,6 +82,16 @@ class MoviePlayActivity : AppCompatActivity() {
 //        simpleExoPlayer.playWhenReady(true)
 //
 //    }
+    fun getExtras(){
+        val informacoes = intent.extras
+
+        if (informacoes != null) {
+            movieResponse = informacoes.getSerializable("movie") as MovieResponse
+            if(movieResponse != null){
+                Log.i("MoviePlay", "Essa é a identificação do movie: ${movieResponse.id}")
+            }
+        }
+    }
 
 
     //overrides
