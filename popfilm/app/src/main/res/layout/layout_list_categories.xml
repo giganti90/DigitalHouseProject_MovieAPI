@@ -7,7 +7,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center"
-    android:paddingBottom="30dp"
     android:background="@color/colorListItemBackground_RippleStart">
 
     <ImageView
@@ -15,6 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_launcher_background"
+        android:padding="2dp"
         />
 
     <TextView
@@ -22,12 +22,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="@string/menu_youtube"
-        android:textSize="14sp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="5dp"
+        android:textSize="18sp"
+        android:textAlignment="center"
         android:textColor="@color/colorListItemText"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/layout_lista_cat_ivImage"
+    />
 
 </LinearLayout>
