@@ -13,15 +13,15 @@ import com.dhgrupo5.popfilm.pack.ui.activity.movies.MovieDetailsActivity
 import com.dhgrupo5.popfilm.pack.utils.moviesdb.NetworkUtils
 import com.squareup.picasso.Picasso
 
-class MoviesAdapter(val movies: MutableList<MovieResponse>) : RecyclerView.Adapter<MoviesViewHolder>() {
+class HomeMoviesAdapter(val movies: MutableList<MovieResponse>) : RecyclerView.Adapter<HomeMoviesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        MoviesViewHolder(
+        HomeMoviesViewHolder(
             LayoutInflater.from(parent.context).inflate(
                 R.layout.recyclerview_child, parent, false
             )
         )
 
-    override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: HomeMoviesViewHolder, position: Int) {
         val movie = movies[position]
         holder.textView.text = movie.title
         // Picasso
@@ -41,7 +41,7 @@ class MoviesAdapter(val movies: MutableList<MovieResponse>) : RecyclerView.Adapt
 
 }
 
-class MoviesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class HomeMoviesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     val textView: TextView = itemView.findViewById(R.id.child_textView)
     val imageView: ImageView = itemView.findViewById(R.id.child_imageView)
