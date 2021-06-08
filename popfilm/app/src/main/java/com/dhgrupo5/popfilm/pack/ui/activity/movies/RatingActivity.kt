@@ -20,6 +20,8 @@ class RatingActivity : AppCompatActivity() {
     val image: ImageView by lazy { findViewById(R.id.rating_poster) }
     val synopsis: TextView by lazy { findViewById(R.id.rating_synopsis)}
     val toolbar by lazy { findViewById<Toolbar>(R.id.layout_too_tPadrao) }
+    val releaseDate: TextView by lazy { findViewById(R.id.movierating_releasedate) }
+
 
 
 
@@ -34,6 +36,7 @@ class RatingActivity : AppCompatActivity() {
         val url = "${NetworkUtils.IMG_BASE_URL}w500${movie.posterPath}"
         Picasso.get().load(url).into(image)
         synopsis.text = movie.overview.toString()
+        releaseDate.text = movie.releaseYear.toString()
 
     }
 

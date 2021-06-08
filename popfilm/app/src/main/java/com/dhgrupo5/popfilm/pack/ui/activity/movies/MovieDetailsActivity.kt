@@ -30,7 +30,7 @@ class MovieDetailsActivity : AppCompatActivity() {
     val image: ImageView by lazy { findViewById(R.id.moviedetails_poster) }
     val synopsis: TextView by lazy { findViewById(R.id.moviedetails_synopsis) }
     val releaseDate: TextView by lazy { findViewById(R.id.moviedetails_releasedate) }
-//    val length: TextView by lazy { findViewById(R.id.moviedetails_length) }
+    val length: TextView by lazy { findViewById(R.id.moviedetails_length) }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +48,8 @@ class MovieDetailsActivity : AppCompatActivity() {
             val url = "${NetworkUtils.IMG_BASE_URL}w500${movieResponse.posterPath}"
             Picasso.get().load(url).into(image)
             synopsis.text = movieResponse.overview.toString()
-            releaseDate.text = movieResponse.releaseDateYear.toString()
+            releaseDate.text = movieResponse.releaseYear.toString()
+            length.text = movieResponse.runtimeMax.toString()
         }
 
 
