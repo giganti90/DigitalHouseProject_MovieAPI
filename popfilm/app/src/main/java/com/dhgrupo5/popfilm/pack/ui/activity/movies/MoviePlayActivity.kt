@@ -14,6 +14,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.model.MovieResponse
+import com.dhgrupo5.popfilm.pack.ui.activity.home.HomeViewModel
 import com.dhgrupo5.popfilm.pack.utils.moviesdb.NetworkUtils
 import com.google.android.exoplayer2.*
 
@@ -24,18 +25,21 @@ class MoviePlayActivity : AppCompatActivity() {
     val progress by lazy { findViewById<ProgressBar>(R.id.progress) }
     //val playerView by lazy { findViewById<PlayerView>(R.id.mov_pla_pvPlayer) }
     //var simpleExoPlayer: SimpleExoPlayer = TODO();
-    var videoUrl: String = "http://techslides.com/demos/sample-videos/small.mp4";
-
     //private lateinit var videoView: PlayerView
     private lateinit var exoPlayer: ExoPlayer
     private lateinit var context: Context
     private lateinit var movieResponse: MovieResponse
+    //private val viewModel by lazy { ViewModelProviders.of(this).get(HomeViewModel::class.java) }
+
+    //comuns
+    var videoUrl: String = "http://techslides.com/demos/sample-videos/small.mp4";
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_play)
 
-        //settings
         settingToolbar()
         //settingPlayer()
         //settingVideoView()
@@ -52,10 +56,10 @@ class MoviePlayActivity : AppCompatActivity() {
         var actionbar = supportActionBar
         actionbar?.setDisplayHomeAsUpEnabled(true)
     }
-//    fun settingPlayer(){
+    fun settingPlayer(){
 //        simpleExoPlayer = ExoPlayerFactory.newSimpleInstance(this)
 //        playerView.player = simpleExoPlayer;
-//    }
+    }
     fun settingVideoView(){
         val videoView = findViewById<VideoView>(R.id.videoView)
         //Creating MediaController
@@ -72,16 +76,6 @@ class MoviePlayActivity : AppCompatActivity() {
 
         progress.visibility = ProgressBar.GONE
     }
-//    private void iniExoPlayer(){
-//        simpleExoPlayer = ExoPlayerFactory.newSimpleInstance(this)
-//        playerView.player = simpleExoPlayer
-//        DataSource.Factory dataSource = new DefaultDataSourceFactory(this,
-//            Util.getUserAgent(this, "appName"))
-//        MediaSource videoSource = new ExtractorMediaSource.Factory(dataSource).createMediaSource(Uri.parse(videoUrl))
-//        simpleExoPlayer.prepare(videoSource)
-//        simpleExoPlayer.playWhenReady(true)
-//
-//    }
     fun getExtras(){
         val informacoes = intent.extras
 
