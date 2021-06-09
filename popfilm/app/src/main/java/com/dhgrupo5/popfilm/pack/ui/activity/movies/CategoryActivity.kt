@@ -60,9 +60,14 @@ class CategoryActivity : AppCompatActivity() {
 
         MainScope().launch {
             CoroutineScope(Dispatchers.Main).launch {
-                val genres = repository.getGenres()
+                val genres = repository.getGenres().genres
+                genres?.forEach { genre ->
+                    genre.movies = repository.getMoviesByGenre(genre.id).movies.toMutableList()
+                }
 
-                populateAdapter(genres.genres!!.toMutableList())
+                if (genres != null) {
+                    populateAdapter(genres.toMutableList())
+                }
             }
         }
     }

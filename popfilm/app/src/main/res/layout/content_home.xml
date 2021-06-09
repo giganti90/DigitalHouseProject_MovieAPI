@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/background_login_cropped"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     >
 
