@@ -63,6 +63,7 @@ class MovieDetailsActivity : AppCompatActivity() {
         val trailerButton = findViewById<ImageButton>(R.id.play_trailer)
         trailerButton.setOnClickListener {
             val intent = Intent(this, MoviePlayActivity::class.java)
+                    .putExtra("movie", movieResponse)
             startActivity(intent)
         }
 
