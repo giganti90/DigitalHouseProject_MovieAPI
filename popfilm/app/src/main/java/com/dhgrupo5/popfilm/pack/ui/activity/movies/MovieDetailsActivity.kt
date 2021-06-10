@@ -2,6 +2,8 @@ package com.dhgrupo5.popfilm.pack.ui.activity.movies
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -92,4 +94,15 @@ class MovieDetailsActivity : AppCompatActivity() {
 //            }
 //            return movieOverview
 //        }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == android.R.id.home){
+            finish()
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }
