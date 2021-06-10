@@ -15,7 +15,7 @@
                 android:id="@+id/home_photo"
                 android:layout_width="match_parent"
                 android:layout_height="260dp"
-                android:src="@drawable/os_vingadores_foto__marvel___reproducao_1_widelg"
+                android:src="@drawable/ic_background_home"
                 android:scaleType="centerCrop"
                 />
 
