@@ -9,10 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.dhgrupo5.popfilm.R
 import com.dhgrupo5.popfilm.pack.model.MovieResponse
 import com.dhgrupo5.popfilm.pack.repository.MoviesAPIRepository
-import androidx.activity.viewModels
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import com.dhgrupo5.popfilm.pack.ui.adapter.CategoryInfoAdapterForCategories
 import com.dhgrupo5.popfilm.pack.utils.moviesdb.NetworkUtils
 import com.squareup.picasso.Picasso
 
@@ -30,6 +28,7 @@ class MovieDetailsActivity : AppCompatActivity() {
     val image: ImageView by lazy { findViewById(R.id.moviedetails_poster) }
     val synopsis: TextView by lazy { findViewById(R.id.moviedetails_synopsis) }
     val releaseDate: TextView by lazy { findViewById(R.id.moviedetails_releasedate) }
+    val actors: TextView by lazy { findViewById(R.id.moviedetails_length) }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -18,5 +18,5 @@ data class MovieResponse(
     @SerializedName("release_date")
     val releaseYear: String?,
     @SerializedName("with_runtime.gte")
-    val runtimeMax: String?
+    val runtimeMax: String?,
 ) : Serializable

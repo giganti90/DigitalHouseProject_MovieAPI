@@ -84,5 +84,4 @@ interface Endpoint {
         @Query("with_watch_monetization_types") monetizationTypes: String = "",
     ): DiscoverResponse
 
-
 }
