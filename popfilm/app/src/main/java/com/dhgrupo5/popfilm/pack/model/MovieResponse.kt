@@ -14,5 +14,9 @@ data class MovieResponse(
     val title: String,
     @SerializedName("overview")
     val overview: String?,
-    val url:String
+    val url:String,
+    @SerializedName("release_date")
+    val releaseYear: String?,
+    @SerializedName("with_runtime.gte")
+    val runtimeMax: String?,
 ) : Serializable
