@@ -12,16 +12,13 @@ class MoviesAPIRepository {
         const val key = NetworkUtils.API_KEY
     }
 
-    private val retrofitClient = NetworkUtils
-            .getRetrofitInstance("https://api.themoviedb.org/3/")
+    private val retrofitClient = NetworkUtils.getRetrofitInstance("https://api.themoviedb.org/3/")
 
     private var endpoint = retrofitClient.create(Endpoint::class.java)
 
-    suspend fun getGuestSession() : GuestSession =
-            endpoint.getGuestSession()
+    suspend fun getGuestSession() : GuestSession = endpoint.getGuestSession()
 
-    suspend fun getMovieGenre() : GenresResponseForCategories =
-        endpoint.getGenres("pt-br")
+    suspend fun getMovieGenre() : GenresResponseForCategories = endpoint.getGenres("pt-br")
 
 
 
@@ -37,6 +34,10 @@ class MoviesAPIRepository {
     suspend fun discover(genre: String) = serviceMovie.discoverMovies(
         genresInclude = genre
     )
+//    suspend fun getMovieTrailler(movie)
+    suspend fun getMovieTrailer(movieId: Int): Trailer {
+        return serviceMovie.getResponseMovieTrailer(movieId, key, "pt-BR")
+    }
 
 
 }

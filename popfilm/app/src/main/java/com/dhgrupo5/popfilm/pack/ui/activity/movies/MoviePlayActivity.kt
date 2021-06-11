@@ -7,16 +7,28 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.MediaController
 import android.widget.ProgressBar
 import android.widget.VideoView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProviders
 import com.dhgrupo5.popfilm.R
+import com.dhgrupo5.popfilm.pack.model.DiscoverResponse
 import com.dhgrupo5.popfilm.pack.model.MovieResponse
+import com.dhgrupo5.popfilm.pack.repository.MoviesAPIRepository
 import com.dhgrupo5.popfilm.pack.ui.activity.home.HomeViewModel
+import com.dhgrupo5.popfilm.pack.ui.adapter.CategoryInfoAdapterForCategories
 import com.dhgrupo5.popfilm.pack.utils.moviesdb.NetworkUtils
 import com.google.android.exoplayer2.*
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 
 class MoviePlayActivity : AppCompatActivity() {
 
@@ -30,6 +42,8 @@ class MoviePlayActivity : AppCompatActivity() {
     private lateinit var context: Context
     private lateinit var movieResponse: MovieResponse
     //private val viewModel by lazy { ViewModelProviders.of(this).get(HomeViewModel::class.java) }
+    val repository by lazy { MoviesAPIRepository() }
+    private val viewModel by lazy { ViewModelProviders.of(this).get(MovieDetailsViewModel::class.java)}
 
     //comuns
     var videoUrl: String = "http://techslides.com/demos/sample-videos/small.mp4";
@@ -43,7 +57,14 @@ class MoviePlayActivity : AppCompatActivity() {
         settingToolbar()
         //settingPlayer()
         //settingVideoView()
-        getExtras()
+
+        val informacoes = intent.extras
+        movieResponse = informacoes?.getSerializable("movie") as MovieResponse
+        Log.i("MoviePlay", "Essa é a identificação do movie: ${movieResponse.id}")
+
+        viewModel.configMovieID(Integer.parseInt(movieResponse.id))
+
+        showButtonTrailer()
 
     }
 
@@ -56,35 +77,25 @@ class MoviePlayActivity : AppCompatActivity() {
         var actionbar = supportActionBar
         actionbar?.setDisplayHomeAsUpEnabled(true)
     }
-    fun settingPlayer(){
-//        simpleExoPlayer = ExoPlayerFactory.newSimpleInstance(this)
-//        playerView.player = simpleExoPlayer;
-    }
-    fun settingVideoView(){
-        val videoView = findViewById<VideoView>(R.id.videoView)
-        //Creating MediaController
-        val mediaController = MediaController(this)
-        mediaController.setAnchorView(videoView)
-        //specify the location of media file
-        //val uri:Uri = Uri.parse(Environment.getExternalStorageDirectory().getPath() + "/Movies/video.mp4")
-        val uri:Uri = Uri.parse(videoUrl)
-        //Setting MediaController and URI, then starting the videoView
-        videoView.setMediaController(mediaController)
-        videoView.setVideoURI(uri)
-        videoView.requestFocus()
-        videoView.start()
-
-        progress.visibility = ProgressBar.GONE
-    }
-    fun getExtras(){
-        val informacoes = intent.extras
-
-        if (informacoes != null) {
-            movieResponse = informacoes.getSerializable("movie") as MovieResponse
-            if(movieResponse != null){
-                Log.i("MoviePlay", "Essa é a identificação do movie: ${movieResponse.id}")
+    private fun showButtonTrailer() {
+        viewModel.trailerLiveData.observe(this) { idTrailer ->
+            if(idTrailer.isNotEmpty()){
+                Log.i("MoviePlayActivity", "Chegou o idTrailer: ${idTrailer}")
+                playMovie(idTrailer)
             }
         }
+    }
+    fun playMovie(movieId: String){
+        val youTubePlayerView = findViewById<YouTubePlayerView>(R.id.youtube_player_view)
+        lifecycle.addObserver(youTubePlayerView)
+
+        youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+            override fun onReady(youTubePlayer: YouTubePlayer) {
+                if (movieId != null) {
+                    youTubePlayer.loadVideo(movieId, 0f)
+                }
+            }
+        })
     }
 
 
