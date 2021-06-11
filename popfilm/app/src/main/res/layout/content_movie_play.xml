@@ -8,15 +8,24 @@
     android:background="@color/black"
     >
 
-    <VideoView
-        android:id="@+id/videoView"
+<!--    <VideoView-->
+<!--        android:id="@+id/videoView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="0dp"-->
+<!--        android:layout_marginEnd="0dp"-->
+<!--        android:layout_marginStart="0dp"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        />-->
+
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:id="@+id/youtube_player_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginStart="0dp"
-        android:layout_centerInParent="true"
-        />
+        android:layout_marginTop="180dp"
+        app:autoPlay="false"
+        app:showYouTubeButton="false"
+        app:showFullScreenButton="false" />
 
     <ProgressBar
         android:id="@+id/progress"
@@ -24,6 +33,7 @@
         android:layout_height="wrap_content"
         style="?android:attr/progressBarStyle"
         android:layout_centerInParent="true"
+        android:visibility="gone"
         />
 
 </RelativeLayout>
