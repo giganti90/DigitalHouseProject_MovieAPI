@@ -165,4 +165,7 @@ dependencies {
     // Kotlin Fragments
     implementation 'androidx.fragment:fragment-ktx:1.3.4'
 
+    //player
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+
 }

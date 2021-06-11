@@ -84,4 +84,11 @@ interface Endpoint {
         @Query("with_watch_monetization_types") monetizationTypes: String = "",
     ): DiscoverResponse
 
+    @GET("movie/{movie_id}/videos")
+    suspend fun getResponseMovieTrailer(
+        @Path("movie_id") movieId: Int?,
+        @Query("api_key") apiKey: String?,
+        @Query("language") language: String?
+    ) : Trailer
+
 }
